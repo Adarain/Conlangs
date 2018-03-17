@@ -1,0 +1,772 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{soul}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{multicol}
+\restylefloat{table}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{lingmacros}
+\usepackage{vowel}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tikz, tikz-qtree}
+\usetikzlibrary{positioning,decorations.markings}
+\graphicspath{ {images/} }
+\newcommand*\sectfont{\normalcolor\bfseries}
+
+\newfontfamily\lib{Linux Libertine}
+\setmainfont[Ligatures=TeX]{Charis SIL}
+\definecolor{grey}{rgb}{0.84, 0.84, 0.84}
+\newcommand{\gl}[1]{\textsc{#1}}
+\newcommand{\en}[1]{``#1''}
+\newcommand{\con}[1]{\hspace{0pt}{\color{olive}#1}}
+\renewcommand{\ex}[1]{\con{#1}\\}
+\newcommand{\orth}[1]{{\lib{}⟨}#1{\lib{}⟩}}
+\newcommand{\langname}{Qahfó}
+
+
+\newcommand{\word}[4]{\con{\textbf{#1}, #2} \textit{#3} #4\\}
+
+\title{Speedlanging Challenge \#1\\ \langname{}}
+\author{Sascha M. Baer}
+\date{May 1 – May 7, 2017}
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This langauge has been created as part of a speedlanging challenge — that is, a challenge to create a language in a short timespan, in this case within a week. The challenge was put up with a set of restrictions that the language has to fulfil, as well as some sub-challenges to be completed. In this paper I will document the language.
+
+\subsection{Constraints}
+\paragraph{Culture}
+\begin{itemize}
+\item The language is spoken in a futuristic society among the passengers of a generation ship\footnote{\url{https://en.wikipedia.org/wiki/Generation\_ship}} or the first generation to set foot on the destination planet.
+\end{itemize}
+
+\paragraph{General}
+\begin{itemize}
+\item Make an a priori naturalistic language (the setting is too far into the future for there to be any similarity to current human languages).
+\end{itemize}
+
+\paragraph{Phonology}
+\begin{itemize}
+\item The language must employ lexical or grammatical tone in some way. Pitch accents are allowed. 
+\item The language must have at least four major places of articulation, and no major PoAs further back than velar. A major PoA is here defined as contrasting at least three manners of articulation.
+\end{itemize}
+
+\paragraph{Grammar}
+\begin{itemize}
+\item The language must deviate in some way from plain accusative alignment. 
+\item The language must not make use of Particle Comparatives\footnote{\url{http://wals.info/chapter/121}}. 
+\item The langauge must make use of non-concatenative morphology, and must have some irregularities.
+\end{itemize}
+
+\subsection{Challenges}
+\begin{enumerate}
+\item Showcase your language. In particular, show how you dealt with each of the constraints given.
+\item Translate 5 random sentences from the syntax test list\footnote{\url{http://pastebin.com/raw/BpfjThwA}}. The translations should contain /phonemic/ and [phonetic] transcriptions, a gloss\footnote{\url{https://www.eva.mpg.de/lingua/resources/glossing-rules.php}} and commentary on interesting structures if there are any. 
+\item Devise a kinship system for the language.
+\item Devise a system for measuring time, both on the short scales (hours…) and the large scales (centuries…) 
+\item Design a writing system for your language. Assuming your setting is purely sci-fi, justify why they aren’t using the Latin (or some other modern day earth) script. 
+\end{enumerate}
+
+The entirety of this document will serve as the solution to challenge 1. References to the constraints will be pointed out. Challenges 2–4 will be dealt with after the grammatical description. Challenge 5 has been ignored.
+
+\newpage
+\section{Cultural Notes}
+\emph{This section has been written as an addendum after the end of the challenge. The ideas contained within it however have been decided upon during the week.}
+
+The generation ship left from Earth at an unspecified time in the future, setting off to a very distant planet that has been confirmed habitable. The ship itself is controlled by a smart AI which can spot any damage to the ship and repair it. Human interaction with the ship is not necessary, everything including takeoff and landing is completely under control of the AI. Documentation about the journey, about Earth and about the destination planet, as well as a vast amount of earthly literature and media from every category is easily accessible to all inhabitants of the ship via computer interfaces in the walls.
+
+The ship itself may be imagined as a soda can with a pencil stuck through it (lengthwise). The living and working areas are on the outer cylinder, which has a radius of about 500 meters. The entire ship rotates along its long axis to provide a centrifugal force, mirroring gravity on Earth. The middle area houses the control center (inaccessible to humans), but also 0g recreational centers, such as a weightless swimming pool. It is accessible by lifts from the living areas. 
+
+Living quarters are laid out in such a way that in case of emergency (such as an illness outbreak) quarantaine is possible quickly. The moment any signs of an illness appear, anyone within the quarter is obliged to quarantaine the ship, doable easily with the computer interface. This segregates the living areas into several small areas, each containing all that is required for its population to survive indefinitely. During quarantaine, privacy is reduced: each computer interface may be used to access cameras and lifesign signals on each quarter. These functionalities are turned off outside quarantaine. After a set time (about 2 earth days) quarantaine may be stopped if all quarters (which have living people remaining) agree to this.
+
+At one point in the past, an illness killed off a large portion of the population, but luckily not enough to make the population unsustainable. However, because of this, a lot of knowledge was lost — specifically of the “old language”, the language in which the ship’s purpose was documented (at this point, the common vernacular had diverged substantially from the original language of the ship’s inhabitants, rendering the documentation illegible to all but some individuals who devoted their time to keeping the old language understood). Knowledge of the ship’s purpose was thenceforth passed on via oral tradition, but over time changed into the foundation of a religion, with the core belief that humans have been sent to a paradisial land, guided by a god. 
+
+\newpage
+\section{Phonology}
+\subsection{Phoneme Inventory}
+\subsubsection{Consonants}
+\langname{} has a total of 21 consonant phonemes. As per the restrictions, four major places of articulation (labial, alveolar, velar, labio-velar) as well as one minor (glottal) are distinguished, fulfilling that restriction. On alveolars and velars, a secondary distinction between palatalized and plain series can be made.
+
+\begin{table}[H]
+\centering
+\caption{Consonant Inventory}
+\label{consonants}
+\begin{tabular}{r|c|cc|cc|c|c}
+            & Labial                                                & \multicolumn{2}{c|}{Alveolar}                                                                                & \multicolumn{2}{c|}{Dorsal}                                                                                    & Labio-Velar                                            & Glottal                                              \\ \hline
+Nasal       & \begin{tabular}[c]{@{}c@{}}m\\ \orth{m}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}nʲ\\ \orth{n}\end{tabular} & \begin{tabular}[c]{@{}c@{}}n\\ \orth{n}\end{tabular} &                                                        &                                                       &                                                        &                                                      \\
+Stop        & \begin{tabular}[c]{@{}c@{}}p\\ \orth{p}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}tʲ\\ \orth{t}\end{tabular} & \begin{tabular}[c]{@{}c@{}}t\\ \orth{t}\end{tabular} & \begin{tabular}[c]{@{}c@{}}kʲ\\ \orth{k}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}k\\ \orth{k}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}k͡p\\ \orth{q}\end{tabular} & \begin{tabular}[c]{@{}c@{}}ʔ\\ \orth{h}\end{tabular} \\
+Fricative   & \begin{tabular}[c]{@{}c@{}}ʙ̥\\ \orth{f}\end{tabular} & \begin{tabular}[c]{@{}c@{}}sʲ\\ \orth{s}\end{tabular} & \begin{tabular}[c]{@{}c@{}}s\\ \orth{s}\end{tabular} & \begin{tabular}[c]{@{}c@{}}xʲ\\ \orth{j}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}x\\ \orth{j}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}ʍ\\ \orth{x}\end{tabular}   &                                                      \\
+Approximant &                                                       & \begin{tabular}[c]{@{}c@{}}lʲ\\ \orth{l}\end{tabular} & \begin{tabular}[c]{@{}c@{}}l\\ \orth{l}\end{tabular} & \begin{tabular}[c]{@{}c@{}}ʟʲ\\ \orth{ll}\end{tabular} & \begin{tabular}[c]{@{}c@{}}ʟ\\ \orth{ll}\end{tabular} & \begin{tabular}[c]{@{}c@{}}w\\ \orth{w}\end{tabular}   &                                                     
+\end{tabular}
+\end{table}
+
+In the regularized orthography palatalized consonants are distinguished from the plain series as follows: before front vowels \orth{i e}, the palatal series are unmarked, and the plain series is marked by doubling the letter, except for the lateral approximants, which are written \orth{r rr} instead. Before the back vowels \orth{u o a}, the plain series is unmarked. The palatalized series is marked by changing the vowels to \orth{iu eo ea}. Before pharyngealized vowels \orth{ǫ ą} only plain consonants can occur.
+
+The laterals aren’t contrastive in onset clusters (as clusters must be homorganic), so in that environment, both are spelled \orth{l}.
+
+\subsubsection{Vowels}
+As for vowels, there is a distinction between plain and pharyngealized vowels. The following charts show the phonemes (left) and orthography (right):
+
+\begin{table}[H]
+\centering
+\large
+\begin{vowel}
+\putcvowel{i}{1}
+\putcvowel{ɛ}{3}
+\putcvowel[l]{ɑ}{5}
+\putcvowel[r]{ɑˁ}{5}
+\putcvowel[l]{ɔ}{6}
+\putcvowel[r]{ɔˁ}{6}
+\putcvowel{u}{8}
+\end{vowel}
+\begin{vowel}
+\putcvowel{i}{1}
+\putcvowel{e}{3}
+\putcvowel[l]{a}{5}
+\putcvowel[r]{ą}{5}
+\putcvowel[l]{o}{6}
+\putcvowel[r]{ǫ}{6}
+\putcvowel{u}{8}
+\end{vowel}
+\caption{Vowel Inventory}
+\label{vowels}
+\end{table}
+
+In stressed syllables, all vowels may be long, which is unwritten. Vowels additionally carry tone. A high toned vowel is marked with an acute, a low toned vowel is unmarked orthographically. This will be dealt with in more detail in a later section.
+
+\subsection{Word Structure}
+The following diagram illustrates the structure of a \langname{} word:
+\begin{figure}[H]
+\[
+\#
+\Bigg[_\omega
+\substack{\displaystyle \text{V}\vspace{2pt}\\\displaystyle \text{∅}}
+\bigg[_\varphi
+	\Big[_{\sigma_1}
+		\substack{\displaystyle \text{C  }\vspace{2pt}\\\displaystyle \text{PL  }} 
+		\text{V  } 
+		\substack{\displaystyle \text{ʔ}\vspace{3pt}\\\displaystyle \text{ː}}
+	\Big]
+	\Big[_{\sigma_2}
+		\substack{\displaystyle \text{C  }\vspace{2pt}\\\displaystyle \text{PL  }} 
+		\text{V  } 
+	\Big]
+	\substack{\displaystyle \varphi\vspace{2pt}\\\displaystyle \text{∅}}
+\bigg]
+\Bigg]\# 
+\]
+\caption{Word Structure}
+\label{structure}
+\end{figure}
+
+
+V stands for any vowel. C stands for any consonant except the glottal stop /ʔ/. PL stands for a cluster of a plosive followed by a homorganic fricative or approximant. 
+This is to be read from left to right, making a choice whenever two options are stacked. Unless a ∅ is given as an option, omission of a segment is not possible. A consequence of this structure is that words must be at least disyllabic. It should be noted that clitics do not follow this diagram: they always consist of exactly a single σ₂. Each σ₁ receives stress. 
+
+
+\subsection{Tone}
+There are two phonemic tones, H and L. Each foot φ is assigned two tones: one to the first mora of σ₁, and one to the second mora of σ₁ and the only mora of σ₂. If the first mora is closed by a glottal stop, the tone cannot associate there, creating a word with two level tones. This is illustrated in figure \ref{toneassoc}:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[baseline]
+\Tree 
+[.φ 	[.σ₁ 	 [.O [ C ] ]
+		[.R	[.μ  [.V  T ] ] 
+			[.μ \node(L){:}; ] ] ]
+	[.σ₂  	 [.O [ C ] ]
+		[.R	[.μ  [.V \node(T){T}; ] ] ] ] ]
+		\draw (T.north) -- (L.south);
+\end{tikzpicture}
+\hspace{10pt}
+\begin{tikzpicture}[baseline,
+decoration={
+  markings,
+  mark=at position 0.5 with
+  {
+    \draw (-1pt,-3pt) -- ++(0,6pt);
+    \draw (1pt,-3pt) -- ++(0,6pt);
+  }
+}
+]
+\Tree 
+[.φ 	[.σ₁ 	 [.O [ C ] ]
+		[.R	[.μ  [.V  T ] ] 
+			[.μ \node(L){ʔ}; ] ] ]
+	[.σ₂  	 [.O [ C ] ]
+		[.R	[.μ  [.V \node(T){T}; ] ] ] ] ]
+		\draw[postaction=decorate]  (T.north) to (L.south);
+\end{tikzpicture}
+\caption{Tone Association Rules}
+\label{toneassoc}
+\end{figure}
+
+There may be an extrametrical vowel before the first foot. This vowel’s tone is partically determined by its segment: If it’s a pharyngeal vowel, it is always low-toned. Otherwise, the next tone associates to it. This is illustrated with in figure \ref{toneassoc2} with the words \con{itseoxą́} \en{flatbread} and \con{ǫllúhnne} \en{oven}:
+
+\begin{figure}[H]
+\centering
+%\begin{tikzpicture}[baseline,
+%decoration={
+%  markings,
+%  mark=at position 0.5 with
+%  {
+%    \draw (-1pt,-3pt) -- ++(0,6pt);
+%    \draw (1pt,-3pt) -- ++(0,6pt);
+%  }
+%}
+%]
+%\Tree 
+%[.ω	[.χ	[.σ	[	[.μ \node[red](a){i}; ] ] ] ]
+%	[.φ 	[.σ₁ 	 [.O [ tsʲ ] ]
+%			[.R	[.μ  [.ɔ  \node(b){L}; ] ] 
+%				[.μ \node(c){:}; ] ] ]
+%		[.σ₂  	 [.O [ ʍ ] ]
+%			[.R	[.μ  [.ɑˁ \node(d){H}; ] ] ] ] ] ]
+%			\draw (a.south) -- (b.north);
+%			\draw (c.south) -- (d.north);
+%			test
+%\end{tikzpicture}
+%\hspace{10pt}
+%\begin{tikzpicture}[baseline,
+%decoration={
+%  markings,
+%  mark=at position 0.5 with
+%  {
+%    \draw (-1pt,-3pt) -- ++(0,6pt);
+%    \draw (1pt,-3pt) -- ++(0,6pt);
+%  }
+%}
+%]
+%\Tree 
+%[.ω	[.χ	[.σ	[	[.μ [.\node[red](a){ɔˁ}; L ] ] ] ] ]
+%	[.φ 	[.σ₁ 	 [.O [ ʟ ] ]
+%			[.R	[.μ  [.u  \node(b){H}; ] ] 
+%				[.μ \node(c){ʔ}; ] ] ]
+%		[.σ₂  	 [.O [ n ] ]
+%			[.R	[.μ  [.ɛ \node(d){L}; ] ] ] ] ] ]
+%			\draw[postaction=decorate] (a.south) -- (b.north);
+%			\draw[postaction=decorate] (c.south) -- (d.north);
+%\end{tikzpicture}
+\begin{tikzpicture}[baseline,
+decoration={
+  markings,
+  mark=at position 0.5 with
+  {
+    \draw (-1pt,-3pt) -- ++(0,6pt);
+    \draw (1pt,-3pt) -- ++(0,6pt);
+  }
+}
+]
+	\begin{scope}%i
+		\Tree 
+		[.\node[red](a){i}; ]
+	\end{scope}
+	\begin{scope}[xshift=1.5em]%tsʲ
+		\Tree
+		[.{$\big[_\varphi$tsʲ} ]
+	\end{scope}
+	\begin{scope}[xshift=3em]%ɔ
+		\Tree
+		[.ɔ \node(b){L}; ]
+	\end{scope}
+	\begin{scope}[xshift=4.5em]%:
+		\Tree
+		[.\node(c){:}; ]
+	\end{scope}
+	\begin{scope}[xshift=6em]%ʍ
+		\Tree
+		[.ʍ ]
+	\end{scope}
+	\begin{scope}[xshift=7.5em]%ɑˁ
+		\Tree
+		[.{ɑˁ$\big]$} \node(d){H};  ]
+	\end{scope}
+	\draw (a.south) -- (b.north);
+	\draw (c.south) -- (d.north);
+\end{tikzpicture}
+\hspace{10pt}
+\begin{tikzpicture}[baseline,
+decoration={
+  markings,
+  mark=at position 0.5 with
+  {
+    \draw (-1pt,-3pt) -- ++(0,6pt);
+    \draw (1pt,-3pt) -- ++(0,6pt);
+  }
+}
+]
+	\begin{scope}%ɔˁ
+		\Tree 
+		[.\node[red](a){ɔˁ}; L ]
+	\end{scope}
+	\begin{scope}[xshift=1.5em]%ʟ
+		\Tree
+		[.{$\big[_\varphi$ʟ} ]
+	\end{scope}
+	\begin{scope}[xshift=3em]%u
+		\Tree
+		[.u \node(b){H}; ]
+	\end{scope}
+	\begin{scope}[xshift=4.5em]%ʔ
+		\Tree
+		[.\node(c){ʔ}; ]
+	\end{scope}
+	\begin{scope}[xshift=6em]%n
+		\Tree
+		[.n ]
+	\end{scope}
+	\begin{scope}[xshift=7.5em]%ɛ
+		\Tree
+		[.{ɛ$\big]$} \node(d){L};  ]
+	\end{scope}
+	\draw[postaction=decorate] (a.south) -- (b.north);
+	\draw[postaction=decorate] (c.south) -- (d.north);
+\end{tikzpicture}
+\caption{Extrametrical Tone Asccoiation}
+\label{toneassoc2}
+\end{figure}
+
+Orthographically, a high tone is marked with an acute, and a low tone is unmarked. Since vowel length can be determined from the absence of \orth{h} on a stressed syllable, it is not written. Within a foot then, a long vowel with an acute followed by a short vowel without diacritic must be a vowel with falling pitch; and a rising pitch in the opposite situation. Although the tone on the extrametrical vowel is perfectly predictable from the rest of the word, it is still written as usual.
+
+
+\newpage
+\section{Morphology}
+Lexical words in \langname{} are characterized by having two stems, which are unpredictably formed (that is, knowing one stem does not tell one the shape of the other stem). The stem-formation may make use of one or multiple of:
+\begin{enumerate}
+\item Vowel changes, in particular changes in frontness or pharyngealization.
+\item Addition or elision of extrametrical vowel
+\item Addition or elision of foot-medial glottal stop
+\item Tone changes
+\end{enumerate}
+
+Examples of these processes are shown in the following nouns. The first stem listed is termed the primary stem, the derived form the secondary stem. 
+
+\begin{enumerate}
+\item \con{itseoxą́-} \en{flatbread} → \con{itsexą́-} 
+\item \con{ǫllúhnne-} \en{oven} → \con{llúhnne-}
+\item \con{tekla-} \en{fire} → \con{tehkla-}
+\item \con{éníhlǫ-} \en{fridge} → \con{éníhlǫ́-}
+\end{enumerate}
+
+Multiple of these processes may apply to the same formation, as in \con{pfóhtti} \en{someone’s illness} → \con{ópfótti}, which shows both the addition of an extrametrical vowel and the elision of the internal glottal stop.
+
+To these two stems, suffixes may be added. These suffixes usually come in two forms: a full form and a reduced form. The full form is used exactly when the suffix can become a stressed syllable: It must attach to an unstressed syllable and be followed by at least one more syllable. Otherwise the reduced form is used. Full forms carry a lexical tone, while reduced forms always appear as low-toned.
+
+For example, the class I genitive suffix \con{-téh} /tʲɛ́ʔ/ shows up as unstressed [tʲɛ̀] if simply attached to a stem, but in its full, stressed form [ˈtʲɛ́ʔ] if another suffix follows it. 
+
+\paragraph{Distribution of stems}
+The secondary stem is used exactly when a reduced suffix is attached to it, otherwise the primary stem is used.
+
+\subsection{Nouns} \label{ssec:nouns}
+Nouns are firstly divided into four classes. Class I contains words describing humans, with the exception of kinship terms, which fall into class II, together with body parts. Class III contains various nouns describing the physical world (which on a spaceship is mostly restricted to furniture and the odd plant). Class IV contains “descriptive nouns”, which for the most part correspond to adjectives, but there are also mandatorily possessed concrete nouns found in this class. Some nouns may be part of two classes depending on context. For example, terms describing food fall into class II when definite and possessed by someone, but into class III otherwise.
+
+There are syntactic and moprhological differences between these classes. Class I nouns show a wide array of inflectional markings. Classes II and IV can never head a noun phrase — they must always be possessed by another noun. Class III nouns are unbound like those of class I, but they show significantly less inflection. 
+
+\subsubsection{Number}
+Nouns of classes I to III inflect for number. Three numbers are distinguished: 
+\begin{itemize}
+\item  The collective is the morphologically unmarked number. It refers to either an unspecified number of items, or to a plural in which individuals are not of importance, i.e. the reference is to the group and not to each individual in it. If definite, the collective means “all X”.
+\item  The singulative is used to refer to exactly one object.
+\item  The distributive is used to refer to a group with more than one member, in which each member is considered an individual. It may also be used with a meaning of “each”: \con{Jíhsǫ́ itseoxą́ aleohsa.} They.COLL flatbread.COLL have \en{They (as a group) have some flatbread} vs \con{Jihsǫ-sǫ itsexą́-sǫ aleohsa.} They-DIST flatbread-DIST have \en{Each of them has a flatbread.}
+\end{itemize}
+\subsubsection{Definiteness}
+Definiteness is marked with a suffix added to the inflected noun. This suffix is \con{-pą} for classes I and II, \con{-re} for class III and \con{-qáhre} for class IV.
+
+\subsubsection{Case}
+Only nouns of classes I and III inflect for case, and their inflectional systems are quite distinct. Class I makes no distinction between core cases, merging them all into the unmarked direct case — word order takes care of identifying subjects instead.  On the other hand, it does mark for various non-core cases:
+
+\begin{itemize}
+\item The comitative is used to say “with X”, e.g. “I went there with him”. The same suffix \con{-wi} may also be added as a clitic to a fully inflected noun or verb as a clitic with the meaning “and”.
+\item The aversive is used to mark that something or someone has been deliberately avoided.
+\item The benefactive marks a participant for whom the action was done. The benefactive is only used if the participant is affected positively by this action, otherwise one uses the locative instead.
+\item The causal case marks a participant who caused an action to happen, e.g. “because of her”.
+\item The locative prototypically means “at X”, however \langname{} has several additional uses for it: next to the already mentioned use as a malefactive, it’s also used as an allative. Finally, the locative may also serve to yield a class III stem of meaning “X’s place”.
+\end{itemize}
+
+Class III on the other hand only inflects for three cases: Absolutive, Ergative and Genitive. For the Ergative, number and case are marked fusionally with a monosyllabic affix. As a curious aside, the Ergative marker on class III nouns is identical to the genitive on class I, meanwhile the class III genitive is identical to the class I comitative.
+
+Relations which cannot be expressed by these cases alone are marked with prepositions. When used with prepositions, class I nouns appear in the genitive, class III nouns in the ergative.
+
+Class II and IV nouns do not inflect for case.  
+
+\subsubsection{Paradigms}
+“S1” refers to the primary stem; “S2” to the secondary one. The full forms of affixes given in parentheses are used in definite forms.
+
+\begin{table}[H]
+\centering
+\caption{Class I paradigm}
+\label{cl1}
+\begin{tabular}{l|lll}
+            & Collective     & Singulative & Distributive     \\ \hline
+Direct      & S1             & S2-lu (-lúh-)      & S2-sǫ (-sǫ́-)     \\
+Genitive    & S2-te (-téh-)  & S1-lúh-te   & S1-sǫ́-te  \\
+Comitative  & S2-wi (-wi-)   & S1-lúh-wi   & S1-sǫ́-wi  \\
+Aversive    & S2-tea (-teá-) & S1-lúh-tea  & S1-sǫ́-tea \\
+Benefactive & S2-ri (-ríh-)  & S1-lúh-ri   & S1-sǫ́-ri  \\
+Causal      & S2-ka (-kah-)  & S1-lúh-ka   & S1-sǫ́-ka  \\
+Locative    & S2-nni (-nní-) & S1-lúh-nni  & S1-sǫ́-nni
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Class III paradigm}
+\label{cl3}
+\begin{tabular}{l|lll}
+           & Collective & Singulative & Distributive    \\ \hline
+Absolutive & S1         & S2-lu (-lúh-)       & S2-sǫ (-sǫ́-)    \\
+Ergative   & S2-te (-téh-)      & S2-na  (-ná-)     & S2-se (-séh-)    \\
+Genitive   & S2-wi (-wi-)     & S1-lú-wi    & S1-sǫ́-wi
+\end{tabular}
+\end{table}
+
+Classes II and IV only inflect for number, taking the same affixes as seen in the first row of either table above.
+
+\subsection{Pronouns}
+Pronouns are monosyllabic and do not inflect. This means that they must attach to some other word, as monosyllabic words are not allowed in \langname{}. Unlike most monosyllabic morphemes however, pronouns may serve as the primary stems of a word.
+
+The syntax of pronouns is somewhat non-trivial (as they cannot stand alone) and is covered in \ref{ssec:clitics}. What follows here is merely a list of pronouns in all numbers. Only their stressed forms are given, the unstressed forms are trivially derived (always low-toned, elision of coda).
+
+\begin{table}[H]
+\centering
+\caption{Pronouns}
+\label{pronouns}
+\begin{tabular}{l|lll}
+   & Collective & Singulative & Distributive \\ \hline
+1x & níh-       & ną-         & né-    \\
+1i & tíh        & tą-         & té-    \\
+2  & ta-        & teh-        & tu-   
+\end{tabular}
+\end{table}
+
+Third person pronouns do not exist. In their stead, the class I nominal stems \con{jíhsǫ́, jihsǫ} \en{this one} and \con{jóhkea, johkea} \en{the other one} are used.
+
+\subsection{Verbs}
+Verbal morphology is quite different from that of nouns. While nouns mostly inflect through affixes, verbs make use of morphological tone change to inflect for moods. Merely a single affix \con{-llą} \en{different subject} exists on verbs. All other forms of inflection typically attributed to verbs is handled by particles or periphrastically. There are however some auxiliary verbs which show a much broader (and completely irregular) inflection. 
+
+\subsubsection{Moods}
+Three moods are distinguished:
+\begin{itemize}
+\item The indicative is marked by L tone on both syllables of the verb stem. It is used for the verb in main clauses.
+\item The subjunctive, conversly, is marked by H tone on both syllables. It is used for the verb in subordinate clauses.
+\item The imperative, finally, is used for commands. It is marked by a H-L tonal pattern.
+\end{itemize}
+
+This qualifies as non-concatenative inflection (requirement).
+
+
+\subsubsection{Switch-Reference}
+\langname{} verbs inflect for whether the subject changes or stays identical to the previous sentence. The subject here is defined explicitly as the S or A, independent of case-marking. This inflection is marked as following: if the subject of the current clause and the reference clause are identical, then the verb takes the form \con{S1-∅}. If they are different, then the verb takes the form \con{S2-llu (-llú-)}.
+
+\paragraph{The reference clause} The reference clause is determined as follows: If the current clause is a subordinate clause, then the associated main clause serves as the reference. If it’s a main clause, then the previous main clause is the reference. If there is no connected previous clause per se, then \con{-llu} is used if the subject is not one of the speech participants.
+
+\subsubsection{TAM Clitics} \label{ssec:tamclitics}
+
+TAM clitics may be used for two things: to indicate a change in temporal setting and to indicate evidentiality. These clitics attach to the first word in the clause (but see \ref{ssec:clitics} for exceptions).
+
+There is not much to be said about these clitics, morphologically. Each is an unsegmentable monosyllabic morpheme. The categories however ought to be talked about. 
+
+For evidentiality, seven categories are distinguished:
+
+\begin{itemize}
+\item The default evidential is the most commonly used. It is used whenever the others are not appropriate.
+\item The dubitative is used to cast doubt on the truth of a statement.
+\item The visual and aural are used to, respectively, highlight that one has seen or heard the action happen
+\item The inferential is used to denote that one has inferred this information from other information
+\item The reportative, finally, states that this information is second-hand
+\item The interrogative isn’t actually an evidential. It is however useful to group it in this category. It marks questions.
+\end{itemize}
+
+Tense-Aspect too differentiates six categories:
+
+\begin{itemize}
+\item The continuative is the default category. It more or less means “and then”, thus continuing the story.
+\item The retrospective and prospective are markers of \emph{relative} tense. They indicate “before” and “after” the focussed event.
+\item The past and future, on the other hand are markers of \emph{absolute} tense. They are used to denote that an event has happened or will happen, with no relation to the focussed event.
+\item The hypothetical, finally, is used to talk about actions that have no happen but could (or could have).
+\end{itemize} 
+
+Not quite all combinations are possible. A table of all clitics follows:
+
+\begin{table}[H]
+\begin{tabular}{l|lllllll}
+              & Default & Dubitative & Visual & Aural & Inferential & Reportative & Interrogative \\ \hline
+Continuative  & =le     & =tiu       & =llǫ   & =ta   & =xe         & =niu   & =mo     \\
+Retrospective & =ppi    & =fa        & =nni   & =jeo  & =si         & =kjea   &     \\
+Prospective   & =fe     & =ko        & =lli   & =tti  &             &       &       \\
+Past          & =kiu    & =lo        & =se    & =nea  & =xu         & =li     & =nu    \\
+Future        & =ke     & =llą       &        &       &   =llu          &       & =xą      \\
+Hypothetical  & =lle    & =seo       & =kją   & =pu   &             &      &  =na
+\end{tabular}
+\caption{TAM clitics}
+\label{tamcl}
+\end{table}
+
+The \emph{future inferential} has a specific grammaticalized meaning: It is used together with imperatives for suggestions.
+
+
+
+ 
+\newpage
+\section{Syntax}
+With the exception of clitics, the syntax of \langname{} is both fairly straightforward, and fairly forgiving. General word order is Subject — Object — Peripherals — Verb. However, subordinated clauses always follow their head, thus an adverbial clause would go after the verb, and a relative clause after the noun phrase it’s headed by.
+
+Within noun phrases, the head is initial, followed by possessors (genitives) and relative clauses. Adjectives don’t exist, and in fact the closest thing to them act as nouns possessed by what they modify — i.e. as heads of an NP. 
+
+\subsection{Clitics} \label{ssec:clitics}
+Words can never be monosyllabic. Clitics however, are. This makes it necessary for clitics to attach to some other word (which is kind of the definition of a clitic). The following classes of clitics exist:
+
+
+\paragraph{TAM clitics} Attach to the end of the first word (following any other clitics).
+
+\paragraph{Postpositions} Attach to the head of their NP, which is also the first word within the NP
+
+\paragraph{Conjunctions} Attach to the end of the first coordinated phrase.
+
+\paragraph{Pronouns} Try to behave like normal nouns. A subject pronoun will always come first in a sentence. To this may attach simply the TAM clitic, completing the word. Object pronouns attach to the subject. If the subject is a complex NP, the object attaches to its end. Genitive pronouns attach to the possessed phrase. Other pronouns are completed by a postposition.
+
+\subsection{Adjectives}
+As adjectives are just nouns, their comparison is quite easy. It falls into the category of \emph{exceed comparitives}:
+
+\enumsentence{
+	\shortex{4}
+	{ínníhrí=le & itseoxą́-lúh-te=ną & jóhkea-lúh-te& fihfe-∅ }
+	{smallness=\gl{tam} & flatbread-\gl{sg-gen}=1s & other\_one-\gl{sg-gen} & exceed-\gl{same}}
+	{\en{My flatbread is smaller than his}, \\\emph{lit.} \en{My flatbread’s smallness exceeds this one’s.}}
+}
+Superlatives are simply formed by comparing to \en{all}.
+
+\newpage
+\section{Semantics}\label{sec:semantics}
+In the following two subsections, I will fulfill challenges 3 and 4: designing a kinship and a timekeeping system.
+
+\subsection{Kinship}
+The society on the generational ship has to deal with a limited population size. A taboo system helps out with this: People are assigned one of five classes at birth. Their class is directly determined by their parents’ classes and dictates who they may marry. In particular, if one were to arrange the five classes in a circular fashion then marriage is only allowed between non-adjacent classes. The children of these pairs are automatically placed in the class between those of the parents. 
+
+Each class has a name (all of which are unsegmentable nouns), and additionally there are two nouns categorizing classes based on speaker: \con{mihllé} \en{legal class} (i.e. non-adjacent class on the circle) and \con{suhlló} \en{illegal class} (adjacent or same class). Terms for family members differ based on this as well. Obviously ones parents, children and siblings will always be in an adjacent class by virtue of how the system works, but for more removed family members differences exist.
+
+The classfication in family terms is, surprisingly, built on the onset of the words: legal class terms all start with \con{m-}, illegal class ones with \con{s-}, same as the names of the categories. Perhaps this originates from some form of sound symbolism that changed up initial letters. The terms for the nuclear family however do not follow this rule, perhaps as the class system is not seen as relevant there. On the other hand, in the nuclear family, gender is distinguished, any further out it is conflated.
+
+\subsubsection*{Nuclear Family}
+\word{ąjehsú}{jesú}{n. II}{father}
+\word{ásíka}{síka}{n. II}{mother}
+
+\noindent\word{sehwo}{sewo}{n. II}{brother}
+\word{ją́hjiu}{jáji}{n. II}{sister}
+
+\noindent\word{lláhlliú}{llálliú}{n. II}{son}
+\word{ǫllúllo}{llúlló}{n. II}{daughter}
+
+\subsubsection*{Extended Family}
+\word{sséteo}{sséteó}{n. II}{illegal aunt or uncle}
+\word{méteo}{méteó}{n. II}{legal aunt or uncle}
+
+\noindent\word{sólló}{solló}{n. II}{illegal cousin}
+\word{mólló}{molló}{n. II}{legal cousin}
+
+\noindent\word{sǫ́hqó}{sǫ́qó}{n. II}{illegal nibling}
+\word{mǫ́hqó}{mǫ́qó}{n. II}{legal nibling}
+
+\noindent\word{súlé}{suhlé}{n. II}{illegal grandparent}
+\word{múlé}{muhlé}{n. II}{legal grandparent}
+
+\subsection{Timekeeping}
+The spaceship turns around itself roughly once every 44.8s. This unit, called a \con{suhjea} \en{turn} forms the base of the calendar, which is built on a single incrementing number that has been increasing since launch. This date, with some formatting, is readily visible on many displays.
+
+\noindent\word{suhjea}{sujeá}{n. III}{One turn of the spaceship, base unit of time; ≈44.8s}
+\word{lohllí}{lóhlli}{n. III}{10 turns; ≈7m 29s}
+\word{tlíhlu}{etlihlu}{n. III}{Time it takes for the lights to go from fully bright to fully dark, or back, a \en{half-day}; ≈12h 27m}
+\word{iqxǫhtlá}{íqxǫ́tlá}{n. III}{Time it takes for a complete seasonal cycle, a \en{year}; ≈519d 4h}
+\word{pféne}{épféne}{n. III}{100 cycles; ≈142.15y}
+
+These are displayed in the following format: PPPP–II–TTT–LL–S·XX
+
+Where X stands for a subdivision of \con{suhjea}, which can be extended to an arbitrary precision, but is generally cut off at the two digits. As an example, at exactly 1000 earth years after takeoff, the clock would read 0007–03–034–00–0·00.
+
+
+\newpage
+\section{Translations}
+\subsection*{56. Can you come tomorrow?}
+\con{Taxą qúhfi quselúwi ąpąhsiu úneórrí?}\\
+/ˈtɑ̀ː.ʍɑ̀ˁ ˈk͡púʔ.ʙ̥ì ˈk͡pùː.sè.ˌlûː.wì ɑ̀ˁ.ˈpɑ̀ˁʔ.sʲù ú.ˈnʲɔ́ː.ʟí/
+\enumsentence{
+	\shortexnt{5}
+	{ta=xą & qúhfi & quse-lú-wi & ąpąhsiu-∅ & úneórrí}
+	{2s=\gl{int.fut} & next & day-\gl{sg-gen} & \gl{ind}\textbackslash{}be\_able-\gl{same} & \gl{subj}\textbackslash{}come-\gl{same}}
+}
+\emph{Will you be able to come tomorrow?}
+
+\subsection*{67. The little seeds waited patiently…}
+\con{Ínníhrí-li úxǫ́méwire jíhsǫ́ tliútseatéhmu neahlléleohsa íjǫ́hllilu neóllállú-sa.}\\
+/í.ˈníʔ.lí.lʲì ú.ˈʍɔ́ˁː.mé.ˌwìː.lè ˈxʲíʔ.sɔ́ˁ ˈtlʲûː.tsʲɑ̀.ˌtéʔ.mù ˈnʲɑ̀ʔ.ʟʲɛ̀.ˌlʲɔ̀ʔ.sà í.ˈxɔ́ˁʔ.ʟʲì.lù ˈnʲɔ́ː.ʟɑ́.ˌʟúː.sà/
+\enumsentence{
+	\shortex{3}
+	{ínníhrí=li & úxǫ́mé-∅-wi-re & jíhsǫ́-∅-∅}
+	{smallness=\gl{rep.pst} & seed-\gl{coll-gen-def} & that\_one-\gl{coll-dir}}
+	{}\\
+	\shortexnt{4}
+	{tliútsea-téh=mu & neahllé+leohsa-∅ & íjǫ́hlli-lu & neóllá-llú-sa}
+	{frost-\gl{coll.erg}=under & \gl{ind}\textbackslash{}be\_patient-\gl{same} & spring-\gl{abs.sg} & \gl{subj}\textbackslash{}arrive-\gl{diff}=for}
+}
+\emph{The little seeds waited patiently under the frost for spring to arrive.}
+
+\paragraph{Class IV nouns} This sentence contains the class IV noun \en{smallness}, which must be possessed by another noun, in this case \en{seeds}. However, the semantic subject of the sentence isn’t the smallness, but the seed. To resolve this, a pronoun \con{jíhsǫ́}, referring back to \en{seeds} but in the direct case acts as the grammatical subject.
+
+\paragraph{Switch-Reference} The purpotive clause \en{for spring to arrive} has as its subject the noun \en{spring}, which is different from the subject of the main clause (\en{seeds}). Thus, the verb is marked for different subject.
+
+\paragraph{Purpotive clauses} The purpotive clause is put after the main verb. Its verb is put in subjunctive mood, and the clitic \con{sa} (which also has the meaning of a benefactive/purpotive case (As in \en{I did it for him.})
+
+
+\subsection*{68. Many little girls…}
+\con{Ínníhripéh-li keóxi íríhliúsǫ́te jihsǫsǫ sótsasǫ leahniwi wǫ́llú xǫlleanáre-lea lihtlea.}\\
+/í.ˈníʔ.lì.ˌpɛ́ʔ.lʲì ˈkʲɔ̂ː.ʍì í.ˈlíʔ.lʲú.ˌsɔ̂ˁ.tɛ̀ ˈxʲìʔ.sɔ̀ˁ.sɔ̀ˁ ˈsɔ̂ː.tsɑ̀.sɔ̀ ˈlʲɑ̀ʔ.nì.wì ˈwɔ́ˁː.ʟú ˈʍɔ̀ˁː.ʟʲɑ̀.ˌnɑ̂ː.lɛ̀.lʲɑ̀ ˈlʲìʔ.tlʲɑ̀/
+\enumsentence{
+	\shortex{4}
+	{ínníhrí=péh=li & keóxi & íríhliú-sǫ́-te & jihsǫ-sǫ-∅}
+	{smallness=also=\gl{rep.pst} & multitude & girl-\gl{dist-gen} & this\_one-\gl{dist-dir}}
+	{}\\
+	\shortexnt{5}
+	{sótsa-sǫ-∅ &  leahni-∅-wi & wǫ́llú-∅ & xǫllea-ná-re=lea & lihtlea}
+	{ring-\gl{dist-abs} &  flower-\gl{coll-gen} & \gl{subj}\textbackslash{}wear-\gl{same} & shrine-\gl{sg.erg.-def}=around& \gl{ind}\textbackslash{}dance-\gl{same}}
+}
+\emph{Many little girls with wreaths of flowers on their heads danced around the shrine.}
+
+\paragraph{Complex subject} The subject of the main clause is \en{many little girls}, which may be described as a noun \en{girls} described by two adjectives, \en{many} and \en{little}. However, in \langname{}, these adjectives instead act as the head of the noun clause and are together possessed by the girls. This requires the two to be conjoined with the clitic \con{=péh} \en{also, and}, following the first item in a list. Incidentally, the sentence level clitic \con{li} providing the tense-aspect-mood information is also attached to the first word. To clear up that the subject is actually the girls (which occur in the text in genitive case), and not their smallness or large number, this is followed by a pronominal noun \con{jihsǫsǫ} \en{these ones}, which acts as the grammatical subject.
+
+\paragraph{Relative clause} The subject NP embeds a relative clause. This clause is not introduced in any particular fashion, but is clearly highlighted by its verb occuring in the subordinated conjugation, with high tone. Additionally, being (null-)marked for having same subject as the main clause makes it unambiguous as to what the head of the relative clause is. 
+
+\paragraph{Lexicon} The original sentence contained the word \en{bonfire}. As this is clearly incompatible with life on a spaceship, so it has been replaced by a more appropriate term.
+
+\subsection*{107. Bring your friends with you.}
+\con{Ǫllúhqáta-llu tape úneórri.}\\
+/ɔ̀ˁ.ˈʟúʔ.k͡pá.ˈtàː.ʟù ˈtàː.pɛ̀ ú.ˈnʲɔ̂ː.ʟì/
+\enumsentence{
+	\shortexnt{3}
+	{ǫllúhqá-∅=ta=llu & ta=pe & úneórri}
+	{friend-\gl{coll=2s=fut.inf}&2s=with&\gl{imp}\textbackslash{}come=\gl{same}}
+}
+\emph{Your friends should come with you.}
+
+\paragraph{Suggestions} As mentioned in \ref{ssec:tamclitics}, the combination of the future inferential with imperative mood is used to phrase suggestions.
+
+\paragraph{To bring} A verb for \en{bring} exists, but can only be used with inanimates. In this case, an alternative construction, \en{to come with} has been employed.
+
+
+
+
+\subsection*{166. We consider them our faithful friends.}
+\con{Jíhsǫ́sǫ́llǫ amohfá ǫllúhqásǫ́ne néle isopfillu.}\\
+/ˈxʲíʔ.sɔ́ˁ.ˌsɔ̂ˁː.ʟɔ̀ˁ ɑ̀.ˈmɔ̀ʔ.ʙ̥ɑ́ ɔ́.ˈʟúʔ.k͡pɑ́.ˌsɔ̂ˁː.nʲɛ̀ ˈnʲɛ̂ː.lʲɛ̀ ì.ˈsɔ̀ː.pʙ̥ì.ʟù/ 
+
+\enumsentence{
+	\shortexnt{6}
+	{jíhsǫ́-sǫ́-∅=llǫ & amohfá & ǫllúhqá-sǫ́=ne & ∅ & né=le & isopfi=llu}
+	{this\_one-\gl{dist-dir=vis.cont} & trust & friend-\gl{dist}=1\gl{x.pl} & \gl{cop} & 1p=\gl{def.cont} & \gl{ind}\textbackslash{}say-\gl{diff}}
+}
+\emph{They are our trustworthy friends, we say.}
+
+\paragraph{Visual evidentiality} In this instance, the visual evidential is used metaphorically — it is the evidential with the highest “truth” value, and as such can be used to reinforce the confidence in a statement.
+
+\paragraph{Null-Coordinated main clauses} The above translation contains two main clauses (separated by commas in the English translation). These are not in any way coordinated. This implies that the second clause is a comment on the first one.
+
+\paragraph{Modification of a Class II noun} The fragment \en{trustworthy friends} is translated literally as \en{friends of trust}. However, class II nouns (like \en{friend}) do not show case marking, including for the genitive. The two words are simply juxtaposed, with the rule that the latter is treated as if in genitive.
+
+%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Lexicon} 
+Words are listed in a modified alphabetical order of their primary stems. The following special rules are employed:
+\begin{itemize}
+\item \orth{ą ǫ} immediately follow \orth{a o} in order.
+\item \orth{ll} is treated as a single letter, immediately following \orth{l}
+\item If the word starts with a vowel, this is disregarded for sorting, except if all segments are identical.
+\item Tone is considered last. If all else is equal, then high tones are sorted after low tones.
+\end{itemize}
+
+In other words, the sorting is actually phonemic, not orthographic. The two stems are given in the usual green coloration. The primary stem is additionally printed in bold. The stems are followed by a part of speech designation and defintions.  For monosyllabic clitics, the first stem given is the stressed form, the second the reduced one. Clitics and affixes listed within the text have been omitted from the dictionary. Also omitted have been words described in \ref{sec:semantics}.
+
+\begin{multicols}{2}
+\subsection*{F}
+\word{fihfe}{afife}{v.}{to exceed}
+\subsection*{J}
+\word{jíhsǫ́}{jihsǫ}{n. I}{this one}
+\word{jóhkea}{johkea}{n. I}{the other one}
+\word{jǫ́lli}{íjǫ́hlli}{n. III}{spring}
+
+\subsection*{K}
+\word{keóxi}{keóxí}{n. IV}{multitude, many, a lot, a bunch}
+
+
+\subsection*{L}
+\word{leani}{leahni}{n. III}{flower}
+\word{aleohsa}{alehsa}{v.}{to have, own, possess}
+\word{lihtlea}{litlea}{v.}{to dance}
+
+\subsection*{LL}
+\word{leah}{lea}{postp.}{around}
+\word{ǫllúhnne}{llúhnne}{n. III}{oven}
+\word{ǫllúhqá}{óllúqa}{n. II}{friend}
+
+\subsection*{M}
+\word{amohfá}{mohfá}{n. IV}{trust, trustworthyness}
+\word{mu}{mu}{postp.}{under}
+
+\subsection*{N}
+\word{neahllé}{neálle}{n. III}{time}
+\word{neahllé-leohsa}{neahllé-lehsa}{v.}{to be patient \emph{lit.}~to have time}
+\word{neolla}{ineolla}{v.}{to arrive}
+\word{uneorri}{uneohrri}{v.}{to come}
+\word{éníhlǫ}{éníhlǫ́}{n. III}{fridge}
+\word{ínníhrí}{innirí}{n. IV}{smallness, small, little}
+
+
+
+\subsection*{P}
+\word{ąpąhsiu}{ąpąsiu}{v.}{to be able to}
+\word{péh}{pe}{conj.}{also, and; \emph{syntax:} follows the first item in a list}
+\word{pfóhtti}{ópfótti}{n. IV}{(someone’s) illness}
+
+\subsection*{Q}
+\word{qúhfi}{qihfi}{n. IV}{next} 
+\word{quse}{aqise}{n. III}{day (roughly 26 hour cycle during which the lights on the spaceship fully brighten up and dim to darkness again)}
+
+\subsection*{R}
+\word{íríhliú}{ríhliú}{n. I}{girl}
+
+
+\subsection*{S}
+\word{sa}{sa}{postp.}{for (goal), verbal clitic denoting a purpotive clause}
+\word{issepfi}{isopfi}{v.}{to say}
+\word{sotsa}{sótsa}{n. III}{ring, circle; wreath} 
+
+
+\subsection*{T}
+\word{∅}{te}{v.}{to be (transitive), to exist (intransitive)}
+\word{tekla}{tehkla}{n. III}{fire} 
+\word{tliútsea}{tlítsea}{n. III}{\textbf{1.} frost, ice cover \textbf{2.} winter cycle}
+\word{itseoxą́}{itsexą́}{n. II\textasciitilde{}III}{flatbread}
+
+
+\subsection*{W}
+\word{wǫllu}{wǫhllu}{v.}{to wear (clothes)}
+
+
+\subsection*{X}
+\word{xǫllea}{axǫllea}{n. III}{shrine} 
+\word{úxǫ́mé}{uxǫmé}{n. III}{seed}
+\word{axuli}{xuli}{v.}{(of a single thing) to bring, carry} 
+\end{multicols}
+\end{document}

@@ -1,0 +1,150 @@
+\documentclass[paper=6in:9in]{scrbook}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{soul}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{multicol}
+\restylefloat{table}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{lingmacros}
+\usepackage{vowel}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tikz, tikz-qtree}
+\usetikzlibrary{positioning,decorations.markings}
+\graphicspath{ {images/} }
+\renewcommand*\sectfont{\normalcolor\bfseries}
+
+\newfontfamily\lib{Linux Libertine}
+\setmainfont[Ligatures=TeX]{Charis SIL}
+\definecolor{grey}{rgb}{0.84, 0.84, 0.84}
+\newcommand{\gl}[1]{\textsc{#1}}
+\newcommand{\en}[1]{``#1''}
+\newcommand{\con}[1]{\hspace{0pt}{\color{olive}#1}}
+\renewcommand{\ex}[1]{\con{#1}\\}
+\newcommand{\orth}[1]{{\lib{}⟨}#1{\lib{}⟩}}
+\newcommand{\broad}[1]{/#1/}
+\newcommand{\narrow}[1]{[#1]}
+\newcommand{\langname}{Semụr}
+\newcommand{\culturename}{Semuru}
+
+\newcommand{\circled}[1]{%
+    \tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.1ex] (char) {#1};}%
+}
+
+\newcommand{\qdot}[0]{q̇}
+\renewcommand{\cdot}[0]{ċ}
+
+\title{\langname}
+\author{Sascha M. Baer}
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\listoftables
+
+\newpage
+\chapter{Phonology}
+The \langname{} language has 21 consonant phonemes and 5 vowel phonemes, shown in tables \ref{consint} and \ref{vowint}. Several important allophones can be identified too, however, which are listed in those tables in parentheses. Their occurences will be described in section \ref{sec:allophony}. 
+
+\begin{table}[]
+\centering
+\begin{tabular}{l|ccc|ccc|ccc}
+                   & \multicolumn{3}{c|}{Labial}      & \multicolumn{3}{c|}{Alveolar}    & \multicolumn{3}{c}{Velar}        \\ \hline
+\multirow{2}{*}{N}       &           & m̥        & m        &           & n̥        & n        &           &   (ŋ̊)     &    (ŋ)   \\
+                             &           & \orth{hm} & \orth{m} &           & \orth{hn} & \orth{n} &           & \orth{hn} & \orth{n, \qdot}  \\
+\multirow{2}{*}{S}        & pʰ        & p         & b        & tʰ        & t         & d        & kʰ        & k         & g        \\
+                             & \orth{ph} & \orth{p}  & \orth{b} & \orth{th} & \orth{t}  & \orth{d} & \orth{kh} & \orth{k}  & \orth{g} \\
+\multirow{2}{*}{Af}   &           &           &          & tsʰ       & ts       &          & kxʰ       & kx       &          \\
+                             &           &           &          & \orth{ch} & \orth{c}  &          & \orth{qh} & \orth{q}  &          \\
+\multirow{2}{*}{F}   &           & f         &          &           & s         &          &           &           &          \\
+                             &           & \orth{f}  &          &           & \orth{s}  &          &           &           &          \\
+\multirow{2}{*}{T}         &           &           &          &           &           & ɾ        &           &           &          \\
+                             &           &           &          &           &           & \orth{r, \cdot} &           &           &          \\
+\multirow{2}{*}{Ap} &           &           & ʋ        &           &           & l        &           &           &          \\
+                             &           &           & \orth{v} &           &           & \orth{l} &           &           &         
+\end{tabular}
+\caption{Consonant Inventory}
+\label{consint}
+\end{table}
+
+\begin{table}[]
+\centering
+\large
+\begin{vowel}
+\putcvowel{i}{1}
+\putcvowel{ɛ}{3}
+\putcvowel{a}{4}
+\putcvowel[r]{ɔ}{6}
+\putcvowel[r]{u}{8}
+\putcvowel[l]{(ʌ)}{6}
+\putcvowel[l]{(ɯ)}{8}
+\putcvowel{(ə̥)}{11}
+\end{vowel}
+\begin{vowel}
+\putcvowel{\orth{i}}{1}
+\putcvowel{\orth{e}}{3}
+\putcvowel{\orth{a}}{4}
+\putcvowel[r]{\orth{o}}{6}
+\putcvowel[r]{\orth{u}}{8}
+\putcvowel[l]{\orth{ọ}}{6}
+\putcvowel[l]{\orth{ụ}}{8}
+\putcvowel{\orth{◌̆}}{11}
+\end{vowel}
+\caption{Vowel Inventory}
+\label{vowint}
+\end{table}
+
+
+\begin{table}[]
+\centering
+
+\begin{tabular}{l|ccc|ccc|ccc}
+                       & \multicolumn{3}{c|}{Alveolar}       & \multicolumn{3}{c|}{Lateral}        & \multicolumn{3}{c}{Palatal}        \\ \hline
+\multirow{2}{*}{Nasal} &           & ᵑ̊!        & ᵑ!         &           & ᵑ̊ǁ        & ᵑǁ         &           & ᵑ̊ǂ        & ᵑǂ         \\
+                       &           & \orth{n!k} & \orth{n!g} &           & \orth{nǁk} & \orth{nǁg} &           & \orth{nǂk} & \orth{nǂg} \\
+\multirow{2}{*}{Oral}  & ᵏ!ʰ       & ᵏ!         & ᵍ!         & ᵏǁʰ       & ᵏǁ         & ᵍǁʰ        & ᵏǂʰ       & ᵏǂ         & ᵍǂʰ        \\
+                       & \orth{!q} & \orth{!k}  & \orth{!g}  & \orth{ǁq} & \orth{ǁk}  & \orth{ǁg}  & \orth{ǂq} & \orth{ǂk}  & \orth{ǂg} 
+\end{tabular}
+\caption{Click Inventory}
+\label{clickint}
+\end{table}
+A threefold distinction is found in plosives: tenuis, voiced and aspirated. A voicing distinction also occurs in nasals, while aspiration is distinguished for affricates. All other manners of pronunciation only have one member: Non-sibilant fricative \broad{f}, sibilant fricative \broad{s}, tap \broad{ɾ}, approximant \broad{ʋ} and lateral approximant \broad{l}.
+
+Among places of articulation it is noticable that the velar column is smaller than the other two. The velar nasals, while not uncommon, only occur as allophones of other sounds. 
+
+
+\section{Syllable Structure}
+
+A distinction may be first drawn between light (monomoraic) and heavy (bimoraic) syllables. Heavy syllables are those which have a coda consonant. Syllable weight is important for determination of stress and accent pattern (see \ref{sec:stressaccent}).
+
+The structure of light syllables is always any consonant followed by any vowel. There are no restrictions on the combination of these phonemes. 
+
+A heavy syllable has the same structure as a light one, except that is also followed by a coda consonant. The list of phonemes occuring in codas is restricted: only \broad{s ɾ l} as well as all nasals may occur in the coda of a syllable. 
+
+\section{Allophony} \label{sec:allophony}
+
+
+\section{Stress and Accent} \label{sec:stressaccent}
+Stress placement within a word is entirely predictable from its segments. 
+
+\chapter{Noun Phrases}
+
+A \langname{} noun phrase typically consists of two words: an article and a noun. 
+
+
+
+
+
+\end{document}

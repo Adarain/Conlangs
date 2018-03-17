@@ -1,0 +1,485 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{soul}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{multicol}
+\restylefloat{table}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{lingmacros}
+\usepackage{vowel}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tikz, tikz-qtree}
+\usetikzlibrary{positioning,decorations.markings}
+\graphicspath{ {images/} }
+\newcommand*\sectfont{\normalcolor\bfseries}
+
+\newfontfamily\lib{Linux Libertine}
+\setmainfont[Ligatures=TeX]{Charis SIL}
+\definecolor{grey}{rgb}{0.84, 0.84, 0.84}
+\newcommand{\gl}[1]{\textsc{#1}}
+\newcommand{\en}[1]{``#1''}
+\newcommand{\con}[1]{\hspace{0pt}{\color{olive}#1}}
+\renewcommand{\ex}[1]{\con{#1}\\}
+\newcommand{\orth}[1]{{\lib{}⟨}#1{\lib{}⟩}}
+\newcommand{\langname}{Neo-Rhaetian}
+\newcommand{\redup}[1]{#1\textasciitilde{}#1}
+
+\newcommand{\word}[4]{\con{\textbf{#1}, #2} \textit{#3} #4\\}
+
+\title{Speedlanging Challenge \#3\\ \langname{}}
+\author{Sascha M. Baer}
+\date{July 3 – July 9, 2017}
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+In the year of the Lord 1952 a traveller noticed that the elders of a village in which he stayed for the night spoke a language entirely different from the majority language of the area. You are the linguist tasked with documenting it before it is lost with no trace. \emph{Within one week\footnote{Time was given until Sunday, July 9, but this challenge was already completed on Friday the 7th, shortly before midnight local time.}, create and document a naturalistic language unrelated to any Indo-European language. Optionally, make it a posteriori.}
+
+
+\subsection{Constraints}
+
+\paragraph{Phonology}
+\begin{itemize}
+\item Your language must contain exactly four vowel phonemes. This count includes the use of length, phonations and similar effects, but not tone.
+\item Your consonant inventory’s size must be either 14 or below, or 34 or above; anywhere between 15-33 is not allowed.
+\end{itemize}
+
+\paragraph{Grammar}
+\begin{itemize}
+\item Your language must make use of sound symbolism\footnote{\url{https://en.wikipedia.org/wiki/Sound_symbolism}} either grammatically or lexically.
+\item Your language must make use of productive reduplication (full, partial or both).
+\item Your language must have significant allomorphy.
+\item Your language’s verbs must be a closed class. You must be able to list them all.
+\end{itemize}
+
+\subsection{Challenges}
+\begin{enumerate}
+\item Showcase your language. In particular, show how you dealt with each of the constraints given.
+\item Translate 5 random sentences from the syntax test list\footnote{\url{http://pastebin.com/raw/BpfjThwA}}. The translations should contain /phonemic/ and [phonetic] transcriptions, a gloss\footnote{\url{https://www.eva.mpg.de/lingua/resources/glossing-rules.php}} and commentary on interesting structures if there are any. 
+\item Design an orthography appropriate to the language’s setting. Consider whether it might have already be a written language, or whether you (the linguist) are the one creating the writing system.
+\item Show how your language has been influenced by nearby (real) languages.
+\item Describe how your language names colors. Especially pay attention to Basic Color Terms.
+\end{enumerate}
+
+The entirety of this document will serve as the solution to challenge 1. References to the constraints will be pointed out. Challenge 3 will be described throughout section \ref{sec:phonology}, Challenge 5 in \ref{ssec:colors}. Influences by real languages will be continuously pointed out.
+
+\clearpage
+\section{Setting}
+\langname{} is a descendant of the Rhaetian language\footnote{In reality we know very little about Rhaetian, therefore \langname{} is almost entirely a priori. However, I’ve tried incorporating bits and pieces of what we know of the Tyrsenian, to which it is thought to belong, into \langname{}. As it is the most attested Tyrsenian language, much data has been taken from Etruscan, even though the relation between the two languages hasn’t been conclusively proven.} spoken only by five elders in the village of Vnà, Switzerland, which they call \con{Mans}. As of 1952, it is in the process of being fully replaced by the local Vallader dialect of Romansh. There are no written documents of \langname{}, but the elders are literate and fluent in Romansh. \langname{} has been strongly influenced by Vallader, to the point where all but the core vocabulary consists of Romansh (and more rarely German) loanwords. Its syntax too has been strongly affected. Morphologically and phonetically, however, \langname{} is quite distinct.
+
+\clearpage
+\section{Phonology and Orthography} \label{sec:phonology}
+\subsection{Consonants}
+With no less than 45 consonant phonemes\footnote{And thus more than the required 34.}, \langname{} has a quite sizable inventory. Importantly, the coronal and velar series have plain and labialized counterparts, which are not distinguished orthographically. Additionally, for several coronal consonants, voicing isn’t written either.
+\begin{table}[H]
+\centering
+
+\begin{tabular}{l|cc|cc|cc|cc|cc|c}
+            & \multicolumn{2}{c|}{Labial}                                                                                  & \multicolumn{2}{c|}{Alveolar}                                                                                         & \multicolumn{2}{c|}{Alveolo-Palatal}                                                                                        & \multicolumn{2}{c|}{Palatal}                                                                                        & \multicolumn{2}{c|}{Velar}                                                                                                & Glottal                                              \\ \hline
+Nasal       &                                                       & \begin{tabular}[c]{@{}c@{}}m\\ \orth{m}\end{tabular} &                                                           & \begin{tabular}[c]{@{}c@{}}n nʷ\\ \orth{n}\end{tabular}   &                                                              &                                                              &                                                          & \begin{tabular}[c]{@{}c@{}}ɲ\\ \orth{gn}\end{tabular}    &                                                             & \begin{tabular}[c]{@{}c@{}}ŋ ŋʷ\\ \orth{ng}\end{tabular}    &                                                      \\
+Plosive     & \begin{tabular}[c]{@{}c@{}}p \\ \orth{p}\end{tabular} & \begin{tabular}[c]{@{}c@{}}b\\ \orth{b}\end{tabular} & \begin{tabular}[c]{@{}c@{}}t tʷ\\ \orth{t}\end{tabular}   & \begin{tabular}[c]{@{}c@{}}d dʷ\\ \orth{d}\end{tabular}   &                                                              &                                                              & \begin{tabular}[c]{@{}c@{}}c\\ \orth{k, ki}\end{tabular} & \begin{tabular}[c]{@{}c@{}}ɟ\\ \orth{g, gi}\end{tabular} & \begin{tabular}[c]{@{}c@{}}k kʷ\\ \orth{k, kh}\end{tabular} & \begin{tabular}[c]{@{}c@{}}g gʷ\\ \orth{g, gh}\end{tabular} &                                                      \\
+Affricate   &                                                       &                                                      & \begin{tabular}[c]{@{}c@{}}ts tsʷ\\ \orth{z}\end{tabular} & \begin{tabular}[c]{@{}c@{}}dz dzʷ\\ \orth{z}\end{tabular} & \begin{tabular}[c]{@{}c@{}}tɕ tʃʷ\\ \orth{c}\end{tabular}    & \begin{tabular}[c]{@{}c@{}}dʑ dʒʷ\\ \orth{c}\end{tabular}    &                                                          &                                                          &                                                             &                                                             &                                                      \\
+Fricative   & \begin{tabular}[c]{@{}c@{}}f\\ \orth{f}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}v\\ \orth{v}\end{tabular} & \begin{tabular}[c]{@{}c@{}}s sʷ\\ \orth{s}\end{tabular}   & \begin{tabular}[c]{@{}c@{}}z zʷ\\ \orth{s}\end{tabular}   & \begin{tabular}[c]{@{}c@{}}ɕ ʃʷ\\ \orth{ś, sch}\end{tabular} & \begin{tabular}[c]{@{}c@{}}ʑ ʒʷ\\ \orth{ś, sch}\end{tabular} & \begin{tabular}[c]{@{}c@{}}ç\\ \orth{ch}\end{tabular}    &                                                          & \begin{tabular}[c]{@{}c@{}}x xʷ\\ \orth{ch}\end{tabular}    &                                                             & \begin{tabular}[c]{@{}c@{}}h\\ \orth{h}\end{tabular} \\
+Approximant &                                                       &                                                      &                                                           & \begin{tabular}[c]{@{}c@{}}l \\ \orth{l}\end{tabular}     &                                                              &                                                              &                                                          & \begin{tabular}[c]{@{}c@{}}ʎ\\ \orth{gl}\end{tabular}    &                                                             & \begin{tabular}[c]{@{}c@{}}ɫʷ\\ \orth{l}\end{tabular}       &                                                      \\
+Trill       &                                                       &                                                      &                                                           & \begin{tabular}[c]{@{}c@{}}r\\ \orth{r}\end{tabular}      &                                                              &                                                              &                                                          &                                                          &                                                             & \begin{tabular}[c]{@{}c@{}}ʀʷ\\ \orth{r}\end{tabular}       &                                                     
+\end{tabular}
+\caption{Consonant Inventory}
+\label{consonants}
+\end{table}
+
+\paragraph{Orthographical alterations} Palatal and velar stops are distinguished orthographically as follows: before /i/, the letters \orth{k g} are assumed to be palatal, an \orth{h} is inserted if they are velar. Otherwise, they are assumed to be velar, and an unpronounced \orth{i} is inserted between the consonant and the vowel. The graphemes \orth{ś sch} are identical in terms of pronunciation. The former is used in inherited words, the latter for Romansh loans.
+
+\paragraph{The glottal fricative} Before front vowels as well as next to alveolars, /h/ is realized as [θ].
+\paragraph{Voicing assimilation} Within a cluster, all consonants devoice if one is voiceless.
+\paragraph{Rounding assimilation} Within a cluster, all consonants which can become rounded are rounded if one of them is; labials also trigger this.
+\paragraph{Labial release} Word-finally, labialized consonants are followed by an epenthetic [u].
+\paragraph{Coronal harmony} Alveolar fricatives and affricates become alveolo-palatal if alveolo-palatals are found later in the word. In this case /ɕ/ is always written as \orth{ś}.
+
+\newpage
+\subsection{Vowels}
+\langname{} has exactly four\footnote{Thus fulfilling this constraint.} phonemic vowels: /a ə e i/. This inventory is quite imbalanced, and several allophones are found).
+
+\begin{table}[H]
+\centering
+\large
+\begin{tabular}{cc}
+{\normalsize Phonology}&{\normalsize Orthography}\\
+\begin{vowel}
+\putcvowel[l]{i}{1}
+\putcvowel[r]{(y)}{1}
+\putvowel[l]{e}{1\vowelhunit}{1.5\vowelvunit}
+\putvowel[r]{(ø)}{1\vowelhunit}{1.5\vowelvunit}
+\putcvowel{ə}{11}
+\putvowel{a}{3\vowelhunit}{3\vowelvunit}
+\putcvowel{(u)}{8}
+\putvowel{(o)}{4\vowelhunit}{1.5\vowelvunit}
+\putcvowel{(ɨ)}{9}
+\end{vowel}&
+\begin{vowel}
+\putcvowel[l]{i}{1}
+\putcvowel[r]{ü}{1}
+\putvowel[l]{e}{1\vowelhunit}{1.5\vowelvunit}
+\putvowel[r]{ö}{1\vowelhunit}{1.5\vowelvunit}
+\putcvowel{a}{11}
+\putvowel{a}{3\vowelhunit}{3\vowelvunit}
+\putcvowel{u}{8}
+\putvowel{o}{4\vowelhunit}{1.5\vowelvunit}
+\putcvowel{ü}{9}
+\end{vowel}
+\end{tabular}
+\caption{Vowel Inventory}
+\label{vowels}
+\end{table}
+
+\paragraph{Vowel rounding} After labial and labialized consonants, /i e ə/ round to [y ø o].
+\paragraph{Schwa raising} /ə/ raises next to coronals, becoming [ɨ] if unrounded and [u] if rounded.
+
+\subsection{Stress}
+Native words always carry final stress, for loans the stress usually remains unchanged.
+
+\subsection{Adaptation of Loanwords}
+As \langname{} makes quite heavy use of loanwords from Romansh, it is worth noting how these are adapted into its phonology. 
+
+\subsubsection{Consonants}
+The consonant inventory of Romansh is smaller than that of \langname{}, and in fact there is a direct equivalent for any given Romansh consonant. Sometimes, both a rounded and an unrounded consonant are possible choices, this is then determined by which allows better approximation of the vowel. At times an imperfect match will be preferred to allow for a better match among the vowels.
+
+\subsubsection{Vowels}
+Vallader has a larger vowel inventory than \langname{}. As such, when words are adopted into \langname{} speech, vowel qualities often change somewhat: The mid vowels /ɛ e/ and /ɔ o/ are always merged. Unstressed vowels often get adapted as /ə/, no matter what quality they actually have natively, though Romansh /i/ is quite stable. The usual allophonies are applied to loanwords. The retention of proper vowel sounds may be ranked higher than that of proper consonant sounds, as such Romansh /ɲu/ will be loaned as [nʷu]: \con{signur} /sinʷər/ [sinʷur] \en{mister}.
+
+\subsubsection{Orthography}
+Loanwords are spelled in their original orthography.
+
+\newpage
+\section{Semantics} 
+\subsection{Inherited Words}
+\langname{} only has a limited amount of native vocabulary remaining. All but a finite amount of words have been replaced by Romansh loans. This, to outsiders, gives the impression of a weirdly spoken, slightly broken Romansh — easy to dismiss as “just another dialect”. The following are inherited words:
+
+\subsubsection{Pronouns} 
+All personal and possessive pronouns, as well as demonstratives are inherited\footnote{The following words are inspired by attested forms in Etruscan in lack of better sources. The interrogatives are a priori.} from Rhaetian.
+
+Personal pronouns distinguish two numbers and two cases (three in the first person). There are distinct animate and inanimate pronouns. The animate pronouns is used to refer to humans and animals, otherwise the inanimate is used.
+\begin{table}[H]
+\centering
+\begin{tabular}{l|ccc|ccc}
+                    & & SG&                    & &PL&                       \\
+                    & NOM           & ACC           & GEN        & NOM           & ACC           & GEN          \\ \hline
+\multirow{3}{*}{1}  & \con{mü}      & \con{mun}     & \con{mlun} & \con{mümü}    & \con{munmo}   & \con{munmlo} \\
+                    & /mi/          & /mən/         & /mlən/     & /mimi/        & /mənmə        & /mənmlə/     \\
+                    & [my]          & [mun]         & [mɫʷun]    & [myˈmy]        & [munˈmo]       & [munˈmɫʷo]    \\ \hline
+\multirow{3}{*}{2}  & \multicolumn{2}{c}{\con{inu}} & \con{insu} & \multicolumn{2}{c}{\con{inü}} & \con{inüs}   \\
+                    & \multicolumn{2}{c}{/inʷ/}     & /inʷs/     & \multicolumn{2}{c}{/inʷi/}    & /inʷis/      \\
+                    & \multicolumn{2}{c}{[inʷu]}    & [inʷsʷu]   & \multicolumn{2}{c}{[iˈnʷy]}    & [iˈnʷys]      \\ \hline
+\multirow{3}{*}{3a} & \multicolumn{2}{c}{\con{an}}  & \con{ans}  & \multicolumn{2}{c}{\con{ana}} & \con{anas}   \\
+                    & \multicolumn{2}{c}{/an/}      & /ans/      & \multicolumn{2}{c}{/ana/}     & /anas/       \\
+                    & \multicolumn{2}{c}{[an]}      & [ans]      & \multicolumn{2}{c}{[aˈna]}     & [aˈnas]       \\ \hline
+\multirow{3}{*}{3i} & \multicolumn{2}{c}{\con{in}}  & \con{ins}  & \multicolumn{2}{c}{\con{ini}} & \con{inis}   \\
+                    & \multicolumn{2}{c}{/in/}      & /ins/      & \multicolumn{2}{c}{/ini/}     & /inis/       \\
+                    & \multicolumn{2}{c}{[in]}      & [ins]      & \multicolumn{2}{c}{[iˈni]}     & [iˈnis]      
+\end{tabular}
+\caption{Personal Pronouns}
+\label{pronouns}
+\end{table}
+
+There are two demonstrative pronouns, \con{ka} \en{this} and \con{tü} \en{that}. These have a special locative form with meaning \en{here, there}. Additionally there is an interrogative pronoun. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|ccc}
+                      & NOM      & GEN       & LOC        \\ \hline
+\multirow{3}{*}{PROX} & \con{ka} & \con{klü} & \con{kühi} \\
+                      & /kə/     & /klə/     & /kəhi/     \\
+                      & [kə]     & [klɨ]     & [kɨˈθi]     \\ \hline
+\multirow{3}{*}{DIST} & \con{tü} & \con{tlü} & \con{tühi} \\
+                      & /tə/     & /tlə/     & /təhi/     \\
+                      & [tɨ]          & [tlɨ]         & [tɨθi]     \\ \hline
+\multirow{3}{*}{INTR} & \multicolumn{2}{c}{\con{nü’}} & \con{nühi} \\
+                      & \multicolumn{2}{c}{/nʷi-/}    & /nʷihi/    \\
+                      & \multicolumn{2}{c}{[nʷy]}     & [nʷyθi]   
+\end{tabular}
+
+\caption{Demonstrative Pronouns}
+\label{demonstratives}
+\end{table}
+
+The interrogative pronoun acts as a prefix for nominative and genitive forms. This prefix is added to third person pronouns. The process is regular, but the orthography is irregular for the inanimate form.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|cc|cc}
+                      & \multicolumn{2}{c|}{SG}    & \multicolumn{2}{c}{PL}       \\
+                      & NOM         & GEN          & NOM          & GEN           \\ \hline
+\multirow{3}{*}{ANI}  & \con{nü’an} & \con{nü’ans} & \con{nü’ana} & \con{nü’anas} \\
+                      & /nʷian/     & /nʷians/     & /nʷiana/     & /nʷianas/     \\
+                      & [nʷyˈan]    & [nʷyˈans]    & [nʷy.aˈna]   & [nʷy.aˈnas]   \\ \hline
+\multirow{3}{*}{INAN} & \con{nü’n}  & \con{nü’ns}  & \con{nü’ni}  & \con{nü’nis}  \\
+                      & /nʷiin/     & /nʷiins/     & /nʷiini/     & /nʷiinis/     \\
+                      & [nʷyːn]     & [nʷyːns]     & [nʷyːni]     & [nʷyːnis]    
+\end{tabular}
+\caption{Interrogative pronouns}
+\label{interrogatives}
+
+\end{table}
+
+\
+
+\subsubsection{Verbs} 
+There is a total of 8 inherited\footnote{The first four are inspired by Etruscan verbs, the rest is a priori.} verb stems. These form the only true verbs of \langname{} — while Romansh verbs have been borrowed, syntactically they do not behave as verbs in \langname{}, but rather as adverbs or nouns, always in conjunction with a true verb. Their inflection will be covered in section \ref{ssec:verb-inflection}.
+
+\paragraph{\con{am-}} /am/ \en{to be}, used in all copulative sentences, as well as for possession (analogous to English \en{to have}). %1
+\paragraph{\con{khir-}} /kir/ \en{to do, make},  commonly used in conjunction with a noun to form compound verbs. %2
+\paragraph{\con{tir-}} /tir/ \en{to give, take},  used for transfer of possession. It can be compounded with various other words to specfiy exactly what is tranfered, e.g. \en{give know(ledge)} for \en{teach}. %3
+\paragraph{\con{cih-}} /tɕih/ \en{to speak, write},  used for indicating communication. It is often further specified. %4
+\paragraph{\con{giar-}} /ɟaʀʷ/ \en{to hear, see, read},  used for the more salient senses (seing and hearing), and concious applications thereof, such as listening or reading. %5
+\paragraph{\con{śech-}} /ɕex/ \en{to feel},  used for all other senses, as well as emotional states. %6
+\paragraph{\con{caf-}} /dʑaf/ \en{to go},  used for all forms of motion. %7
+\paragraph{\con{śgnil-}} /ɕɲil/ \en{to eat, drink}, used for all forms of consumption. %8
+
+
+\subsubsection{Nouns} 
+Some very common nouns are retained, but the vast majority has been replaced.
+
+\paragraph{Close family members} \con{apa} /əpa/ [əˈpa] \en{father}, \con{üti} /əti/ [ɨˈti] \en{mother}, \con{popa} /pəpa/ [poˈpa] \en{grandfather}, \con{tüta} /təta/ [tɨˈta] \en{grandmother}, \con{rüf} /rəf/ [rɨf] \en{brother}, \con{śek} /ɕek/ [ɕek] \en{sister}, \con{klün} /klən/ [klɨn] \en{son, daughter}
+
+\paragraph{Nature} \con{hi} /hi/ [θi] \en{water}, \con{falu} /faɫʷ/ [faˈɫʷu] \en{sky}, \con{ciś} /tɕiɕ/ [tɕiɕ] \en{river}, \con{hev} /hev/ [hev] \en{cow}
+
+
+\subsubsection{Other} 
+Native numbers 1–3 remain in use: \con{ha} /hə/ [hə] \en{one}, \con{zal} /tsal/ [tsal] \en{two}, \con{khi} /ki/ [ki] \en{three}; beyond this, Romansh numbers are used.
+
+The conjunction \con{chü} /xʷi/ [xʷy] \en{and} is inherited, otherwise loans are used.
+
+Adjectives for colors are partially inherited, see \ref{ssec:colors}.
+
+Articles are derived from native words, see \ref{ssec:nominals}.
+
+\subsection{Sound Symbolism}
+\langname{} shows a form of derivational sound symbolism that can be considered vaguely grammatical in nature. 
+
+
+\paragraph{Augmentatives} Labialized onsets are associated with big size and intensity. For example, \con{rüf} \en{brother}, \con{rof} \en{big brother}, showing a change from /r/ to /ʀʷ/. With verbs, it implies a volitional action which required effort, e.g. \con{cüh-} /tʃʷih/ [tʃʷyh] \en{to shout} (from \en{to speak}). This can also apply to verbal complements: \con{giaro leger} /ɟaʀʷə leɟər/ [ɟaʀʷo leɟɨr] \en{read} → /ɟaʀʷə ɫʷeɟər/ [ɟaʀʷo ɫʷøɟɨr] \en{study a text} (sp. identical). This whole process may be applied to only the first syllable in a word, or to the whole word, with increasing intensity.
+
+\paragraph{Speed} Sibiliants, especially /s/ are associated with fast things. Nouns can undergo a change wherein velar stops become alveolo-palatal affricates and alveolar stops spirantize, becoming fricatives. Voicing and roundedness is preserved. At a more extreme, velar stops may become alveolar affricates instead. \con{Giat} /ɟat/ \en{cat} → /dʑas/ \en{fast cat}. The process may also be reversed for opposite effect: \con{utschè} /ətʃʷe/ \en{bird} → /əkʷe/ \en{slow bird}. Spelling remains unaffected.
+
+
+\subsection{Colors} \label{ssec:colors}
+
+\langname{} features four basic color terms only: \con{śaz} /ʑats/ \en{black}, \con{mur} /mər/ \en{white}, \con{tik} /tʷic/ \en{row\footnote{red\textasciitilde{}yellow, i.e. warm colors}} and \con{vglanu} /vʎanʷ/ \en{grue\footnote{green\textasciitilde{}blue, i.e. cold colors}}. These may be directly followed by a more precise romansh color adjective, or a noun that further describes the color. As an example, take the following sentence:
+
+\enumsentence{\ex{Tü fluor amo vglanu tschêl.}
+	\shortex{5}
+	{Tü&fluor&am-o-∅&vglanu&tschêl}
+	{\gl{dist}&flower&\gl{cop-act-3s}&grue&sky}
+	{\en{The flower is blue.} (lit. sky-grue)}
+}
+
+Instead of \con{tschêl} \en{sky}, one could also simply use the Romansh color adjective \con{blau} \en{blue}, but not only that on its own. All color descriptions require the use of one of the four native color terms.
+
+
+
+
+
+
+\newpage
+\section{Morphology}
+
+\subsection{Verbs} \label{ssec:verb-inflection}
+Verbs inflect for tense and voice, and sometimes person or number with suffixes:
+
+\subsubsection{Non-Past tenses}
+In the non-past tenses,the stem is followed by a voice suffix, then a TAM suffix, and sometimes a person/number suffix.
+
+\paragraph{Voice: Active} The active voice is marked by \con{-a} /ə/. This triggers the following lenitions in verb stems: 
+\begin{itemize}
+\item \con{cih-a} /tɕih-ə/ → \con{cü} /tɕə/ 
+\item \con{śech-a} /ɕex-ə/ → \con{śeha} /ɕehə/ 
+\item \con{caf-a} /dʑaf-ə/ → \con{cavo} /dʑavə/
+\end{itemize}
+
+\paragraph{Voice: Passive} The passive voice is marked by \con{-ko} /kʷo/. This has some interactions with the stems too:
+\begin{itemize}
+\item \con{khir-ko} /kir-kʷo/ → \con{khiro} /kiʀʷo/
+\item \con{tir-ko} /tir-kʷo/ → \con{tiro} /tiʀʷo/
+\item \con{śech-ko} /ɕex-kʷo/ → \con{śecho} /ɕexʷo/
+\item \con{śgnil-ko} /ɕɲil-kʷo/ → \con{śgnilo} /ɕɲiɫo/
+\end{itemize}
+
+\paragraph{TAM: Present Indicative} The present indicative is used with all statements happening at the very moment, as well as general truths. It is marked with a person marker on its own, see table \ref{person} for a list.
+
+\paragraph{TAM: Future Indictative} The future indicative is used for all statements concerning the future, even very immediate ones. It is marked by the suffix |R|, realized as \con{-r} after unrounded, and as \con{-ru} /ʀʷ/ after rounded vowels.
+
+\paragraph{TAM: Present Interrogative} The present interrogative is used for questions pertaining truths about present states or general facts. It is marked with the suffix |La|, realized as \con{-gla} /ʎa/ after high vowels (including allophonic ones), and as \con{-la} /la/ otherwise. It is followed by the 3p person marker to indicate plural number (for any person).
+
+\paragraph{TAM: Future Interrogative} The future interrogative is marked by the suffix \con{-la} /ɫʷa/. It asks questions about future actions and states.
+
+\subsubsection{Past tenses}
+In the past tenses, aspect gets marked with a single morpheme, followed by mood. Voice marking is merged with person/number marking, which happens on all indicative forms, and number marking on all interrogative forms (compare present tense). The copula has a suppletive past stem \con{nug-} /nʷəɟ/.
+
+\paragraph{Aspect: Aorist} The aorist is used to describe single instances of an action seen as a whole, with no regards to internal composition. It is marked by partial reduplication of the stem: the vowel and the final consonant are reduplicated. Thus, e.g. \con{giar-} → \con{giarar-} /ɟaʀʷaʀʷ/. 
+
+\paragraph{Aspect: Continuous} The past continuous, on the other hand, is used to describe ongoing processes. It may also be used as an habitual aspect. It is also formed by reduplication, but in this case, full reduplication of the verb stem. However, stem-final fricatives are elided medially under this reduplication, giving the following irregular forms:
+\begin{itemize}
+\item \con{\redup{cih}} /\redup{tɕih}/ → \con{cicih} /tɕitɕih/
+\item \con{\redup{śech}} /\redup{ɕex}/ → \con{śeśech} /ɕeɕex/
+\item \con{\redup{caf}} /\redup{dʑaf}/ → \con{cacaf} /dʑadʑaf/
+\end{itemize}
+
+\paragraph{Mood: Indicative} The indicative is used as it is in the non-past tenses. It remains unmarked.
+
+\paragraph{Mood: Interrogative} The interrogative is used as it is in the non-past tenses. It is marked by a suffix \con{-l} /l/, but the actual form of this suffix is heavily dependent on following and preceding sounds:
+\begin{itemize}
+\item If preceded by a trill or approximant, or followed by any consonant but those, or both, it is realized as /əl/.
+\item If followed by a trill or approximant, it is realized as /lə/.
+\item If both of these are true, it is realized as /ə/.
+\item Otherwise, it is realized as /l/.
+\end{itemize}
+
+\subsubsection{Imperative}
+The imperative is marked by dysfix: the last consonant of the verbal root is removed. The following irregularities occur:
+\begin{itemize}
+\item The copula \con{am} does not have an imperative.
+\item Metathesis occurs in the imperative of \con{śgnil}: it becomes \con{śign} /ɕiɲ/.
+\end{itemize}
+
+\subsubsection{Person marking} \label{sssec:person-markers}
+
+There are three sets of person markers: non-past, past active and past passive. For interrogatives which allow number marking, the appropriate 3s form is used for singular, and 3p for plural.
+\begin{table}[H]
+\centering
+\begin{tabular}{c|ccc}
+   & NPST                                                     & PST-A                                                     & PST-P                                                        \\\hline
+1s & \begin{tabular}[c]{@{}c@{}}\con{-m}\\ /m/\end{tabular}   & \begin{tabular}[c]{@{}c@{}}\con{-ma}\\ /mə/\end{tabular}  & \begin{tabular}[c]{@{}c@{}}\con{-tül}\\ /təl/\end{tabular}   \\\hline
+2s & \begin{tabular}[c]{@{}c@{}}\con{-lu}\\ /ɫʷ/\end{tabular} & \begin{tabular}[c]{@{}c@{}}\con{-lo}\\ /ɫʷə/\end{tabular} & \begin{tabular}[c]{@{}c@{}}\con{-gnü}\\ /ɲə/\end{tabular}    \\\hline
+3s & \begin{tabular}[c]{@{}c@{}}\con{-∅}\\ /∅/\end{tabular}   & \begin{tabular}[c]{@{}c@{}}\con{-a}\\ /ə/\end{tabular}    & \begin{tabular}[c]{@{}c@{}}\con{ciś}\\ /tɕiɕ/\end{tabular}   \\\hline
+1p & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}\con{-mim}\\ /mim/\end{tabular}}                                       & \begin{tabular}[c]{@{}c@{}}\con{-tul}\\ /tʷəl/\end{tabular}  \\\hline
+2p & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}\con{-lol}\\ /ɫʷəɫʷ/\end{tabular}}                                     & \begin{tabular}[c]{@{}c@{}}\con{-ngul}\\ /ŋʷəl/\end{tabular} \\\hline
+3p & \begin{tabular}[c]{@{}c@{}}\con{-s}\\ /s/\end{tabular}   & \begin{tabular}[c]{@{}c@{}}\con{-l}\\ /l/\end{tabular}    & \begin{tabular}[c]{@{}c@{}}\con{ciś}\\ /tʃʷiʃʷ/\end{tabular}
+\end{tabular}
+\caption{Person marking suffixes}
+\label{person}
+\end{table}
+
+
+\subsection{Nominals} \label{ssec:nominals}
+Native nouns are very simple morphologically: they merely inflect for plural number, with a suffix \con{-s} /s/ after vowels, or \con{-al} /əl/ after consonants. Inherited nouns also show plural inflection, usually according to the rules those words show in Romansh. Some irregular plurals may be regularized, but this is not systematically done. 
+
+Romansh nouns are distinguished into two noun classes: masculine and feminine, and this is marked on articles and adjectives agreeing with the noun. In contrast, \langname{} does not have such a distinction. For any noun, the same set of articles is used: \con{tü} \en{that} for definite (\en{the}) and \con{ha} \en{one} for indefinite (\en{a(n)}). For adjectives, agreement is done as is in Romansh if: 1) both the noun and adjective are Romansh and 2) the words are immediately adjacent, with no \langname{} material intervening. In any other situation, the masculine form of the adjective (which, in Romansh, is the base form) is used. Number agreement is however always employed. For loaned adjectives, the plural form is also loaned. The few native adjectives that exist take the same plural marker as native nouns.
+
+\subsubsection{Genitive}
+\langname{} pronouns have a genitive case, nouns lack this however. Genitive constructions are built as \emph{possessor - genitive pronoun - possessee}. For example:
+
+\enumsentence{\ex{Mlun apa ans cudesch}
+	\shortex{5}
+	{mlun&apa&ans&cudesch}
+	{my&father&his&book}
+	{\en{My father’s book}}
+} 
+
+\section{Translations}
+
+\subsection*{176. Sit here by yourself.}
+
+\con{Ca sezzer kühi sulet.}\\
+/dʑa setsər kəhi sʷəlet/\\
+{[}dʑa ˈsetsɨr kəˈθi sʷuˈlet]
+
+\enumsentence{
+	\shortexnt{5}
+	{ca&sezzer&kü-hi&sulet}
+	{\gl{imp}\textbackslash{}go&sit&\gl{prox-loc}&alone}
+}
+
+\noindent\emph{Sit here alone!}
+
+\paragraph{Verbal compound} There is no native word for \en{sit}. Instead, the Romansh infinitive is compounded with the best fitting native verb, \con{caf} \en{to go}. The latter is then inflected appropriately, and the whole compound takes on the meaning of \en{sit!}.
+
+\paragraph{Syntax} \langname{}’s syntax essentially mirrors that of Romansh due to long contact (the latter in turn more or less mirrors that of Swiss German for the same reason). As such, imperatives have mandatory verb-fronting, even though they’re explicitly marked morphemically (much moreso than in Romansh).
+
+
+\subsection*{152. The market begins five minutes earlier this week.}
+
+\con{Tü faira khirür cumanzar tschinch minuts anteriur in ka eivna.}\\
+/tə ferə kirər kʷəmantsər tʃʷinc minʷəts ənteriər in kə evnʷa/\\
+{[}tɨ ˈførɨ kiˈrɨr kʷomanˈtsɨr tʃʷync miˈnʷuts ənteriˈər in kə ˈev.nʷa]
+
+\enumsentence{
+	\shortexnt{5}
+	{tü&faira&khir-ü-r&cumanzar&tschinch}
+	{\gl{dist}&market&do-\gl{act-fut.ind}&begin&five}
+	\shortexnt{5}
+	{minut-s&anteriur&in&ka&eivna}
+	{minute-\gl{pl}&earlier&in&\gl{prox}&week}
+}
+
+\noindent\emph{The market will begin five minutes earlier in this week.}
+
+
+\subsection*{14. Happy people often shout.}
+
+\con{Persunas furtünadas cüs sbragir frequaint.}\\
+/peʀʷsʷənəs fərtʷinadəs tɕəs ʒʷbʀʷaɟir fʀʷekʷent/\\
+{[}pøʀʷˈsʷunɨs fortʷyˈnadɨs tɕɨs ʒʷbʀʷaˈɟir fʀʷeˈkʷønt]
+
+\enumsentence{
+	\shortexnt{5}
+	{Persuna-s&furtüna-da-s&cü-s&sbragir&frequaint}
+	{person-\gl{pl}&happy-\gl{fem}-\gl{pl}&speak.\gl{act}-\gl{3p}&shout&frequently}
+}
+
+\noindent\emph{Happy people shout frequently.}
+
+\paragraph{Gender agreement} As both the noun \con{persunas} and the adjective \con{furtünadas} are Romansh, and directly adjacent, gender agreement is done. However, in a sentence like “People are happy”, the masculine (i.e. base) form of the adjective would be used.
+
+\subsection*{91. A robin has built his nest in the apple tree.}
+
+\con{Ha gulacotschen khirirü construir ans gnieu in tü bös-cha da maila.}\\
+/hə dʒʷəlatʃʷətsən kirirə kʷənʷsʷtʷʀʷəir ans ɲiev in tə beʃʷca da mela/\\
+{[}hə dʒʷulaˈtʃʷutsɨn kiriˈrɨ kʷonʷˈsʷtʷʀʷoir ans ɲiˈev in tɨ ˈbøʃʷca da ˈmela]
+
+
+
+\enumsentence{
+	\shortexnt{6}
+	{Ha&gulacotschen&kh\redup{ir}-ü&construir&an-∅-s&gnieu}
+	{One&robin&make\textasciitilde{}\gl{aor}-\gl{3s.act}&build&\gl{3-s-gen}&nest}
+	\shortexnt{5}
+	{in&tü&bös-cha&da&maila}
+	{in&\gl{dist}&tree&of&apple}
+}
+
+\noindent\emph{A robin built his nest in the apple tree.}
+
+\paragraph{Sound symbolism} The Vallader word for \en{robin} is pronounced along the lines of [gulaˈkotʃən]. However, this ends up in \langname{} as [dʒʷulaˈtʃʷutsɨn] due to application of the sound symbolism rule that associates sibilants with fast things.
+
+\paragraph{Set constructions} The Romansh word for \en{apple tree} is \con{bös-cha da maila} and this is loaned as such with no regards to internal structure (e.g. alternative genitive constructions).
+
+
+\subsection*{30. He will arrive soon.}
+\con{Bod an cavoru rivar.}\\
+/bəd an dʑavəʀʷ rivar/\\
+{[}bud an dʑaˈvoʀʷu riˈvar]
+
+
+\enumsentence{
+	\shortexnt{5}
+	{bod&an&cav-o-ru&rivar}
+	{soon&\gl{3s}&go-\gl{act}-\gl{fut.ind}&arrive}
+}
+\noindent\emph{Soon he will arrive.}
+
+\paragraph{Gender} The \langname{} sentence is ambiguous about gender, it could just as well read \en{Soon she will arrive.} (but not \en{Soon it will arrive.}, as animacy is distinguished).
+
+\end{document}

@@ -1,0 +1,1039 @@
+\documentclass[paper=6in:9in, fontsize=10.5]{scrbook}
+\usepackage{color}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{multicol}
+\restylefloat{table}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{lingmacros}
+\usepackage{calc}
+\usepackage[strict]{changepage}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\graphicspath{ {images/} }
+\renewcommand*\sectfont{\normalcolor\bfseries}
+\usepackage{enumitem}
+\setlist{noitemsep} 
+
+\setlength{\parskip}{1ex}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}{\parskip}{-1em}{\normalfont\normalsize\bfseries}}
+\makeatother
+
+
+\newfontfamily\lib{Linux Libertine}
+\setmainfont[Ligatures=TeX]{Charis SIL}
+\definecolor{grey}{rgb}{0.84, 0.84, 0.84}
+\newcommand{\gl}[1]{\textsc{#1}}
+\newcommand{\en}[1]{``#1''}
+\newcommand{\mes}[1]{\hspace{0pt}{\color{teal}#1}}
+\renewcommand{\ex}[1]{\mes{#1}\\}
+\newcommand{\orth}[1]{{\lib{}⟨}#1{\lib{}⟩}}
+\newcommand{\plus}{{\lib{}+}}
+\newcommand{\gr}{{\lib{}>}}
+\newcommand{\us}{{\lib\_}} %underscore
+
+\newcommand{\boundellipse}[3]% center, xdim, ydim
+	{(#1) ellipse (#2 and #3)
+}
+
+% These macro's just iterate over every character in the
+% string passed as a macro and executes \dochar{<character>}\inchar 
+% for each character.
+%
+% Try:
+%
+% \def\dochar#1{#1}\dorow{ABCDEF}
+%
+% Result:
+%
+% A&B&C&D&E&F
+%
+\def\dorow#1{\expandafter\DoRow#1\dorow}
+\def\DoRow#1{\ifx#1\dorow\else\dochar{#1}\inchar\expandafter\DoRow\fi}
+
+% Inside a matrix \& shifts to the next cell
+\def\inchar{\&}
+% Inside a matrix \dochar adds a node with the character inside it
+\def\dochar#1{\node[every asr node/.try]{\strut{}#1};}
+
+\tikzset{%
+    % This style is executed for every asr node.
+    % Every asr node contains a single character, and is
+    % named according to \asrprefix and the current matrix column.
+    %
+    % If \asrprefix is A, then the characters are named A-1, A-2, A-3... etc
+    every asr node/.style={
+        inner sep=0pt,
+        anchor=base,
+        name=\asrprefix-\the\pgfmatrixcurrentcolumn,
+    },
+    asr/.style={/tikz/asr/.cd, #1,
+        /tikz/.cd,
+        insert path={%
+            node [matrix, column sep=0pt, ampersand replacement=\&] {\dorow{\asrtext}\\}
+        }
+    },
+    asr/.cd,
+    % The next for the association 
+    text/.store in=\asrtext,
+    text=,
+    % The prefix for every node.
+    prefix/.store in=\asrprefix,
+    prefix=,
+}
+
+
+%\newcommand{\entry}[3]{\noindent\begin{minipage}{\columnwidth}\paragraph{#1} #2\\\noindent #3\\\end{minipage}}
+\newcommand{\simpleentry}[2]{\noindent\begin{minipage}{\columnwidth}\paragraph{#1} #2\\\end{minipage}}
+
+\newenvironment{dict}[1]
+	{\begin{multicols}{2}[\section*{\centerline{#1}}]}
+	{\end{multicols}}
+	
+\newcommand{\lemma}[4]{\noindent\begin{minipage}{\columnwidth}\paragraph{#1} \textit{#2} #3\vspace{0.3ex}\\\-\hspace{1.5em}\begin{minipage}{\columnwidth - 4ex}#4\end{minipage}\end{minipage}}
+\newcommand{\from}[2]{{\lib ⊢} \mes{#1} #2\\}
+\newcommand{\der}[2]{→ \mes{#1} #2\\}
+
+
+\newcommand{\rs}{ȿ}
+\newcommand{\rz}{ɀ}
+\newcommand{\RS}{Ȿ}
+\newcommand{\RZ}{Ɀ}
+\newcommand{\y}{ɨ}
+\newcommand{\ý}{ɨ́}
+\newcommand{\jbar}{ɉ}
+\newcommand{\aschwa}{əₐ}
+\newcommand{\ischwa}{əᵢ}
+\newcommand{\E}{ɛ}
+\newcommand{\dom}[1]{\hspace{0pt}{\color{red}#1}}
+\newcommand{\glem}[1]{\underline{\smash{#1}}}
+%\newcommand{\reg}[1]{\hspace{0pt}{\color{olive}#1}}
+%\newcommand{\dom}[1]{\ul{#1}}
+\newcommand{\reg}[1]{#1}
+
+\let\oldenumsentence\enumsentence
+\let\oldeenumsentence\eenumsentence
+
+
+\renewcommand{\enumsentence}[1]{
+\ifoddpage
+\oldenumsentence{#1}
+\else
+\begin{samepage}\oldenumsentence{#1}\end{samepage}
+\fi
+}
+
+\renewcommand{\eenumsentence}[1]{
+\ifoddpage
+\oldeenumsentence{#1}
+\else
+\begin{samepage}\oldeenumsentence{#1}\end{samepage}
+\fi
+}
+
+\title{A Documentation of the Mesak Language}
+\author{Sascha M. Baer}
+\date{}
+
+\begin{document}
+\frontmatter
+\maketitle
+\newpage
+\tableofcontents
+%\listoftables
+\newpage
+
+\chapter{Introduction}
+
+\mainmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{The Mesittoh People and Culture}
+\section{A Place in the World}
+The Mesak as documented in this book is the language of the inhabitants of a single village named \mes{Sándesdar}\footnote{Named after \mes{\rz{}ámnda sá ndesdar}, a sentence meaning \en{Rest and be glad.}. This sentence features on an inscription on a small stone monument erected at the village center. The clause itself would be pronounced [ˈɻəmⁿdə sə ˈⁿdɛsdaɹ], but the village itself is named [sə̃ˈdɛsdaɹ], the last two words with deletion of the word boundary between them.} located in an isolated mountain valley of approximately alpine climate. The inhabitants of this village, who call themselves \mes{Mesittohvs}\footnote{The \mes{-vs} ending marks for plural and absolutive case. In English this book will refer to the people as the \en{Mesittoh}.} \en{speakers}. The Mesittoh are the first and second generation of people who fled their famine and war-ridden home country over a harsh mountain pass in hopes of finding a better place to live. No connection (in terms of trade or cultural exchange) to the other side of the mountains exists, making the village entirely isolated. 
+
+There are no other nearby human civilizations in the valley, and in fact, as far as anyone can tell, the Mesittoh are one of only two peoples to ever colonize this region — the other being the Semuru, who have in the last century started settling the region from the river delta, at least 5–7 days of travel by foot away. There has not been made contact between the two peoples. The entire river system is very hard to get to by land as there are no easy passes to traverse, and as such until now no one has bothered exploring or colonizing it.
+
+\section{Technology and Labour}
+The Mesittoh are predominantly farmers and hunters. They keep a variety of animals, especially goats, sheep and cows, as well as donkeys (but no horses). Dogs have been domesticated (but their breeds are still fairly close to wild wolves in terms of appearance, and occasionally behaviour). While the Mesittoh did not originally keep cats, the Semuru have brought them to the region as an invasive species and some Mesittoh have taken in feral cats (who have spread throughout the valleys). 
+
+In terms of technology, the Mesittoh know how to work with various metals, most importantly iron. Each Mesittoh family collectively tends to a large farm and owns lifestock. During times where farming is not as time-intensive, farmers spend their days in the mines, as metals are scarce and valuable. Other professions involve smithing, tanning and woodworking. Houses are built predominantly out of wood, though stone is used both for foundations and as decoration.
+
+Work and resources are generally traded either directly or via contracts between families. For example, one family might trade some sheep in exchange for help with building a house, or they might instead promise a share of their next harvest. Such contracts are traditionally carved into flat stones: one is given to each party involved, and one to a neutral third party. At time of resolution, all parties come together to formally complete the contract by carving a big strike-through into each of the stones. Less formal contracts may be written on tree bark and without a third party, but these are not considered legally binding.
+
+\section{Clans and the Legal System}
+The concept of clans\footnote{In Mesak, no distinction is made between \en{clan} and \en{family}. Anyone within ones clan is considered a close relative, be they brother or third cousin, and marriage within the family is taboo. Nevertheless in this book I will use the word \en{clan} to avoid confusion with the European concept of a family.} is integral to the culture of the Mesak as both their social and legal system revolves around them.
+
+Membership in a clan is passed down matrilinearly. At birth, therefore, every Mesittoh belongs to the same clan as their mother. At marriage, men enter the clans of their wives, losing any ties to their birth clan. If the marriage ends by death of the woman, then the man will remain a member of her clan. A man can however also decide to leave a marriage, as long as no children have been conceived. In this case, he will return to his clan. Similarly, a woman may request her clan to reject her husband and send him back to his clan. Once the wife has become pregnant, the marriage is sealed for good and cannot be broken except by death or banishment of one or both of the partners. If a marriage is broken either way, both people are free to marry anew.
+
+Clans form the basis of the legal system. If a member of society is found to have commited unjust behaviour such as theft or murder, then they will be put on trial by their clan. The clan elders interrogate the accused and ultimately call a judgement. Punishments may range from compensation by means of physical goods or free work to, in more severe cases, banishment. Capital punishments are not done, as it is strictly forbidden to harm members of ones own clan, and by banishing someone, the clan loses their jurisdiction over them to call for death.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Phonology}
+\section{Vowels} \label{sec:vowel}
+There are many ways with which the vowel system of the Mesak language could be described. After much deliberation, I have opted for a somewhat abstract approach, which in my opinion creates an ultimately much simpler and more consistent system than other, perhaps more straightforward analyses. 
+
+To explain the behaviour of vowels and how they interact with certain consonants, I posit 6 vowel phonemes as well as an underlying feature [+ATR], which is responsible for harmonic effects.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.5]
+\large
+\tikzset{
+    vowel/.style={fill=white, anchor=mid, text depth=0ex, text height=1ex, font=\Large},
+    dot/.style={circle,fill=black,minimum size=0.4ex,inner sep=0pt,outer sep=-1pt},
+}
+\coordinate (hf) at (0,3); % high front
+\coordinate (hb) at (4,3); % high back
+\coordinate (lf) at (2,0); % low front
+\coordinate (lb) at (4,0); % low back
+\def\V(#1,#2){barycentric cs:hf={(3-#1)*(2-#2)},hb={(3-#1)*#2},lf={#1*(2-#2)},lb={#1*#2}}
+
+
+% Draw the horizontal lines first.
+\draw (\V(0,0)) -- (\V(0,2));
+\draw (\V(1,0)) -- (\V(1,2));
+\draw (\V(2,0)) -- (\V(2,2));
+\draw (\V(3,0)) -- (\V(3,2));
+
+% Draw the vertical lines.
+\draw (\V(0,0)) -- (\V(3,0));
+\draw (\V(0,1)) -- (\V(3,1));
+\draw (\V(0,2)) -- (\V(3,2));
+
+%Draw the vowels
+\path(\V(0.6,0.15))     node[vowel] (i) {i};
+\path(\V(1,1))     	    node[vowel] (ə) {\y};
+\path(\V(0.6,1.85))     node[vowel] (u) {u};
+\path(\V(2,0))             node[vowel] (e) {ɛ};
+\path(\V(2,2))             node[vowel] (o) {ɔ};
+\path(\V(2.5,1))         node[vowel] (a) {a};
+
+%Draw the blobs
+\draw [dashed] plot [smooth cycle] coordinates  {(\V(0,-0.1)) (\V(1.2,-0.1)) (\V(1.2, 0.3)) (\V(0,0.3)) }; %i
+\draw [dashed] plot [smooth cycle] coordinates  {(\V(0,2.1)) (\V(1.2,2.1)) (\V(1.2, 1.7)) (\V(0,1.7)) }; %u
+\draw [dashed] plot [smooth cycle] coordinates  {(\V(0,0.8)) (\V(1.7,0.8)) (\V(1.7, 1.2)) (\V(0,1.2)) }; %ə
+\draw [dashed] plot [smooth cycle] coordinates  {(\V(3,0.1)) (\V(2,0.5)) (\V(1.2,0.8)) (\V(1.2,1.4)) (\V(2,1.7)) (\V(3,1.9)) }; %a
+\draw [dashed] plot [smooth cycle] coordinates  {(\V(2.1,-0.1)) (\V(2.1,0.1)) (\V(1.85,0.1)) (\V(1.85,-0.1)) }; %ε
+\draw [dashed] plot [smooth cycle] coordinates  {(\V(2.1,1.9)) (\V(2.1,2.1)) (\V(1.85,2.1)) (\V(1.85,1.9)) }; %ɔ
+\end{tikzpicture}
+\caption{Vowel Ranges}
+\label{vow}
+\end{figure}
+
+Figure \ref{vow} shows each vowel phoneme and its associated range. A few notes on distribution and orthography:
+
+\begin{itemize}
+\item The high vowels /i \y{} u/ can range from very high [i \y{} u] to near-mid [e ə o]. They are spelled \orth{i v u}.
+\item The low vowel /a/ not only is essentially unspecified for frontness, it can reach heights overlapping with the central high vowel /\y/. Nevertheless, as explained below, this does not cause ambiguity. It is spelled \orth{a}.
+\item The two low-mid vowels /ɛ ɔ/ show barely any spread at all. They are spelled \orth{e o}.
+\end{itemize}
+
+The large vertical ranges found in most vowels can be easily explained with the specification of the feature [+ATR] (advanced tongue root). Vowels which are marked for this feature are raised significantly, with the exception of the low-mid vowels, which appear to be immune to this effect. This is illustrated in the following chart:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.5]
+\large
+\tikzset{
+    vowel/.style={fill=white, anchor=mid, text depth=0ex, text height=1ex, font=\Large},
+    dot/.style={circle,fill=black,minimum size=1.3ex,inner sep=0pt,outer sep=-1pt},
+}
+\coordinate (hf) at (0,3); % high front
+\coordinate (hb) at (4,3); % high back
+\coordinate (lf) at (2,0); % low front
+\coordinate (lb) at (4,0); % low back
+\def\V(#1,#2){barycentric cs:hf={(3-#1)*(2-#2)},hb={(3-#1)*#2},lf={#1*(2-#2)},lb={#1*#2}}
+
+
+% Draw the horizontal lines first.
+\draw (\V(0,0)) -- (\V(0,2));
+\draw (\V(1,0)) -- (\V(1,2));
+\draw (\V(2,0)) -- (\V(2,2));
+\draw (\V(3,0)) -- (\V(3,2));
+
+% Draw the vertical lines.
+\draw (\V(0,0)) -- (\V(3,0));
+\draw (\V(0,1)) -- (\V(3,1));
+\draw (\V(0,2)) -- (\V(3,2));
+
+%Draw the vowels
+\node[dot,label={[label distance=-1pt]below right:[e]}] at (\V(1,0.2)) (e) {};%e
+\node[dot,label={[label distance=-1pt]below:[o]}] at (\V(1,1.8)) (o) {};%o
+\node[dot,label={[label distance=-1pt]right:[ə]}] at (\V(1.5,1)) (ə) {};%ə
+\node[dot,label={[label distance=-1pt]below:[a]}] at (\V(3,1)) (a) {};%a
+\node[dot,label={[label distance=-1pt]left:[i]}] at (\V(0,0)) (i) {};%i
+\node[dot,label={[label distance=-1pt]below right:[\y]}] at (\V(0,1)) (\y) {};%v
+\node[dot,label={[label distance=-1pt]right:[u]}] at (\V(0,2)) (u) {};%u
+\node[dot,label={[label distance=-1pt]left:[ɛ]}] at (\V(2,0))  {};%ɛ
+\node[dot,label={[label distance=-1pt]right:[ɔ]}] at (\V(2,2)) () {};%ɔ
+%Draw arrows
+\draw [-latex, shorten >= 2pt, line width=2pt] (e) -- (i);
+\draw [-latex, shorten >= 2pt, line width=2pt] (o) -- (u);
+\draw [-latex, shorten >= 2pt, line width=2pt] (a) -- (ə);
+\draw [-latex, shorten >= 2pt, line width=2pt] (ə) -- (\y);
+\end{tikzpicture}
+\caption{Vowel Shifts under [+ATR]}
+\label{vow-atr}
+\end{figure}
+
+The feature [+ATR] can be marked on any amount of vowels within a word, altering their pronunciation as shown in the previous chart. In phonemic analyses it will be represented with an acute over the vowel. The term \emph{marked vowel} henceforth refers to a vowel marked for this feature, and \emph{unmarked vowel} analogously to one which is not marked for [+ATR].
+
+\subsection{Harmony} \label{ssec:harmony}
+
+If a vowel is marked for [+ATR] then this feature procedes to spread rightwards to all subsequent vowels in the word (an example of progressive harmony). This is best illustrated autosegmentally:
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}
+\node () at (0, 0) {/aɓams{\dom{í}}kp{\y}ɔ/}; 
+\path (0,-0.5) [asr={prefix=A, text=[aɓams{\dom{i}}ppəjɔ]}]; 
+
+\node [below of=A-7] (H) {[+ATR]};
+\draw (H.north) -- (A-7.south);
+
+\draw [-latex, line width=1.5pt] (2,-1) -- (3,-1);
+
+\node () at (5, 0) {/aɓams{\dom{í}}kp{\y}ɔ/}; 
+\path (5,-0.5) [asr={prefix=B, text=[aɓam{\dom{s}}{\dom{i}}{\dom{p}}{\dom{p}}{\dom{\jbar}}{\dom{ɔ}}]}]; 
+
+\node [below of=B-7] (H) {[+ATR]};
+\draw (H.north) -- (B-7.south)
+	(H.north) -- (B-10.south)
+	(H.north) -- (B-11.south);
+
+\end{tikzpicture}
+\caption{Spreading of [+ATR]}
+\end{figure}
+
+The attentive reader may have noticed that the consonants preceding the marked vowels have also been coloured red. There is, of course, a reason for this: The [+ATR] feature not only affects vowels, but also has effects on prevocal consonants. These effects will be explained in detail in \ref{sec:cons}. Additionally, one might notice that in the left form there is an unexplained [j], and in the right one an equally unexplained [\jbar]. These are consequences of vowel cluster allophony, which will be explained in \ref{sssec:vowel_cluster}. It might be worth revisiting this example after having read this subsection.
+
+The spreading of the [+ATR] feature is very pervasive in Mesak phonology, and may well be the most important phonological rule of the language. It is not blocked by morpheme boundaries, not even by compounding of roots, as may happen e.g. with the incorporation of noun roots into a copulative verb. Even stressed vowels are readily raised under this effect, and no amount of intervening consonants appear to be able to block the harmony. This means that it is impossible for an unraised vowel, such as [a], to appear after a raised vowel, such as [i], within the same word. 
+
+Special attention should be paid to the phone [ə]. This sound can appear both as the unraised form of /\y/ as in /huntʂɛ\y{}i/ [ʁ̞oᶯɖ.ʂɛ.ˈj\glem{ə}.je] \en{it burns}, or as the raised form of /a/ as in \mbox{/sítam/} [si.ˈt\glem{ə}m] \en{more}.
+
+
+\subsection{Vowel Allophony}  
+There are additional rules governing the allophony of vowels. The most important one of these is vowel cluster reduction, but there is one additional important rule:
+
+\subsubsection{Low Vowel Variation} Unlike the other vowels, /a/ undergoes considerable variation adjacent to certain consonants. Specifically: 
+\begin{itemize}
+\item When adjacent to /h/ or after retroflex consonants, it is retracted and realized as [ɑ]
+\item When following alvolar or dental consonants, it is fronted to [æ]\footnote{Throughout the book, the symbol [æ] will stand for a low front vowel (standard IPA [a]).}. In the case of /h/ in the coda, the retraction takes precedence, leading to [ɑ].
+\item Otherwise, it is realized as [a]\footnote{Throughout the book, the symbol [a] will stand for a low central vowel (standard IPA [ä]).}
+\end{itemize}
+
+It must be emphasized however, that this variation is overwritten by the [+ATR] feature, which uniformly raises /a/ to [ə] regardless of environment.
+
+\subsubsection{Vowel Clusters}\label{sssec:vowel_cluster}
+There are several rules governing the simplification of vowel sequences. These are dependent on the \emph{surface form} of the vowels in the cluster, i.e. the precise phones that surface after application of other allophony rules, in particular the spreading of [+ATR]. 
+
+For the purposes of these rules, vowel phones can be grouped into three categories: 
+\begin{itemize}
+\item \textbf{H}, the high vowels [i \y{} u]
+\item \textbf{M}, the mid vowels [e ɛ ə ɔ o]
+\item \textbf{L}, the low allophones of /a/, i.e. [æ\textasciitilde{}a\textasciitilde{}ɑ], but not [ə]
+\end{itemize}
+
+The following rules applied in order describe the cluster rules of Mesak exactly:
+
+\paragraph{LL} In the case of two non-identical low vowels, such as [æa], the cluster is realized as a diphthong with offglide, i.e. with the first segment as the nucleus. This offglide is \emph{not} considered a vowel for the purposes of subsequent rules.
+
+\paragraph{HM, MH, LH} A high vowel next to a non-high one turns into a semivowel: /aí a\ý{} aú/ [aj a\jbar{} au]
+
+\paragraph{VV} Two identical vowels turn into a single long vowel (which is henceforth treated as a single segment and can undergo further changes). /ii / [eː]
+
+\paragraph{MM} [j] is inserted between any two non-identical mid vowels: /eo/ [ejo], /oɔ/ [ojɔ]
+
+\paragraph{ML, LM, HH} In the remaining cases, the vowels simply appear in hiatus.
+
+\noindent{}Note that since high vowels only exist under marking for [+ATR], while low vowels only appear in the absence of this feature, the sequence \textbf{HL} is not possible.
+
+
+
+
+
+\section{Consonants} \label{sec:cons}
+
+The following table shows the consonant inventory of Mesak:
+
+
+\begin{table}[H]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{tabu}{r|ccc|ccc|cc|ccc}
+&\multicolumn{3}{c|}{P}&\multicolumn{3}{c|}{T}&\multicolumn{2}{c|}{R}&\multicolumn{3}{c}{K}\\\hline
+\multirow{2}{*}{N}&&m&&&n&&&&&ŋ \\
+&&\orth{m}&&&\orth{n}&&&&&\orth{ñ}\\
+\multirow{2}{*}{S}&p&ᵐb&ɓ &t &ⁿd&ɗ&&&k &ᵑɡ &ʄ \\
+&\orth{p}&\orth{mb}&\orth{b}&\orth{t}&\orth{nd}&\orth{d}&&&\orth{k}&\orth{ñg}&\orth{g}\\
+\multirow{2}{*}{F}&&&&s&&z&ʂ&&&\\
+&&&&\orth{s}&&\orth{z}&\orth{\rs}&&&\\
+\multirow{2}{*}{A}&&&&&&ɹ&&ɻ&&&h\\
+&&&&&&\orth{r}&&\orth{\rz}&&&\orth{h}\\
+
+\end{tabu}
+\caption{Consonants}
+\label{cons}
+\end{table}
+
+
+\paragraph{Coronals} The consonants in the second column are all produced laminally. The nasals and plosives are dental [n̪ t̪ ⁿd̪ ɗ̪], the fricatives and the approximant are alveolar [s z ɹ]. The consonants in the third column are apical retroflex consonants. /ɻ/ is pronounced with some friction [ɻ̝] in initial position. 
+
+Alveolars assimilate to nearby retroflex sounds: If both alveolars and retroflexes occur within the same cluster, or separated by at most one vowel, then the alveolar consonants become retroflex. In particular /n t ⁿd ɗ s/ become [ɳ ʈ ᶯɖ ᶑ ʂ], /z ɹ/ both become [ɻ].\footnote{In romanization, retroflex assimilation is shown for /s z ɹ/ which are respelled \orth{\rs{} \rz{} \rz{}}. The other consonants are spelled as usual.}
+
+\paragraph{Dorsals} Most dorsals, specifically /ŋ k ᵑg/ have velar realizations. However, the implosive /ʄ/ is palatal and the rhotic, transcribed as /h/, is actually pronounced as a voiced uvular [ʁ̞]. Representing it as /h/ has been done purely for aesthetic purposes.
+
+\paragraph{Plosives} Immediately preceding vowels, the two series of voiced plosives are non-contrastive: They are realized as [ᵐb ⁿd ᵑg ] if the following vowel is marked for [+ATR] and as [ɓ ɗ ʄ] otherwise (see \ref{sec:vowel}, and in particular \ref{ssec:harmony}). In other positions, the two rows are contrastive.
+
+If a prenasalized stop is immediately preceded by a vowel, then the nasality is realized on the vowel. For example, \mes{tánda} \en{at, on} is pronounced [tə̃də].
+
+Implosives become plain voiced plosives if not immedately preceding a vowel.
+
+
+\subsection{Consonant Clusters}
+Clusters between all these consonants can appear, especially across morpheme boundaries. In this case, various interactions may occur.
+
+\paragraph{NS → S[+nasal]} If a nasal precedes a homorganic plosive, the two merge into a prenasalized stop. Contrast between plosives is therefore lost in this position. This resulting sound is subject to the allophony before vowels and turns into an implosive before vowels without the [+ATR] feature. 
+
+\paragraph{SS → Sː} In a cluster of two plosives, they turn into a geminate, taking on both voicing and place of articulation from the second sound. However, if either of the sounds is a prenasalized stop, the cluster will be pronounced that way. Thus /ɗp/ is pronounced as [pː] but /ⁿdp/ as [ᵐbː]. Once more, this resulting sound turns into an implosive before unmarked vowels.
+
+\paragraph{Ah, hA → Aː} If the phoneme /h/ clusters with one of the other rhotics, it disappears, causing compensatory lengthening on the other sound.  
+
+\paragraph{K → Q / \_h} If the phoneme /h/ follows a velar consonant, that consonant becomes uvular.
+
+\paragraph{s, ʂ → z, ɻ ~ / \_C[+voice]} The fricatives merge into their voiced counterparts before a voiced consonant.
+
+
+
+
+\section{Word Structure}
+\subsection{Phonological Restrictions on Morphemes}
+Almost all Mesak 
+\subsection{Syllable Structure}
+\subsection{Stress}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Nominals}
+
+\section{Countability}
+Noun can be broadly subdivided into two classes: count nouns and mass nouns. While count nouns inflect for number and case, mass nouns only inflect for case. Many mass nouns are so only grammatically and are often coupled with a classifying counting noun. 
+
+The division between mass and count nouns is chiefly semantic in nature. Most nouns referring to logically countable things are in fact count nouns, and most nouns referring to uncountable things are mass nouns. However, there is some sense in which count is the default class from which mass may be derived: For one, there are certain semantic classes (such as times of day) which are always mass nouns of a certain subclass (see \ref{ssec:class}) but none that are exclusively count nouns, and secondly there are certain affixes that turn nouns into a certain subclass of mass nouns, but none that turn nouns into count nouns.
+
+\subsection{Number} \label{ssec:nounnumber}
+Count nouns are inflected for number with a binary marker: \mbox{\mes{-o-}} for singular and \mes{-v-} for plural. Here, the singular acts as the default number. Plural number is only employed for true plurals, that is, when talking about multiple instances of a noun. Collectives as well as negations are inflected with singular morphology. Note that number cross-referencing on verbs may not always agree with the marking on nouns, as in (\ref{noun-number-coll}) and (\ref{noun-number-negcoll}). This is explained in detail in \ref{ssec:verbnumber}.
+
+\eenumsentence{
+		\item\ex{Paros guhgidos.}
+		\shortex{2}
+		{par-o-s&guh-gind-o-s}
+		{dog-\gl{sg}-\gl{abs}&black-be-\gl{sg}-\gl{3}}
+		{\en{The dog is black.} \emph{or} \en{A dog is black.}}
+		
+		
+		\item\ex{Parvs guhgidvs.}
+		\shortex{2}
+		{par-v-s&guh-gind-v-s}
+		{dog-\gl{pl}-\gl{abs}&black-be-\gl{pl}-\gl{3}}
+		{\en{(Multiple) dogs are black.}}
+		
+		\item\ex{Paros guhgidvs.}
+		\shortex{3}
+		{par-o-s&guh-gind-v-s}
+		{dog-\gl{sg}-\gl{abs}&black-be-\gl{pl}-\gl{3}}
+		{\en{Dogs are black (in general).}} \label{noun-number-coll}
+		 
+		\item\ex{Hos paros zúñggindhevs.}
+		\shortex{3}
+		{h-o-s&par-o-s&zúñg-gind-he-v-s}
+		{no-\gl{sg}-\gl{abs}&dog-\gl{sg}-\gl{abs}&green-be-\gl{neg}-\gl{pl}-\gl{3}}
+		{\en{No dog is green.}} \label{noun-number-negcoll}
+		}
+
+
+\subsection{Class} \label{ssec:class}
+Each mass noun is associated with a class. This class is represented by a classifier in the form of a certain inflected count noun which may optionally direclty precede the mass noun to carry numeric information. The class is also sometimes cross-referenced on the verb, see \ref{ssec:incorporation} for more information.
+
+The following seven classes are distinguished:
+
+\paragraph{Rigid Long} \gl{rig} has the classifier noun \mes{kut-} \en{stick}. It generally, as the name suggests, contains long and rigid things. Also in this class are various nouns of directions.
+
+\paragraph{Non-rigid Long} \gl{nrig} has the classifier noun \mes{bam-} \en{string}. It contains various non-rigid long things, such as \en{river}. Also in this class are times of day.
+
+\paragraph{Flat} \gl{flat} has the classifier noun \mes{pín-} \en{leaf}. It contains all sorts of things which are wider than they are tall such as \en{land}, \en{lake}.
+
+\paragraph{Tall} \gl{tall} has the classifier noun \mes{psur-} \en{tree} and contains things which are taller than they are wide. This is in contrast with \gl{rig}, which contains things of horizontal orientation.
+
+\paragraph{Liquid} \gl{liq} has the classifier noun \mes{tup-} \en{drop} and contains things lacking a solid shape, including liquids, scattered objects and gases.
+
+\paragraph{Container} \gl{cntr} has the classifier noun \mes{\rs{}ap-} \en{place} and contains various hollow things, most notably all nouns with the \mes{\plus{}ak} suffix.
+
+\paragraph{Round} \gl{rnd} has the classifier noun \mes{\rs{}o\rz{}-} \en{thing} and contains all mass nouns that don’t fit into another class, but prototypically roundish things.
+
+
+\noindent{}Including a classifier noun with the mass noun is generally optional, but required if one wants to assign any sort of number information (including determiners or numbers) to the noun. In this case, for the purposes of possession and adjectives, the classifier acts as the head noun. Examples detailing this are provided in the relevant sections (\ref{sec:possession} and \ref{sec:adjectives}). The classifier inflects in the same case as the mass noun and takes the appropriate number marking. 
+
+\eenumsentence{
+		\item\ex{Huni tuphunt\rs{}eoi.}
+		\shortex{2}
+		{hun-i&tup\plus{}hunt\rs{}e-o-i}
+		{fire-\gl{abs}&\gl{liq}\plus{}burn-\gl{sg}-\gl{3}}
+		{\en{A fire is burning.}}
+		
+		\item\ex{Tupos huni tuphunt\rs{}eoi.}
+		\shortex{3}
+		{tup-o-s&hun-i&tup\plus{}hunt\rs{}e-o-i}
+		{\gl{liq-abs-sg}&fire-\gl{abs}&\gl{liq}\plus{}burn-\gl{sg}-\gl{3}}
+		{\en{A fire is burning.}}
+		
+		\item\ex{D\rz{}áno\rs{} tupos huni tuphunt\rs{}evi.}
+		\shortex{4}
+		{d\rz{}án-o-s&tup-o-s&hun-i&tup\plus{}hunt\rs{}e-v-i}
+		{many-\gl{sg-abs}&\gl{liq-abs-sg}&fire-\gl{abs}&\gl{liq}\plus{}burn-\gl{pl}-\gl{3}}
+		{\en{Many fires are burning.}}
+		
+		\item\ex{*D\rz{}áni  huni tuphunt\rs{}evi.}
+		\shortexnt{4}
+		{d\rz{}án-i&hun-i&tup\plus{}hunt\rs{}e-v-i}
+		{many-\gl{abs}&fire-\gl{abs}&\gl{liq}\plus{}burn-\gl{pl}-\gl{3}}
+		}
+
+
+\section{Case}
+Mesak nominals inflect for five cases: absolutive, ergative, essive, dative and instrumental-causal. The ergative occupies a somewhat special spot in this list, as it is constructed in a different way. In terms of usage however, it is as much a case as the other four.
+
+\subsection{Absolutive}
+The absolutive case, marked with the suffix \mes{-s} on count and \mes{-i} on mass nouns, is the default case of all nominals, used as the dictionary and citation form, in titles or when giving ones name. It is also occasionally used with vocative sense, but this practice seems less common among young speakers. See \ref{ssec:vocative} for more informaiton. In discourse, the main uses of the absolutive are the following:
+
+\paragraph{Marking the core argument in intransitive clauses} (\ref{abs_itr}) 
+The sole core argument of a (surface) intransitive verb, if overtly included, is always\footnote{A sole exception exists, see \ref{ssec:ergative}, or \ref{ssec:reflexive} for more detail.} marked with the absolutive case. 
+
+\paragraph{Marking the more patientlike core argument in transitive clauses} (\ref{abs_tr})
+If a verb has two core arguments, i.e. is transitive, then the patient (i.e. the P role) is marked with absolutive case.
+
+\paragraph{Marking the subject of copulative clauses} (\ref{abs_cop})
+Within copulative clauses, the NP that can be identified as the subject takes on absolutive marking. This includes also comparative constructions, the adjectival copula and existential clauses.
+
+\eenumsentence{
+		\item\ex{Kámbos \rz{}ámoi.}
+		\shortex{2}
+		{káb-o-\glem{s}&\rz{}ám-o-i}
+		{man-\gl{sg-\glem{abs}}&sleep-\gl{sg-3}}
+		{\en{The man is sleeping.}} \label{abs_itr}
+		
+		\item\ex{Zemaki a\rs{}aphúknoi.}
+		\shortex{3}
+		{zemak-\glem{i}&a-\rs{}ap\plus{}húk-no-i}
+		{deer-\glem{\gl{abs}}&1-\gl{cont}\plus{}hunt-\gl{sg\gr{}sg}-3}
+		{\en{I shot a deer.}} \label{abs_tr}
+		
+		\item\ex{Psurakkurrohos koñnitot síkkohñgindos.}
+		\shortex{4}
+		{psurakkurroh-o-\glem{s}&koñnit-o-t&síkkoh-gind-o-s}
+		{bear-\gl{sg-\glem{abs}}&largest-\gl{sg-ess}&animal-be-\gl{sg}-3}
+		{\en{The bear is the largest animal.}} \label{abs_cop}
+
+		}
+
+\subsection{Ergative} \label{ssec:ergative}
+The ergative case is rather odd from a morphological standpoint: to mark a noun for ergative, take its absolutive form and attach the clitic \mes{ñ-} to the beginning of the noun phrase. Attaching this clitic has an addition side effect: the noun gets marked for possession by 3s. Thus the ergative of \mes{nis-} \en{eagle} is \mes{ñ-inisnos} \gl{erg=3poss-}eagle\gl{-sg\gr{}sg-abs}. If attached directly to nouns, this clitic will always be followed by a vowel (as third person possessive prefixes are vocalic), but if attached to an adjective, this might not always be the case. In this case there may be an echo vowel preceding the clitic, taking on a quality similar (but more reduced) to the next vowel in the word. This echo vowel is purely phonetic and syllabification of the \mes{ñ} is just as common. The clitic does \emph{not} undergo common allophonic rules such as merging with a following velar plosive. 
+
+There are some restrictions to the appearance of the ergative case: 
+
+\begin{itemize}
+\item Single nouns and nouns modified by adjectives or relative clauses \emph{can} be marked for ergative. Adjectives as well as the relativizer take absolutive agreement.
+\item Possessed nouns \emph{cannot} be marked for ergative.
+\item Noun phrases containing two or more connected nouns \emph{cannot} be marked for ergative.
+\end{itemize}
+
+If ergative marking is blocked by the form of the noun phrase, some voice such as the antipassive must be employed. This may however be impossible due to syntactic constraints. These problems are described in (\ref{ssec:pivot}).
+
+The ergative is pretty rare in discourse, both because it is a rather clunky formation and because it can often be replaced with a verbal marker. In many instances, an antipassive (casting the NP to absolutive) is favoured. It has the following uses:
+
+\paragraph{Marking the actor in a transitive clause}
+If a verb has two core arguments, then the more agentlike (the A role) will be marked with the ergative case.
+
+\paragraph{Marking reciprocal actors}
+The sole argument of a reciprocal verb is marked with the ergative case.
+
+\eenumsentence{
+		\item\ex{Ñ-irvssinos deri ituttirdanvs.}
+		\shortexnt{4}
+		{ñ&=&i-rvssi-no-s&der-i}
+		{\gl{erg}&=&\gl{3poss}-girl-\gl{sg\gr{}sg-abs}&wolf\us{}pack-\gl{abs}}
+		
+
+		
+		\shortex{2}
+		{i-tup\plus{}tirda-nv-s}
+		{3-\gl{liq}\plus{}see-\gl{sg\gr{}pl-3}}
+		{\en{The girl saw a pack of wolves.}} \label{erg_tr}
+		
+		\item\ex{ Ñ-isísnvs bañuñgsavi. }
+		\shortex{4}
+		{ñ&=&i-sís-nv-s&bañ-uñg-sa-v-i}
+		{\gl{erg}&=&3-child-\gl{sg\gr{}pl-abs}&speak-\gl{dat-refl-pl-3}}
+		{\en{The children are speaking with each other.}} \label{erg_recip}
+		
+		}
+
+\subsection{Essive}
+The essive case is Mesak’s most commonly used and most important oblique case. In its prototypical use it converts a noun phrase into an adverbial, but it has a myriad of other uses. In some ways it could even be considered Mesak’s default case, as it appears to show up whenever no other case would be suitable. 
+
+\paragraph{Creating an adverbial NP} The prototypical use of the essive is to mark an NP as providing additional information about the manner of an action. 
+
+\subsection{Dative}
+
+\subsection{Instrumental-Causal}
+
+\subsection{Vocative} \label{ssec:vocative}
+
+\section{Possession} \label{sec:possession}
+\section{Adjectives} \label{sec:adjectives}
+Attributive adjectives agree with their head noun in case and number, taking the exact same suffixes as nouns. As such, any adjective may take both count or mass inflections, depending soley on the class of the head noun.
+
+\eenumsentence{
+		\item\ex{koños ni\rs{}ehoos}
+		\shortex{2}
+		{koñ-o-s&ni\rs{}eho-o-s}
+		{big-\gl{sg}-\gl{abs}&bird-\gl{sg}-\gl{abs}}
+		{\en{big bird} (count noun)}
+		
+		
+		\item\ex{koñi buni}
+		\shortex{2}
+		{koñ-i&bun-i}
+		{big-\gl{abs}&river-\gl{abs}}
+		{\en{big river} (mass noun)}
+		}
+
+Some further considerations must be made here: First, in the case of mass nouns with a classifier, adjectives precede the classifier and agree with it rather than the semantic head:
+
+\enumsentence{		
+		\ex{guhvs bamvs síri}
+		\shortex{3}
+		{guh-v-s&bam-v-s&sír-i}
+		{black-\gl{pl}-\gl{abs}&\gl{nrig}-\gl{pl}-\gl{abs}&night-\gl{abs}}
+		{(*guh-i bam-v-s sír-i)\\\en{black nights}}
+		}
+		
+Similarly, and more obviously so, in complex noun phrases involving possessions, adjectives agree with whatever noun they modify. Note however, that adjectives modifying a possessed noun do not take on any possessive morphology and simply agree with their head noun. This can be seen in (\ref{poss-adj}):
+
+\eenumsentence{
+		\item\ex{nesreot kámbot iparnos}
+		\shortex{3}
+		{nesre-o-t&káb-o-t&i-par-n\gr{}o-s}
+		{smart-\gl{sg}-\gl{ess}&man-\gl{sg}-\gl{ess}&\gl{3poss}-dog-\gl{sg\gr{}sg}-\gl{abs}}
+		{\en{the smart man’s dog}}
+		
+		\item\ex{kámbot nesreos iparnos}
+		\shortex{3}
+		{káb-o-t&nesre-o-s&i-par-n\gr{}o-s}
+		{man-\gl{sg}-\gl{ess}&smart-\gl{sg}-\gl{abs}&\gl{3poss}-dog-\gl{sg\gr{}sg}-\gl{abs}}
+		{\en{the man’s smart dog}}\label{poss-adj}
+		}		
+		
+Another important detail is the fact that determiners such as \mes{d\rz{}án-} \en{many} and numerals such as \mes{tig-} \en{five} are adjectives. Some of these, such as the listed two, are inherently plural and carry the semantic load of plurality on their own. This means that a noun phrase like \en{five arrows}, while semantically plural, takes singular morphology. If plural affixes were employed, then the two pluralities would be compounded:
+
+\eenumsentence{		
+		\item\ex{tigos henkkohos}
+		\shortex{3}
+		{tig-o-s&henkkoh-o-s}
+		{five-\gl{sg}-\gl{abs}&arrow-\gl{sg}-\gl{abs}}
+		{\en{five arrows}}
+		
+		\item\ex{tigvs henkkohvs}
+		\shortex{3}
+		{tig-v-s&henkkoh-v-s}
+		{five-\gl{pl}-\gl{abs}&arrow-\gl{pl}-\gl{abs}}
+		{\en{five groups of arrows} \emph{or} \en{groups of five arrows}}
+		}
+		
+This may have some non-obvious interactions with number cross-referencing on verbs, which is of a more semantic nature, see \ref{ssec:verbnumber}.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Verbs}
+\section{Template Morphology}
+
+\section{Stem}
+\subsection{Root}
+\subsection{Incorporation} \label{ssec:incorporation}
+\subsection{Aspect} \label{ssec:aspect}
+Each verbal stem carries one of three aspects: Stative, Continuous or Momentane. Each aspect carries their own semantic connotations and restrictions with regards to what derivational affixes are allowed. Additionally, personal agreement affixes vary based on aspect as well. A verbal root itself generally acts as the stem for one of the aspects. The other aspects can then be derived from it with various derivational affixes. Not every root may allow for all aspects, however.
+
+A very straightforward example of the aspect system is the root \mes{tir}. As a bare root, it is a continuous verb meaning \en{to see, look at}. The affix \mes{-he} turns it into a stative verb meaning \en{to have eyesight}, while the affix \mes{-da} creates a momentane verb \en{to spot}:
+
+
+Other verbs may not have such straightforward dervations however. The momentane and continuous forms of \en{to blow} are both derived from nouns: the momentane from \mes{dor-} \en{gust of wind}, the continuous from \mes{sín-} \en{wind}:
+
+\eenumsentence{
+		\item\ex{Do\rz{}t\rs{}ejos.}
+		\shortex{2}
+		{dor\plus{}tȿe-o-s}
+		{gust\plus{}do.like-\gl{sg}-\gl{3abs}}
+		{\en{The wind blows.} (for a single moment)}
+		
+		
+		\item\ex{\RS{}ínt\rs{}ejoi.}
+		\shortex{2}
+		{sín\plus{}tȿe-o-i}
+		{wind\plus{}do.like-\gl{sg}-\gl{3abs}}
+		{\en{The wind is blowing.}}
+		}
+
+\subsubsection{Momentane Aspect}
+The momentane aspect represents an action happening at a single moment in time, such as \en{to hit} or \en{to jump}. Momentane verbs drive a story forward. They often indicate changes of state, beginnings and ends.
+
+The following is an extensive list of derivational affixes that form momentane verbs and their meanings:
+
+
+\subsubsection{Stative → Momentane}
+
+\paragraph{-at} \en{to change state to X}
+
+\mes{ha\rs} \en{to know} → \mes{ha\rs{}at} \en{to realize, understand, figure out}
+
+\mes{mbek} \en{to be of the opinion} → \mes{mbekat} \en{to agree}
+
+\paragraph{-ur} \en{to leave state of X}
+
+
+\subsubsection{Continuous → Momentane}
+\paragraph{-da} \en{to quickly do}
+
+\mes{run} \en{to be intoxicated} → \mes{ruda} \en{to drink something alcoholic}
+
+\mes{tir} \en{to see} → \mes{tirda} \en{to spot}
+
+\paragraph{-ur} \en{to leave state of X}
+
+\mes{nets} \en{to wear} → \mes{netsur} \en{to take off}
+
+
+\subsubsection{Noun → Momentane Verb}
+\paragraph{-per} \en{to reach}
+
+\mes{\rs{}ád} \en{end (temporal)} → \mes{\rs{}ápper} \en{to finish, stop}
+
+
+\subsubsection{Continuous Aspect}
+The continuous aspect denotes an action taking place over a prolonged timespan. This is often used to contrast with an interrupting momentane action, similar to English \en{I was reading when he entered}, in which the \en{reading} represents a continuous action and the \en{entered} a momentane one. However, some verbs are simply intrinsically continuous and may not even have a momentane form.
+
+\subsubsection{Stative Aspect}
+The stative aspect is used with verbs that don't describe actions, but rather states and facts. An example of stative verb would be the one in \en{the sun shines.} Emotional states and physical abilities are generally expressed via stative verbs too.
+
+\section{Cross-referencing} \label{sec:crossref}
+Verbs inflect for up to two arguments by placing certain affixes in slots -1, 3, 4 and 5. These arguments will be called \emph{internal person} and \emph{external person} in this document to avoid confusion caused by other, potentially ambiguous terms.\footnote{This terminology is directly adapted from \emph{A Grammar of Kalaallisut} (Sadock 2003)} Roughly speaking, the internal person corresponds to \textbf{S} and \textbf{P} arguments, i.e. absolutive, and external person to \textbf{A}, i.e. ergative. The markers on the verb may however not always correspond to the noun phrases marked with those cases, hence the differing terminology.
+
+\subsection{Internal Person}
+A verb must always reference internal person (IP). For mono- and divalent verbs this is always the (derived) \textbf{S} or \textbf{P} argument, i.e. the one marked with the absolutive case if overtly stated. For verbs of higher valence, selection of the argument is semantic in nature, generally taking the most saliently affected or the most animate non-agentive argument. 
+
+IP is marked with a suffix in slots 3 or 5 referencing person\footnote{But see \ref{ssec:verbperson} for irregularities.}, and a vocalic suffix in slot 4b referencing number. In the following examples, IP affixes are highlighted in the gloss, as well as the corresponding NP in the translation.
+
+\eenumsentence{		
+		\item\ex{Húkkohos \rz{}ámoi.}
+		\shortex{3}
+		{húkkoh-o-s&\rz{}ám-\glem{o}-\glem{i}}
+		{hunter-\gl{sg-abs}&sleep-\gl{\glem{sg}-\glem{3}}}
+		{\en{\glem{The hunter} is sleeping.}}  \label{IP-intr}
+		
+		
+		\item\ex{Ñ-hettohnos setaki i\rs{}aggedpvnos.}
+		\shortex{3}
+		{ñ=ihettohnos&setak-i&i-\rs{}ap\plus{}ged-pv-n\gr{}\glem{o}-\glem{s}}
+		{\gl{erg}=traveller:\gl{sg}&village-\gl{abs}&3-\gl{cont}\plus{}leave-\gl{npst}-\gl{sg\gr{}\glem{sg}-\glem{3}}}
+		{\en{The traveller is leaving \glem{the village}.}} \label{IP-tr}
+		
+		
+		
+		
+		\item\ex{Gaññohi tetoñ a\rs{}o\rz{}\rz{}inatakeno.}
+		\shortex{4}
+		{gaññoh-i&tet-o-ñ&a-\rs{}o\rz{}\plus{}rinatak-\glem{e}-n\gr{}\glem{o}}
+		{metal-\gl{abs}&\gl{2-sg-dat}&1-\gl{rnd}\plus{}give-\gl{\glem{2}-sg\gr{}\glem{sg}}}
+		{\en{I gave \glem{you} metal.}} \label{IP-ditr}
+		
+		\item\ex{Gagoñ setaki te\rs{}aggekkano.}
+		\shortex{4}
+		{gag-o-ñ&setak-i&te-\rs{}ap\plus{}ged-k-\glem{a}-n\gr{}\glem{o}}
+		{1-\gl{sg-dat}&village-\gl{abs}&2-\gl{cont}\plus{}leave-\gl{caus-\glem{1}-sg\gr{}\glem{sg}}}
+		{\en{You made \glem{me} leave the village.}} \label{IP-caus}
+		}
+
+In (\ref{IP-intr}) and (\ref{IP-tr}), simple mono- and bivalent verbs, the IP aligns with the absolutive NP of the sentence. This is however not the case in the other two examples given: in (\ref{IP-ditr}), a sentence with a trivalent verb, the IP aligns with the more animate and more directly affected of the objects, which happens to be the recipient, marked with dative case on the noun. And in (\ref{IP-caus}), a causative construction, the IP is the person made to do something, again not marked by absolutive but by dative case. 
+
+It should be noted that the choice of IP does not affect incorporation of classifiers, which always aligns with absolutive NP, as can be seen in (\ref{IP-ditr}) and (\ref{IP-caus}). For more information, see \ref{ssec:incorporation}.
+
+\subsection{External Person}
+External person (EP) is only referenced on transitive verbs. It quite straightforwardly corresponds to the NP most in control of the action, which is essentially identical to the one marked with ergative case. In some cases this may even be an inanimate object, as in (\ref{EP-inan}). 
+
+EP is marked with a prefix referencing person in slot -1 and a consonantal suffix referencing number in slot 4a. In the following examples, EP affixes are highlighted, as well as the corresponding NP in the translation.
+
+\eenumsentence{		
+		\item\ex{Ñ-iparnos imusano.}
+		\shortex{2}
+		{ñ=iparnos&\glem{i}-mus-a-\glem{n}\gr{}o}
+		{\gl{erg}=dog:\gl{sg}&\glem{3}-bite-1-\gl{\glem{sg}\gr{}sg}}
+		{\en{\glem{The dog} bit me.}}  \label{EP-tr}
+		
+		\item\ex{Ñ-ihenkkohnos ikañperkano.}
+		\shortex{3}
+		{ñ=ihenkkohnos&\glem{i}-kañperk-a-\glem{n}\gr{}o}
+		{\gl{erg}=arrow:\gl{sg}&\glem{3}-wound-1-\gl{\glem{sg}\gr{}sg}}
+		{\en{\glem{An arrow} wounded me.}}  \label{EP-inan}		
+}
+
+\subsection{Number} \label{ssec:verbnumber}
+Generally speaking, verbs will reference the number of the selected IP and EP in slot 4. This slot has two subslots 4a and 4b, referencing EP and IP, respectively.
+
+\begin{table}[H]
+\centering
+\begin{tabu}{r|ll}
+        & \gl{sg} & \gl{pl} \\
+EP (4a) & -n      & -k      \\
+IP (4b) & -o      & -v     
+\end{tabu}
+\caption{Verbal Number Affixes}
+\label{verbnumber}
+\end{table}
+
+Throughout this book, if two slot 4 affixes occur, they will be glossed with a greater-than symbol between the two affixes, as in the following example:
+
+\enumsentence{		
+		\ex{Tetirdakanv.}
+		\shortex{1}
+		{te-tirdak-a-\glem{n\gr{}v}}
+		{2-be\_visible-1-\gl{\glem{sg\gr{}pl}}}
+		{\en{We see you (sg)}}
+		}
+		
+As already alluded to in \ref{ssec:nounnumber} and \ref{sec:adjectives}, number marking on verbs differs from that on noun phrases in some details:
+
+At times, NPs might be marked with singular morphology despite being semantically plural (e.g. when a pluralizing determiner is used). In this case, verbs will reference the noun phrase as \emph{plural}. Similarly, collectives and negative collectives use singular noun morphology, but are considered semantically plural for marking on verbs.
+
+\eenumsentence{
+
+		\item\ex{Ñ-ihúhos d\rz{}ános títos síri indáñgnvs.}
+		\shortex{6}
+		{ñ=&ihúhos&d\rz{}án-o-s&tít-o-s&sír-i&i-ndáñg-n\gr{}v-s}
+		{\gl{erg}=&owl:\gl{sg}&many-\gl{sg-abs}&mouse-\gl{sg-abs}&night-\gl{ess}&3-eat-\gl{sg\gr{}pl-3}} 
+		{\en{An owl eats many mice in a night.}} \label{verbnumber-mice}
+
+		
+		
+		\item\ex{Ñ-ihúhos títos ihúkkvi.}
+		\shortex{4}
+		{ñ=&ihúhos&tít-o-s&i-húk-k\gr{}v-i}
+		{\gl{erg}=&owl:\gl{sg}&mouse-\gl{sg-abs}&3-hunt-\gl{pl\gr{}pl-3}}
+		{\en{Owls hunt mice.}} \label{verbnumber-owl}
+		
+				
+		\item\ex{Oñ-hos ikoɀɀehos isísnos gakañperkɀápvkvs.}
+		\shortexnt{4}
+		{ñ=&[h-o-s&ikoɀɀehos]&i-sís-n\gr{}o-s}
+		{\gl{erg}=&[no-\gl{sg}-\gl{abs}&mother:\gl{sg}]&\gl{3poss}-child-\gl{sg\gr{}sg}-\gl{abs}} \label{verbnumber-mother}
+		
+		\shortex{4}
+		{ga-kañperk-ɀá-pv-k\gr{}v-s}
+		{3-hurt-\gl{pot}-\gl{npst}-\gl{pl\gr{}pl}-\gl{3}}
+		{\en{No mother could hurt her child.}}
+
+		}
+
+In (\ref{verbnumber-mice}), \en{many mice} is an obviously plural NP that however takes singular noun morphology as its plurality is determined by the lexeme \en{many}. On the verb, it is referenced as plural. In (\ref{verbnumber-owl}), both NPs are collective and thus take singular NP markings. But collectives are cross-referenced as plural, thus plural markers on the verb. And in {\ref{verbnumber-mother}), the negative collective is also referenced as plural. Special attention should be paid here also to the IP number: while \en{her child} could logically be a singular NP (as it is in English), the sentence actually talks about multiple children (i.e. each mother’s) and as such is still referenced as plural.
+
+
+\subsection{Personal Affixes} \label{ssec:verbperson}
+
+\section{Voice}
+\subsection{Passive and Antipassive}
+\subsection{Applicatives}
+\subsection{Reflexive and Reciprocal} \label{ssec:reflexive}
+
+\section{Slot 2 TAM Affixes}
+\subsection{Potential Mood}
+\subsection{Tense}
+Mesak distinguishes between two tenses: unmarked non-future and marked non-past \mes{-pv-}. Semantically, both of these cover a timespan including the topic time. Both tenses are used for both narration as well as to provide background information. The major distinction between the two is to distinguish whether any given verb focuses on the time leading up to it happening (non-future) or on its consequences (non-past). As such, certain verbs like \en{want} tend to be more commonly used with non-past tense as they tend to focus on the future, while others, such as \en{remember} are basically exclusive to the non-future. 
+
+Many verbs however can be used with both tenses:
+
+\eenumsentence{		
+		\item\ex{\RS{}ád bunuñg abamsíko.}
+		\shortex{3}
+		{\rs{}ád&bun-uñg&a-sík-∅-o}
+		{to&river-\gl{dat}&1-walk-\gl{nfut}-\gl{sg}}
+		{\en{And then I went to the river.}}
+		
+		
+		\item\ex{\RS{}ád bunuñg abamsíkpvo.}
+		\shortex{3}
+		{\rs{}ád&bun-uñg&a-bam-sík-pv-o}
+		{to&river-\gl{dat}&1-walk-\gl{npst}-\gl{sg}}
+		{\en{I’m going to the river.}}
+		}
+
+		
+The difference between these two sentences is somewhat more subtle than one might conclude from the English translation. In reality, both of them would be perfectly valid translations of \en{I’m going to the river}. However, to use the non-future sentence in such a way, it would have to be in a context, where the preceding decision-making or the events leading up to the speaker’s leaving for the river is emphasized, as opposed to the time they would spend there afterwards.
+
+Another such pair of sentences would be:
+
+\eenumsentence{
+		\item\ex{Tásos huntȿeoi.}
+		\shortex{3}
+		{tás-o-s&huntȿe-∅-o-i}
+		{house-\gl{sg}-\gl{abs}&burn-\gl{nfut}-\gl{sg}-\gl{3}}
+		{\en{(And thus) the house is burning.}}\label{burn-nfut}
+		
+		
+		\item\ex{Tásos huntȿepvoi.}
+		\shortex{3}
+		{tás-o-s&huntȿe-pv-o-i}
+		{house-\gl{sg}-\gl{abs}&burn-\gl{npst}-\gl{sg}-\gl{3}}
+		{\en{The house is burning down.}}\label{burn-npst}
+		}
+
+Here, in (\ref{burn-nfut}), the future outcome of this action is not considered relevant to the speaker. This might for example be said by someone casually observing the fire, or by an arsonist watching their work without any care for what would happen but rather focussing about them having made it happen. Meanwhile, in (\ref{burn-npst}), the focus lies not on how the house caught fire, but rather on the fact that it will afterwards be destroyed.
+
+\subsection{Negative}
+\subsection{Infinitive}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Syntax}
+\section{Intra-Clausal Syntax}
+\subsection{Constituent Order}
+\subsection{NP and PP Structure}
+
+\section{Inter-Clausal Syntax}
+\subsection{Absolutive Pivot} \label{ssec:pivot}
+\subsection{Relative Clauses}
+\subsection{Coordinated Clauses}
+\subsection[S. Cl. with Identical Subject as Main Cl.]{Subordinate Clauses with Identical Subject as Main Clause}
+\subsection[S. Cl. with Different Subject as Main Cl.]{Subordinate Clauses with Different Subject as Main Clause}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Pragmatics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\chapter{Example Paradigms}
+
+\chapter{Coding of Valency Classes}
+
+\chapter{Sample Text}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Dictionary}
+\begin{dict}{The Physical World}
+
+\lemma{brɨk}{n. mass}{arable land}{
+\der{brɨkit}{to farm}}
+
+\lemma{bun}{n. mass}{river}{
+\der{bunpeɀȿap}{source}
+}
+
+\lemma{bunpeɀȿap}{n. count}{\textbf{1.}~source of river, spring \textbf{2.}~confluence of two rivers into a bigger one}{
+\from{bun}{river}
+}
+\lemma{dor}{n. count}{gust of wind}{
+\der{doɀtȿe}{to blow}
+}
+
+\lemma{doɀtȿe}{v. mom itr}{to blow (wind)}{
+\from{dor}{gust}
+}
+
+\lemma{poɀ}{n. count}{sun}{}
+
+\lemma{psur}{n. count}{tree}{}
+
+\lemma{sín}{n. mass}{wind}{
+\der{ȿíntȿe}{to blow}}
+
+\lemma{ȿíntȿe}{v. cont}{to blow (wind)}{
+\from{sín}{wind}}
+
+\lemma{zag}{n. mass}{rock, stone}{
+\der{zattrug}{to carve}}
+\end{dict}
+
+\begin{dict}{Kinship}
+
+
+\end{dict}
+\newpage
+\begin{dict}{Numerals}
+Rather than sorting alphabetically, terms in this section will be sorted numerically.\\
+
+\lemma{kun}{adj.}{one}{
+\der{kunkv}{one of}
+}
+
+\lemma{tȿaɀ}{adj.}{two}{
+\der{tȿaɀkv}{two of}
+}
+
+\lemma{níɀ}{adj.}{three}{
+\der{níɀkv}{three of}
+}
+
+\lemma{tag}{adj.}{four}{
+\der{takkv}{four of}
+}
+
+\lemma{tig}{adj.}{five}{
+\der{tikkv}{five of}
+}
+
+\lemma{sátag}{adj.}{six}{
+\from{sá}{and}
+\from{tag}{four}
+\der{sátakkv}{six of}
+}
+
+\lemma{ȿániɀ}{adj.}{seven}{
+\from{sá}{and}
+\from{níɀ}{three}
+\der{ȿániɀkv}{seven of}
+}
+
+\lemma{ȿátȿaɀ}{adj.}{eight}{
+\from{sá}{and}
+\from{tȿaɀ}{two}
+\der{ȿátȿaɀkv}{eight of}
+}
+
+\lemma{sákun}{adj.}{nine}{
+\from{sá}{and}
+\from{kun}{one}
+\der{sákunkv}{nine of}
+}
+
+\lemma{ndv́b}{adj.}{ten}{
+\der{ndv́kkv}{ten of}
+}
+
+\lemma{ndv́ñgginda}{v. cont}{it is ten (counting form of the number ten)}{
+\from{X-gida}{to be}
+\from{ndv́b}{ten}
+}
+
+\lemma{dɀán}{adj.}{one hundred}{
+\der{dɀánkv}{one hundred of}
+}
+
+\end{dict}
+\end{document}
