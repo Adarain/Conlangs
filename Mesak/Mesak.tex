@@ -178,7 +178,7 @@ Clans form the basis of the legal system. If a member of society is found to hav
 \section{Vowels} \label{sec:vowel}
 There are many ways with which the vowel system of the Mesak language could be described. After much deliberation, I have opted for a somewhat abstract approach, which in my opinion creates an ultimately much simpler and more consistent system than other, perhaps more straightforward analyses. 
 
-To explain the behaviour of vowels and how they interact with certain consonants, I posit 6 vowel phonemes as well as an underlying feature [+ATR], which is responsible for harmonic effects.
+To explain the behaviour of vowels and how they interact with certain consonants, I posit 6 vowel phonemes as well as an underlying feature [+raised], which is responsible for harmonic effects.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=1.5]
@@ -233,7 +233,7 @@ Figure \ref{vow} shows each vowel phoneme and its associated range. A few notes 
 \item The two low-mid vowels /ɛ ɔ/ show barely any spread at all. They are spelled \orth{e o}.
 \end{itemize}
 
-The large vertical ranges found in most vowels can be easily explained with the specification of the feature [+ATR] (advanced tongue root). Vowels which are marked for this feature are raised significantly, with the exception of the low-mid vowels, which appear to be immune to this effect. This is illustrated in the following chart:
+The large vertical ranges found in most vowels can be easily explained with the specification of the feature [+raised] (advanced tongue root). Vowels which are marked for this feature are raised significantly, with the exception of the low-mid vowels, which appear to be immune to this effect. This is illustrated in the following chart:
 
 \begin{figure}[H]
 \centering
@@ -277,15 +277,15 @@ The large vertical ranges found in most vowels can be easily explained with the 
 \draw [-latex, shorten >= 2pt, line width=2pt] (a) -- (ə);
 \draw [-latex, shorten >= 2pt, line width=2pt] (ə) -- (\y);
 \end{tikzpicture}
-\caption{Vowel Shifts under [+ATR]}
+\caption{Vowel Shifts under [+raised]}
 \label{vow-atr}
 \end{figure}
 
-The feature [+ATR] can be marked on any amount of vowels within a word, altering their pronunciation as shown in the previous chart. In phonemic analyses it will be represented with an acute over the vowel. The term \emph{marked vowel} henceforth refers to a vowel marked for this feature, and \emph{unmarked vowel} analogously to one which is not marked for [+ATR].
+The feature [+raised] can be marked on any amount of vowels within a word, altering their pronunciation as shown in the previous chart. In phonemic analyses it will be represented with an acute over the vowel. The term \emph{marked vowel} henceforth refers to a vowel marked for this feature, and \emph{unmarked vowel} analogously to one which is not marked for [+raised].
 
 \subsection{Harmony} \label{ssec:harmony}
 
-If a vowel is marked for [+ATR] then this feature procedes to spread rightwards to all subsequent vowels in the word (an example of progressive harmony). This is best illustrated autosegmentally:
+If a vowel is marked for [+raised] then this feature procedes to spread rightwards to all subsequent vowels in the word (an example of progressive harmony). This is best illustrated autosegmentally:
 \begin{figure}[H]
 \centering
 
@@ -293,7 +293,7 @@ If a vowel is marked for [+ATR] then this feature procedes to spread rightwards 
 \node () at (0, 0) {/aɓams{\dom{í}}kp{\y}ɔ/}; 
 \path (0,-0.5) [asr={prefix=A, text=[aɓams{\dom{i}}ppəjɔ]}]; 
 
-\node [below of=A-7] (H) {[+ATR]};
+\node [below of=A-7] (H) {[+raised]};
 \draw (H.north) -- (A-7.south);
 
 \draw [-latex, line width=1.5pt] (2,-1) -- (3,-1);
@@ -301,18 +301,18 @@ If a vowel is marked for [+ATR] then this feature procedes to spread rightwards 
 \node () at (5, 0) {/aɓams{\dom{í}}kp{\y}ɔ/}; 
 \path (5,-0.5) [asr={prefix=B, text=[aɓam{\dom{s}}{\dom{i}}{\dom{p}}{\dom{p}}{\dom{\jbar}}{\dom{ɔ}}]}]; 
 
-\node [below of=B-7] (H) {[+ATR]};
+\node [below of=B-7] (H) {[+raised]};
 \draw (H.north) -- (B-7.south)
 	(H.north) -- (B-10.south)
 	(H.north) -- (B-11.south);
 
 \end{tikzpicture}
-\caption{Spreading of [+ATR]}
+\caption{Spreading of [+raised]}
 \end{figure}
 
-The attentive reader may have noticed that the consonants preceding the marked vowels have also been coloured red. There is, of course, a reason for this: The [+ATR] feature not only affects vowels, but also has effects on prevocal consonants. These effects will be explained in detail in \ref{sec:cons}. Additionally, one might notice that in the left form there is an unexplained [j], and in the right one an equally unexplained [\jbar]. These are consequences of vowel cluster allophony, which will be explained in \ref{sssec:vowel_cluster}. It might be worth revisiting this example after having read this subsection.
+The attentive reader may have noticed that the consonants preceding the marked vowels have also been coloured red. There is, of course, a reason for this: The [+raised] feature not only affects vowels, but also has effects on prevocal consonants. These effects will be explained in detail in \ref{sec:cons}. Additionally, one might notice that in the left form there is an unexplained [j], and in the right one an equally unexplained [\jbar]. These are consequences of vowel cluster allophony, which will be explained in \ref{sssec:vowel_cluster}. It might be worth revisiting this example after having read this subsection.
 
-The spreading of the [+ATR] feature is very pervasive in Mesak phonology, and may well be the most important phonological rule of the language. It is not blocked by morpheme boundaries, not even by compounding of roots, as may happen e.g. with the incorporation of noun roots into a copulative verb. Even stressed vowels are readily raised under this effect, and no amount of intervening consonants appear to be able to block the harmony. This means that it is impossible for an unraised vowel, such as [a], to appear after a raised vowel, such as [i], within the same word. 
+The spreading of the [+raised] feature is very pervasive in Mesak phonology, and may well be the most important phonological rule of the language. It is not blocked by morpheme boundaries, not even by compounding of roots, as may happen e.g. with the incorporation of noun roots into a copulative verb. Even stressed vowels are readily raised under this effect, and no amount of intervening consonants appear to be able to block the harmony. This means that it is impossible for an unraised vowel, such as [a], to appear after a raised vowel, such as [i], within the same word. 
 
 Special attention should be paid to the phone [ə]. This sound can appear both as the unraised form of /\y/ as in /huntʂɛ\y{}i/ [ʁ̞oᶯɖ.ʂɛ.ˈj\glem{ə}.je] \en{it burns}, or as the raised form of /a/ as in \mbox{/sítam/} [si.ˈt\glem{ə}m] \en{more}.
 
@@ -327,10 +327,10 @@ There are additional rules governing the allophony of vowels. The most important
 \item Otherwise, it is realized as [a]\footnote{Throughout the book, the symbol [a] will stand for a low central vowel (standard IPA [ä]).}
 \end{itemize}
 
-It must be emphasized however, that this variation is overwritten by the [+ATR] feature, which uniformly raises /a/ to [ə] regardless of environment.
+It must be emphasized however, that this variation is overwritten by the [+raised] feature, which uniformly raises /a/ to [ə] regardless of environment.
 
 \subsubsection{Vowel Clusters}\label{sssec:vowel_cluster}
-There are several rules governing the simplification of vowel sequences. These are dependent on the \emph{surface form} of the vowels in the cluster, i.e. the precise phones that surface after application of other allophony rules, in particular the spreading of [+ATR]. 
+There are several rules governing the simplification of vowel sequences. These are dependent on the \emph{surface form} of the vowels in the cluster, i.e. the precise phones that surface after application of other allophony rules, in particular the spreading of [+raised]. 
 
 For the purposes of these rules, vowel phones can be grouped into three categories: 
 \begin{itemize}
@@ -351,7 +351,7 @@ The following rules applied in order describe the cluster rules of Mesak exactly
 
 \paragraph{ML, LM, HH} In the remaining cases, the vowels simply appear in hiatus.
 
-\noindent{}Note that since high vowels only exist under marking for [+ATR], while low vowels only appear in the absence of this feature, the sequence \textbf{HL} is not possible.
+\noindent{}Note that since high vowels only exist under marking for [+raised], while low vowels only appear in the absence of this feature, the sequence \textbf{HL} is not possible.
 
 
 
@@ -388,7 +388,7 @@ Alveolars assimilate to nearby retroflex sounds: If both alveolars and retroflex
 
 \paragraph{Dorsals} Most dorsals, specifically /ŋ k ᵑg/ have velar realizations. However, the implosive /ʄ/ is palatal and the rhotic, transcribed as /h/, is actually pronounced as a voiced uvular [ʁ̞]. Representing it as /h/ has been done purely for aesthetic purposes.
 
-\paragraph{Plosives} Immediately preceding vowels, the two series of voiced plosives are non-contrastive: They are realized as [ᵐb ⁿd ᵑg ] if the following vowel is marked for [+ATR] and as [ɓ ɗ ʄ] otherwise (see \ref{sec:vowel}, and in particular \ref{ssec:harmony}). In other positions, the two rows are contrastive.
+\paragraph{Plosives} Immediately preceding vowels, the two series of voiced plosives are non-contrastive: They are realized as [ᵐb ⁿd ᵑg ] if the following vowel is marked for [+raised] and as [ɓ ɗ ʄ] otherwise (see \ref{sec:vowel}, and in particular \ref{ssec:harmony}). In other positions, the two rows are contrastive.
 
 If a prenasalized stop is immediately preceded by a vowel, then the nasality is realized on the vowel. For example, \mes{tánda} \en{at, on} is pronounced [tə̃də].
 
@@ -398,7 +398,7 @@ Implosives become plain voiced plosives if not immedately preceding a vowel.
 \subsection{Consonant Clusters}
 Clusters between all these consonants can appear, especially across morpheme boundaries. In this case, various interactions may occur.
 
-\paragraph{NS → S[+nasal]} If a nasal precedes a homorganic plosive, the two merge into a prenasalized stop. Contrast between plosives is therefore lost in this position. This resulting sound is subject to the allophony before vowels and turns into an implosive before vowels without the [+ATR] feature. 
+\paragraph{NS → S[+nasal]} If a nasal precedes a homorganic plosive, the two merge into a prenasalized stop. Contrast between plosives is therefore lost in this position. This resulting sound is subject to the allophony before vowels and turns into an implosive before vowels without the [+raised] feature. 
 
 \paragraph{SS → Sː} In a cluster of two plosives, they turn into a geminate, taking on both voicing and place of articulation from the second sound. However, if either of the sounds is a prenasalized stop, the cluster will be pronounced that way. Thus /ɗp/ is pronounced as [pː] but /ⁿdp/ as [ᵐbː]. Once more, this resulting sound turns into an implosive before unmarked vowels.
 
