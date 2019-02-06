@@ -1,5 +1,5 @@
 %document layout
-\documentclass[12pt, a4paper]{scrartcl}   
+\documentclass[12pt, a4paper]{article}   
 \usepackage{geometry}                		
 \geometry{a4paper, top=20mm, left=25mm, right=25mm, bottom=25mm,
 headsep=10mm, footskip=12mm}

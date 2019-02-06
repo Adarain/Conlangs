@@ -556,39 +556,10 @@ Within copulative clauses, the NP that can be identified as the subject takes on
 		{\en{The bear is the largest animal.}} \label{abs_cop}
 
 		}
-		
-Whenever both the absolutive and another case would be appropriate to be used, absolutive takes precedence. 
 
-\subsection{Instrumental-Causal}
-The instrumental-causal case is marked with the suffix \mes{-k} on count nouns and \mes{-ak} on mass nouns. As its name indicates, it combines two rather distinct roles under one case:
-
-\paragraph{Marking an anmiate cause of an action} This might mean a person instigating an action (but not partkaing in it), but also an active agent who is responsible for the action to be carried out. 
-
-\paragraph{Marking an inanimate instrument} The notion of an instrument can be interpreted rather broadly here, as simply an object which is used by the agent of the action in order to complete it. It might not necessarily be a literal tool.
-
-These two notions combine neatly into a single interpretation of what the instrumental-causal case really marks: the expected role of a participant within the action: for animate participants that would be an actor, while for inanimate ones it would be an instrument. On top of this core functionality, there are some more uses to this case:
-
-\paragraph{Marking definite arguments of certain prepositions} Certain prepositions require the instrumental-causal case on their noun phrases if the noun is definite\footnote{Definite here means that the object denotes a specific and known instance of a general class of objects, e.g. a specific apple.}. It is never used in this sense if the noun phrase is indefinite. 
-
-
+\subsection{Instrumental}
 \subsection{Dative}
-The dative case is somewhat of a counterpart to the instrumental-causal case. While that one marks the expected role of a participant, the dative shows up to mark the less expected role:
-
-\paragraph{Marking an animate, non-agentive participant} The primary situation in which datives show up is in marking recipients, e.g. of “giving” verbs. However, they can also mark the actor in transitive verbs that do not involve agency, such as \en{like} or \en{see}.
-
 \subsection{Essive}
-The essive case is the true catch-all case, handling all situations where none of the other cases are appropriate. It does however also have a few specific uses which should be highlighted explicitly.
-
-\paragraph{Turning noun phrases into adverbials} A noun in essive case may be interpreted as an adverbial of meaning “in the manner of X” or “like X”. 
-
-\paragraph{Time phrases} Nouns indicating the time of an action are always in the essive.
-
-\paragraph{Verbal complements} Generic verbs (\ref{sec:genverbs}) require a noun or noun phrase in the essive. These are placed before the verb.
-
-\paragraph{Marking dependents of an incorporated noun} If a noun is incorporated but had further dependents such as adjectives, these will be placed immediately before the verb and are marked in essive case.
-
-\paragraph{Marking indefinite nouns in prepositional phrases} All prepositional nouns are marked with the essive case if they are indefinite. If they are definite, they are marked either with the instrumental-causal or dative case, depending on the preposition. 
-
 \subsection{Vocative}
 A recent development is that of an additional vocative case: When directly addressing someone, traditionally the absolutive case is used. However, younger speakers favour dropping the case ending in this situation (but not the number ending).
 
@@ -804,7 +775,7 @@ In (\ref{IP-intr}) and (\ref{IP-tr}), simple mono- and bivalent verbs, the IP al
 It should be noted that the choice of IP does not affect incorporation of classifiers, which always aligns with absolutive NP, as can be seen in (\ref{IP-ditr}) and (\ref{IP-caus}). For more information, see \ref{sec:incorporation}.
 
 \subsection{External Person}
-External person (EP) is only referenced on transitive verbs. It quite straightforwardly corresponds to the NP which carries out the action. In some cases this may even be an inanimate object, as in (\ref{EP-inan}). 
+External person (EP) is only referenced on transitive verbs. It quite straightforwardly corresponds to the NP most in control of the action, which is essentially identical to the one marked with ergative case. In some cases this may even be an inanimate object, as in (\ref{EP-inan}). 
 
 EP is marked with a prefix referencing person in slot -1 and a consonantal suffix referencing number in slot 4a. In the following examples, EP affixes are highlighted, as well as the corresponding NP in the translation.
 
@@ -969,14 +940,7 @@ Very generally, Mesak sentences may be broken down into a few “fields”, whic
 Of these, only the verbal field is mandatorily non-empty, as every sentence contains a verb, but not necessarily anything else. In the following, the possible items in each field will be discussed. 
 
 \subsubsection{Contrast Field}
-The very first field in a sentence is the contrast field. This can be filled with \emph{any} constituent, regardless of its grammatical role. It is best seen as a constituent being moved into this position from another field in the sentence. The contrast field is optional.
-
-When a constituent appears in the contrast field, this indicates that the speaker is creating contrastiveness with some other possibility. For example, if the actor of a sentence is moved into the contrast field, this indicates that it was \emph{them} who did the action, and not someone else. If an adverb of time is moved there, it implies that the action happened \emph{then}, and not at some other time.
-
-Verbs can also be moved into the contrast field. In this case, there are two possibilities: The verb is placed in the contrast field as an infinitive. In this case, the contrast is created specifically with the meaning of the verb: It was \emph{this} action which was taken, and not another one. Alternatively, the verb can retain its entire inflectional morphology. In this case the contrast is created not with the action itself, but rather with the grammatical structure of the verb, e.g. the polarity or the tense. In either case, a resumptive verb \mes{\rs{}o\rz{}-} is placed in the usual verb location, and inflected as usual.
-
-\subsubsection{Topic Field}
-Following the contrast field, the next constituent indicates the topic of the sentence. This is in most cases a noun phrase, but occasionally it may be adverbial. The topic usually remains constant throughout multiple sentences and is a central concept around which the uttered sentences revolve, such as a common actor in a narrative or the thing being discussed in a dialogue. The topic field, too, is optional, but not using it implies that the topic is the same as in the previous utterance. If the topic changes, it must be stated explicitly. 
+The very first 
 
 \subsection{NP and PP Structure}
 \subsection{Negation}

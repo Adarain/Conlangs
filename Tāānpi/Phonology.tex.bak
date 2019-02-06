@@ -1,9 +1,9 @@
 \section{Phonology}
-\emph{Monday, May 14th 2018}\\
+\emph{Monday, July 17th 2018}\\
 
-\noindent This first paper is intended to provide a thorough description of the \lang{} phonology, including sounds, word structure, tonology and also a bit of a historical outlook explaining the described phenomena diachronically.
+\noindent This first paper is intended to provide a thorough description of the \lang{} phonology, including sounds, word structure and tonology.
 
-\subsection{Phoneme inventory}
+\subsection{Phoneme Inventory}
 The following table lists all consonant phonemes and their romanization found in \lang{}:
 \begin{table}[H]
 \centering
@@ -44,23 +44,9 @@ For the purpose of describing syllable structure, the following categories are r
 
 Each syllable contains exactly one element from \textbf{V}, the nucleus. Optionally, it may have simple or complex onsets as well as simple codas. It follows a list of possible onsets with some examples: 
 
-%\begin{itemize}
-%	\item ∅:		\begin{minipage}[t]{\textwidth}	
-%				\con{uk} 	[u̥ʔ] 	\en{eye}\\
-%				\con{āēod} 	[aɨ̯.ot] \en{fire}
-%				\end{minipage}
-%	\item N:	\begin{minipage}[t]{\textwidth}	
-%				\con{maek} [maɨ̯ʔ] \en{father}\\
-%				\con{nuokeed} [nuo̯ʔ.eːt] \en{ink brush}
-%				\end{minipage}
-%	\item P:	\begin{minipage}[t]{\textwidth}	
-%				\con{baumu} [pau̯.m\f] \en{
-%				\end{minipage}
-%
-%\end{itemize}
 \begin{table}[H]
 \centering
-\begin{tabular}{ll}
+\begin{tabular}{llll}
 ∅ 	& \con{uk} 		&[u̥ʔ]			&\en{eye}    	\\
   	& \con{āēod}	&[áɨ̯́.ot]		&\en{fire} 		\\
 N 	& \con{maek}	&[maɨ̯ʔ]			&\en{father}		\\    
@@ -76,3 +62,5 @@ FL	& \con{flufaek}	&[ɸl\f{}.ɸaɨ̯ʔ]	&\en{storm}		\\
 	
 \end{tabular}
 \end{table}
+
+As for codas, the only allowed options are ∅, or any plosive or affricate, including /ʔ/. Examples of all possible coda kinds can be found in the list above as well.

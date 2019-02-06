@@ -1,0 +1,1070 @@
+%TODO REPLACE <> WITH ⟨⟩
+
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\spacing{1.5}
+\usepackage{color}
+\usepackage{soul}
+\usepackage{multirow}
+\usepackage{alltt}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{vowel}
+\restylefloat{table}
+\definecolor{gray}{rgb}{0.84, 0.84, 0.84}
+\newcommand{\hlv}[2][gray]{ {\sethlcolor{#1} \hl{#2}} }
+\newcommand{\dictentry}[4]{\noindent\begin{minipage}{\columnwidth} \paragraph{#1}  \emph{#2.} #3; #4  \end{minipage}}
+%\usepackage{times}
+\usepackage{libertine}
+\usepackage[ngerman]{babel}
+\usepackage{placeins}
+\usepackage{lingmacros}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{forest}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\newcommand{\smallc}[1]{{\addfontfeature{Letters=SmallCaps} #1}}
+\newcommand\textbox[1]{%
+  \parbox{.5\textwidth}{#1}%
+}
+\setcounter{topnumber}{1}
+\lhead{}
+\rhead{Baer, Sascha, 6Gk\\2015}
+
+\title{Konstruktion einer Kunstsprache auf Grundlage der germanischen Sprachen}
+\date{2015}
+\author{Sascha Manuel Baer\\Betreut von Daniel Bietenhader}
+
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\textbox{\Large\scshape Bündner Kantonsschule\hfill}\textbox{\hfill \Large\scshape Maturaarbeit 2015}\par
+	\vspace{2.5cm}
+	{\huge\bfseries Konstruktion einer Kunstsprache auf Grundlage der germanischen Sprachen\par}
+	\vspace{1cm}
+	{\Large\scshape Wissenschaftliche Arbeit\par}
+	\vspace{2.5cm}
+	\textbox{\large\scshape Autor\hfill}\textbox{\hfill\large\scshape Betreuer}
+	\textbox{\Large\scshape Sascha Manuel Baer\hfill}\textbox{\hfill\Large\scshape Daniel Bietenhader\par}
+	\vfill
+
+
+\end{titlepage}
+\pagestyle{fancy}
+
+\tableofcontents
+\listoftables
+
+
+\clearpage
+%~~~~~~~~~~~~~~~~~~~~~
+\section{Einleitung}
+
+
+Die meisten Sprachen Europas gehören der indoeuropäischen Sprachfamilie (auch Indogermanisch genannt) an. Diese Sprachen haben alle einen gemeinsamen Ursprung in einer Sprache, von der wir keinerlei schriftlichen Belege besitzen, dem Proto-Indoeuropäischen. Der genaue Zeitpunkt und Ort, an dem sie gesprochen wurde, wird noch heute heftig debattiert. Ihre Existenz ist jedoch unbestreitbar: Alle ihre Tochtersprachen weisen starke Ähnlichkeiten in Grammatik wie Wortschatz auf. 
+
+
+Die Indoeuropäische Sprachfamilie ist heute die am weitesten verbreitete und wird auf allen Kontinenten der Erde gesprochen. Sie ist jedoch keineswegs einheitlich: Durch Jahrtausende von gegenseitiger Isolation haben sich verschiedenste Sprachen entwickelt, welche wiederum in kleinere Familien eingeteilt werden können. Um nur einige Beispiele zu nennen: Die italischen Sprachen, zu denen Lateinisch und die davon abstammenden Sprachen wie Italienisch oder Spanisch gehören; die keltischen Sprachen, wie Irisch oder Walisisch; aber auch die indoarischen Sprachen, gesprochen in und um Indien, zu denen unter anderem Hindi-Urdu und das klassische Sanskrit gehören. Auch Griechisch, Albanisch und die slawischen Sprachen gehören zu der indoeuropäischen Familie.
+
+In dieser Arbeit liegt der Fokus jedoch auf nur einem dieser Äste im Stammbaum der Sprachen: der germanischen Familie. Zu dieser gehört das Deutsche, Englisch, Niederländisch, die skandinavischen Sprachen (jedoch nicht Finnisch!), die Sprachen der nordischen Inseln (Isländisch und Färöisch), Jiddisch und Afrikaans, sowie eine Vielzahl an kleineren Sprachen.
+
+Die germanischen Sprachen können grob in drei Zweige unterteilt werden:
+
+\begin{itemize}
+\item Zu den nordgermanischen Sprachen gehören all jene Sprachen, welche vom Altnordischen abstammen: Schwedisch, Dänisch, Norwegisch, Isländisch, Färöisch und Älvdalisch. 
+\item Zu den westgermanischen Sprachen gehören die restlichen heute gesprochenen germanischen Sprachen: Englisch, Deutsch, Niederländisch, Afrikaans, Jiddisch, Scots sowie viele, deren Stellung als eigenständige Sprache umstritten ist (wie das Schweizerdeutsche) oder nur von wenigen Leuten gesprochen werden.
+\item Die ostgermanischen Sprachen sind heute vollständig ausgestorben. Die am besten bekannte ostgermanische Sprache ist das Gotische.
+\end{itemize}
+
+Diese Sprachen sind auf Grund ihrer engen Verwandtschaft sehr ähnlich in ihrer Struktur und ihrem Wortschatz. Jede von ihnen hat aber ihre Eigenheiten und Tücken, welche es zu einer Herausforderung machen, sie zu lernen. So haben zum Beispiel Deutschsprachige oft Mühe mit den englischen th-Lauten und Sprecher von Englisch verzweifeln am Fallsystem des Deutschen. Eine gut gemachte Hilfssprache findet solche potenziellen Schwierigkeiten und umgeht sie mit alternativen Lösungswegen. Meine Arbeit soll genau dies erreichen.\cite[S.~21-34]{germ}
+
+\subsection{Ziel und Sprachwahl}
+Das Ziel meiner Arbeit ist es, die germanischen Sprachen zu untersuchen, zu vergleichen und aufgrund meiner Ergebnisse ein Gerüst für eine Hilfssprache zu konstruieren, welche für Sprecher der untersuchten Sprachen leicht zu erlernen und verstehen sein soll. Der effektive Nutzen eines solchen Projektes ist umstritten und es sollte eher als ausgefeiltes Gedankenexperiment angesehen werden, nicht als einen Versuch eine tatsächlich verwendbare Sprache zu kreieren. Wie sich am Beispiel von Esperanto zeigt, ist es zwar durchaus möglich, ein solches Unterfangen erfolgreich durchzuführen, doch kommt ein Grossteil der Menschheit mühelos ohne eine konstruierte Hilfssprache klar.
+
+Um den Aufwand etwas zu reduzieren, habe ich nur fünf Sprachen untersucht: Englisch, Deutsch, Niederländisch, Norwegisch (Bokmål) und Isländisch. Afrikaans und Jiddisch habe ich aufgrund ihrer extremen Ähnlichkeit zu Niederländisch respektive Deutsch weggelassen. Die skandinavischen Sprachen sind sich alle ebenfalls sehr ähnlich. Norwegisch ist gewissermassen die „mittelste“ der drei grossen skandinavischen Sprachen, Norweger haben weniger Mühe mit Dänisch und Schwedisch (und umgekehrt), als Dänen mit Schwedisch und Schweden mit Dänisch. Deshalb habe ich mich entschieden, Norwegisch am genauesten zu betrachten.
+
+Alle anderen germanischen Sprachen habe ich gewissermassen „ignoriert“, da sie nur von wenigen Leuten gesprochen werden, welche auch oft bilingual sind.
+
+Des Weiteren muss hier eine Sache klar festgelegt werden: Das Ziel der Arbeit ist \emph{nicht}, eine funktionelle Sprache zu konstruieren, sondern lediglich, wie oben erwähnt, ein Gerüst für eine solche zu schaffen.
+
+
+\subsection{Grundsätze}
+Um überhaupt Entscheidungen treffen zu können, musste ich mir ein klares Bild davon machen, was ich letztlich erreichen wollte – eine Zielsetzung also. Dies stellte eine erstaunlich grosse Schwierigkeit dar, da ich mir in einigen Punkten sehr lange unschlüssig war, wie vorgegangen werden soll. Es entstand die folgende Liste von Kriterien, welche ich möglichst überall erfüllen möchte:
+
+\begin{enumerate}
+\item Die Sprache soll in möglichst vielen Bereichen regelmässig sein. So sollen zum Beispiel keine unregelmässigen Verben vorkommen und die Orthographie muss direkt dem Lautsystem gegenüberstehen, ohne Möglichkeiten für Verwirrung.
+\item Gleichzeitig soll sie den Sprechern der ausgewählten Sprachen noch natürlich vorkommen. Es müssen daher Kompromisse gemacht werden, denn eine perfekt regelmässige Sprache könnte als fremdartig angesehen werden. Dies hat insbesondere einen Einfluss auf den Satzbau.
+\item Ein weiteres wichtiges Kriterium ist die einfache Erlernbarkeit durch Sprecher beliebiger germanischer Sprachen. Dabei wird hier mehr Wert auf erwachsene Lernende als auf Kinder gelegt. 
+\end{enumerate}
+
+\subsection{Namensgebung der Sprache}
+Ich halte es nicht für notwendig, der Kunstsprache einen definitiven Namen zu geben. Sollte sich jemals jemand genug für dieses Projekt interessieren, um es weiter zu führen, so kann dann immer noch ein guter Name gefunden werden. Als Arbeitstitel eignet sich meiner Meinung nach „Gemeingermanisch“, was ich verwenden werde.
+\clearpage
+
+%~~~~~~~~~~~~~~~~~~~~~
+\section{Lautsystem und Rechtschreibung}
+\FloatBarrier
+Die Phonologien germanischer Sprachen sind oft sehr reich in ihrem Vokalinventar, aber vergleichsweise einfach bei den Konsonanten. Diese sind recht ähnlich verteilt, aber natürlich nicht identisch. Zum Beispiel unterscheiden alle untersuchten Sprachen zwischen zwei Reihen von Konsonanten. Dabei handelt es sich entweder um einen Unterschied in der Stimmhaftigkeit oder der Aspiration in Plosiven und Frikativen -- insbesondere im Isländischen und Englischen sind diese Unterschiede noch etwas komplizierter, man kann aber immer noch von zwei Reihen sprechen.\cite{wiki}
+
+Problematischerweise besitzen alle germanischen Sprachen sehr reiche Vokalinventare, doch sind sie alle recht verschieden. Am auffälligsten ist dabei das Englische, welches dank der Frühneuenglischen Vokalverschiebung (Great Vowel Shift) völlig andere Vokale besitzt, als die nahe verwandten Sprachen Deutsch und Niederländisch. Es ist extrem schwierig, eine Lösung zu finden, welche nur Vokale verwendet, die in allen Sprachen vorkommen. Ein solches minimales Inventar besässe je nach Analyse zwischen fünf /a~e~i~o~u/ und acht /a~ε~e~ɪ~i~ɔ~o~u/ Vokale. Das System mit acht Vokalen erhält man, wenn lediglich die Anzahl an Kontrasten zählt und so zum Beispiel ein Isländisches [oʊ] als /o/ durchgehen lässt. Akzeptiert man dies nicht, so besitzt Isländisch keine Differenzierung zwischen halboffenen und halbgeschlossenen Vokalen. Weiterhin haben zwar Deutsch und Englisch einen Kontrast zwischen /ɪ/ und /iː/, diese unterscheiden sich also auch in ihrer Länge. Streicht man diese Unterscheidungen aus dem Achtvokalsystem, so erhält man das System mit den aufgeführten fünf Vokalen. Ich sehe kein Problem darin, letzteres zu verwenden.
+
+Beim Zusammenstellen der Phonologie war es mir wichtig, möglichst wenige „fremdartige“ Laute zu verwenden, mit welchen Lernende Mühe haben könnten, zum Beispiel das deutsche <ch> /x/ für Englischsprecher oder umgekehrt die Dentalfrikative /θ ð/ des Englischen für Deutschsprachige. Dies stellt insbesondere bei den weiter oben erwähnten kontrastierenden Reihen von Frikativen und Plosiven ein Problem dar, da einige Sprecher sich eine Unterscheidung nach Stimmhaftigkeit, andere nach Aspiration gewohnt sind und Mühe beim Hören der anderen Unterschiede haben könnten. Gleichzeitig führte das Weglassen eines solchen Unterschiedes praktisch zu einer Halbierung der zur Verfügung stehenden Konsonanten, was unweigerlich zu vielen Homonymen führen würde.
+
+Weiterhin sollte erwähnt werden, dass unter gewissen Umständen sich eine Sprache klar von den anderen unterscheidet. So hat das Deutsche zum Beispiel die sogenannte hochdeutsche Lautverschiebung durchgemacht\cite[87-81]{germ}, dank derer manche Wörter sich dort von den restlichen germanischen Sprachen unterscheiden. Bei der Wahl von Lexikonformen werden solche Lautwechsel, welche nur eine Sprache beeinflussen, meist nicht berücksichtigt.
+
+\subsection{Konsonanten} 
+
+
+\begin{table}[t]
+\centering
+\begin{tabular}{r|c|c|c|c|c}
+&Labial&Alveolar&Post-Alveolar&Velar&Glottal\\
+ \hline
+ Nasal & m & n && ŋ \\ \hline
+ Plosiv & p · b & t · d && k · g \\ \hline
+ Frikativ  & f · v  &s&ʃ&& h \\ \hline
+ Lateral && l&& \\ \hline
+  Rhotischer Laut && r &&\\ 
+ \end{tabular}
+\caption{Konsonanten}
+\label{kons}
+\end{table}
+
+Tabelle~\ref{kons} stellt die Konsonanten der Kunstsprache dar. Mit Ausnahme von /ŋ/ und /ʃ/ werden alle Laute gleich geschrieben, wie oben abgebildet. /ŋ/ wird mit dem Digraphen <ng> dargestellt, /ʃ/ mit <sh>.
+
+\subsubsection{Allophonie}
+
+Es ist wichtig anzumerken, dass Tabelle~\ref{kons} die Konsonanten \emph{phonemisch} auflistet. Diese werden jedoch nicht immer genau wie abgebildet realisiert werden. Im Folgenden eine genaue Aufstellung der Aussprache: 
+
+
+\paragraph{Plosive} /b~d~g/ sind stets stimmhaft, also [b~d~g]. /p~t~k/ dagegen stets stimmlos, jedoch undefiniert in ihrer Aspiration. Dies bedeutet, dass für die stimmlosen Plosive sowohl eine unbehauchte als auch eine behauchte Aussprache als korrekt angesehen werden.
+\paragraph{Frikative} /f/ sollte stets als [f] ausgesprochen werden. /v/ sollte entweder ein stimmhafter Frikativ [v] oder aber ein Approximant [ʋ\textasciitilde{}w] sein. Die übrigen Frikative /s~ʃ~h/ sind nicht in ihrer Stimmhaftigkeit definiert. /ʃ/ kann ausserdem post-alveolar [ʃ~ʒ], alveolopalatal [ɕ~ʑ] oder retroflektiert [ʂ~ʐ] ausgesprochen werden, je nachdem was dem Sprecher am leichtesten fällt. Die Stimmhaftigkeit wird in /s~ʃ~h/ nicht unterschieden, da diese Laute in vielen germanischen Sprachen nicht unterschieden werden und höchstens, abhängig von ihrer Umgebung, die eine oder andere Form annehmen (Allophonie).
+\paragraph{Der Rhotische Laut} Die Realisation des Lautes /r/ in den germanischen Sprachen variiert sehr stark. Die häufigsten Varianten sind jedoch ein alveolarer Trill [r], ein uvularer Frikativ [ʁ] oder ein alveolarer Approximant [ɹ]. Diese, sowie jegliche weitere Möglichkeiten sind zugelassen. Nicht erlaubt allerdings, ist die non-rhotische Variante des a-ähnlichen Semivokales, z.\,B. das Standarddeutsche [ɐ̯], da diese zu Verwirrung mit dem Vokal /a/ führen könnten.
+\paragraph{Rest} Die übrigen Phoneme /m~n~ŋ~j~l~h/ haben keine Allophonie, werden also immer als [m~n~ŋ~j~l~h] ausgesprochen.
+
+
+\subsection{Vokale}
+
+
+\begin{table}[t]
+\centering
+{\large
+\begin{vowel}[three]
+\putcvowel{i}{1}
+\putcvowel{e}{2}
+\putvowel{a}{3\vowelhunit}{2\vowelvunit}
+\putcvowel{o}{7}
+\putcvowel{u}{8}
+\end{vowel}}
+\caption{Vokale}
+\label{vok}
+\end{table}
+
+
+Es gibt fünf phonemische Vokale im Gemeingermanischen, zu sehen in Tabelle~\ref{vok}. Die Länge der Vokale wird nicht phonemisch unterschieden. Es ist möglich, dass dadurch einige Homonyme entstehen. Diese können jedoch vermieden werden, wenn man bei der Erstellung von Wörtern geschickt vorgeht und vergleicht, wie solche potenziell problematischen Paare sich in verschiedenen Sprachen unterscheiden und entsprechend Entscheidungen fällt.
+
+\paragraph{/a/} ist ein offener Zentralvokal, wie im Deutschen h\textbf{a}ben, M\textbf{a}nn; Isländisch f\textbf{a}r\textbf{a}. Er wird <a> geschrieben.
+\paragraph{/e/} ist ein halbgeschlossener Vorderzungenvokal, wie das Deutsche s\textbf{e}hen; Norwegisch l\textbf{e}. Er wird <e> geschrieben.
+\paragraph{/i/} ist ein geschlossener Vorderzungenvokal, wie im Deutschen R\textbf{ie}se oder Niederländisch d\textbf{ie}r. Er wird <i> geschrieben.
+\paragraph{/o/} ist ein gerundeter halbgeschlossener Hinterzungenvokal. Auf Deutsch findet man ihn nur als langen Vokal, wie in w\textbf{o}her. Er wird <o> geschrieben.
+\paragraph{/u/} ist ein gerundeter geschlossener Hinterzungenvokal, wie im Deutschen s\textbf{u}chen oder dem Englischen b\textbf{oo}t. Er wird <u> geschrieben.
+
+\subsubsection{Diphthonge und Hiatus}
+Wenn in einem geschriebenen Wort zwei Vokale aufeinander folgen, so ist diese Folge stets mit Hiatus auszusprechen, also in getrennten Silben: \emph{niu} [ni.u] „neu“, nicht etwa [nju] wie das Englische „new“. Bei Diphthongen werden die Buchstaben <j> und <w> für den Semivokal verwendet, für [i̯] und [u̯] stehend, respektiv: \emph{ja} [i̯a] „ja“.
+
+\subsection{Alphabet}
+Das gemeingermanische Alphabet stimmt grösstenteils mit dem normalen lateinischen Alphabet überein. Es fehlen jedoch die nicht verwendeten Buchstaben C, Q, X und Z. Die Laute, welche diesen Buchstaben meist zugeordnet werden, können mit anderen Buchstaben besser beschrieben werden. Zum Beispiel steht das <c> im Englischen entweder für /s/ oder /k/, welche dementsprechend <s> oder <k> geschrieben werden würde. Das volle Alphabet ist in Tabelle~{alph} zu sehen. 
+
+Dazu kommen die zwei Digraphen <ng> für /ŋ/ und <sh> für /ʃ/. Jeder Laut wird stets mit dem gleichen Buchstaben oder Digraphen geschrieben, und jeder Buchstabe oder Digraph steht immer für den gleichen Laut. 
+\begin{table}[H]
+\centering
+\begin{tabular}{l|*{12}{c}}
+Buchstabe & Aa & Bb & Dd & Ee & Ff & Gg & Hh & Ii & Jj & Kk & Ll \\ 
+Laut & a  & b & d & e & f & g & h & i & i̯ & k & l \\
+\hline 
+Buchstabe & Mm & Nn & Oo & Pp & Rr & Ss & Tt & Uu & Vv & Ww \\ 
+Laut & m & n & o & p & r & s & t & u & v & u̯\\
+
+\end{tabular}
+\caption{Alphabet}
+\label{alph}
+\end{table}
+
+\newpage
+%~~~~~~~~~~~~~~~~~~~~~
+\section{Syntax}
+
+
+Die Syntax funktioniert in den germanischen Sprachen oft recht ähnlich. Meist steht das Verb an zweiter Stelle in einem Satz (V2). Eine Ausnahme stellt Englisch dar: Dort steht das Subjekt stets direkt vor dem Verb (SVO). In V2-Sprachen steht normalerweise das Subjekt vor dem Verb, doch kann etwas anderes (vor allem Adverbien) an die erste Stelle rücken. Dabei wird das Subjekt hinter das Verb geschoben. Deutsch und Niederländisch machen zudem etwas höchst Aussergewöhliches: Der Grossteil des Prädikates wird ans Ende des Satzes geschoben. Die restlichen germanischen Sprachen machen das nicht. Allerdings gibt es etwas, was immer zwischen das konjugierte und das Restverb geschoben wird – die Verneinung:\\
+
+De: Ich \emph{habe} ihn \textbf{nicht} \emph{gesehen}.\\
+\indent{}En: I \emph{have} \textbf{not} \emph{seen} him.\\
+\indent{}Nl: Ik \emph{heb} hem \textbf{niet} \emph{gezien}.\\
+\indent{}Nw: Jeg \emph{har} \textbf{ikke} \emph{sett} ham.\\
+\indent{}Is: Ég \emph{hef} \textbf{ekki} \emph{séð} hann.\\
+
+In vielen anderen Belangen sind die Syntaxregeln etwa gleich: Adjektive vor Nomen, indirekte Objekte meist vor direkten, keine Artikel mit Determinativa, Adverbien oft am Anfang oder Ende des Satzes. 
+
+Um Vergleiche durchführen zu können, habe ich mir einen Text gesucht, von dem in allen fünf untersuchten Sprachen Übersetzungen auffindbar waren. Eine einfache Wahl war dabei ein Auszug aus \emph{Le Petit Prince} von Antoine de Saint-Exupéry\cite{petit}, da dieses Buch in sehr viele Sprachen übersetzt wurde und in modernerer Sprache verfasst ist als die andere naheliegende Möglichkeit (die Bibel). Ich fand eine Webseite, auf der eine bestimmte Textstelle aus einer grossen Sammlung von Übersetzungen dieses Buches herausgeschrieben worden war.
+
+Mithilfe dieses Textes konnte ich mir leicht ein Bild über die gröbsten Unterschiede machen. Später bat ich dann Muttersprachler um Hilfe, um spezifischere Informationen zu erhalten.\cite{norw,nied}
+
+In den folgenden Sektionen stelle ich meine Entschlüsse und Überlegungen zu wichtigen Themen genauer vor. Dort, wo nicht alle untersuchten germanischen Sprachen die gleiche Strategie verwenden, habe ich dies jeweils angemerkt und meine Entscheidungen begründet.
+
+\subsection{Hauptsätze}
+Hauptsätze kann man einfach gesagt als diejenigen Sätze bezeichnen, welche alleine stehen können. Diese kann man weiter in affirmative Sätze (Aussagen), Fragen und Befehle unterteilen.  Alle Arten von Hauptsätzen sind in ihrem Aufbau sehr ähnlich. Es ist vorteilhaft, wenn sie sich klar voneinander unterscheiden, da dies das Verstehen eines Satzes vereinfacht. Weiss ein Leser, dass bei Fragesätzen immer entweder ein Fragewort (wer?) oder das Verb am Anfang steht, so kann bereits mit dem ersten Wort eines Satzes, die Art klar bestimmt werden und spätere Verwirrungen vermieden werden. 
+
+
+\subsubsection{Affirmative Hauptsätze}
+In affirmativen Sätzen (\emph{Die Kinder spielen Fussball.}) steht im Gemeingermanischen eine Regel, welche aus dem Deutschen bekannt sein sollte, im Vordergrund: Das Verb muss stets an zweiter Satzgliedstelle im Satz stehen. Die Reihenfolge der anderen Satzglieder ist klar definiert, lässt jedoch ein bisschen Spielraum. Tabelle~\ref{satz} stellt den Aufbau eines affirmativen Hauptsatzes dar. Es folgt eine Beschreibung der einzelnen Felder:
+
+\begin{table}
+\centering
+\begin{tabular}{|*{8}{c|}}
+ \hline
+Konjunktion & Vorfeld & Prädikat & Argumente & Nachfeld\\
+\hline
+ \end{tabular}
+\caption{Satzbau}
+\label{satz}
+\end{table}
+
+\paragraph{Konjunktion}
+Dieses Feld ist nur vorhanden, wenn es eine Konjunktion (Bindewort) gibt. 
+
+\paragraph{Vorfeld}
+Das Vorfeld bezeichnet die erste Position im Satz. Dieses Feld ist obligatorisch und kann von vier Arten von Satzfragmenten gefüllt werden:
+
+\begin{itemize}
+\item Ein Adverb
+\item Ein Präpositionsgefüge
+\item Das Subjekt
+\item Ein untergeordneter Nebensatz
+\end{itemize}
+{
+\paragraph{Prädikat}
+Beim Prädikat kann es sich um ein oder mehrere Verben handeln. Eines davon ist konjugiert, alle anderen sind non-finite Formen. Das konjugierte Verb ist immer das erste. Sollte das Verb verneint sein und aus mehreren Wörtern bestehen, so steht die Negationspartikel vor den non-finiten Verben. Falls das Verb aus nur einem Wort besteht, so wird die Negation ins Nachfeld verschoben.
+
+\paragraph{Argumente}
+Das Subjekt folgt dem Verb, sollte es nicht bereits im Vorfeld stehen. Objekte stehen stets direkt vor dem Nachfeld. Sollte es zwei Objekte geben (Ich gebe \emph{ihr das Buch}.), so kommt das indirekte (ihr) stets zuerst (vgl. Englisch). Diese Reihenfolge habe ich gewählt, weil sie in den untersuchten Sprachen am häufigsten vorkommt, wenn das Subjekt später im Satz als das Verb steht.
+
+\paragraph{Nachfeld}
+Das Nachfeld ist beliebig gross. Hier landet alles, was sonst keinen Platz gefunden hat. Es gibt intern keine feste Reihenfolge, mit einer Ausnahme: untergeordnete Nebensätze stehen am Schluss. Dies soll bewirken, dass Verwirrungen vermieden werden, da das Ende eines Teilsatzes nicht markiert ist, und man den Übergang vom Nebensatz zurück zum Hauptsatz nicht erkennen könnte. 
+}
+\\
+\begin{figure}[tb]
+\centering
+\begin{forest}
+  [Satz, for tree={parent anchor=south, child anchor=north, l=7mm}
+    [Vorfeld[Ik, tier=word[Ich, tier=de]]]
+    [Prädikat[sear, tier=word[sehe, tier=de]]]
+    [Argument
+      [Direktes Objekt
+        [ART[en, tier=word[ein, tier=de]]]
+        [N[barn., tier=word[Kind., tier=de]]]
+      ]
+   ]
+  ]
+\end{forest}\\
+\emph{Ich sehe ein Kind.}
+\caption{Einfacher Affirmativsatz}
+\label{Einfacher Affirmativsatz}
+\end{figure}
+
+\begin{figure}[tb]
+\centering
+\begin{forest}
+  [Satz, for tree={parent anchor=south, child anchor=north, l=7mm}
+    [Vorfeld[Aniu, tier=cg[Wieder, tier=de]]]
+    [Prädikat[gevar, tier=cg[gibt, tier=de]]]
+    [Argumente[
+      [Subjekt
+        [he, tier=cg[er, tier=de]]]
+      [Indirektes Objekt
+        [ART[de, tier=cg[dem, tier=de]]]
+        [N[barn, tier=cg[Kind, tier=de]]]
+      ]
+      [Direktes Objekt
+        [NUM[tve, tier=cg[zwei, tier=de]]]
+        [N[baler, tier=cg[Bälle, tier=de]]]]
+      ]
+    ]    
+    [Nachfeld
+      [Präpositionsgefüge
+        [PRÄ[in, tier=cg[in, tier=de]]]
+        [ART[de, tier=cg[dem, tier=de]]]
+        [N[regen., tier=cg[Regen., tier=de]]]
+      ]
+    ]
+]
+\end{forest}\\
+\emph{Wieder gibt er dem Kind zwei Bälle im Regen.}
+\caption{Komplexer Affirmativsatz}
+\label{Komplexer Affirmativsatz}
+\end{figure}
+
+\subsubsection{Fragesätze}
+Die germanischen Sprachen verwenden die sogenannte Subjekt-Verb-Inversion zur Kennzeichnung von Fragen. Das bedeutet, dass das Subjekt und das Verb ihre Plätze tauschen, das Verb also am Anfang des Satzes steht.\cite{norw,nied}\cite[S.~174]{isl} Im Englischen dürfen nur wenige Verben (Hilfs- und Modalverben) diese Inversion untergehen, weshalb für die meisten Fragen der sogenannte Do-Support benötigt wird. Eine solche Regel halte ich für wenig hilfreich, deshalb habe ich mich für die häufigere Variante entschieden:
+
+Der Aufbau von Fragesätzen im Gemeingermanischen ist dem von Affirmativsätzen sehr ähnlich. Der einzige Unterschied besteht in der Verwendung des Vorfeldes: Falls ein Fragewort vorhanden ist, muss dieses im Vorfeld platziert werden. Wenn es kein Fragewort gibt, so wird das Fragewort ausgelassen. Das Verb steht dann an erster Stelle.
+
+\begin{figure}[tb]
+\centering
+\begin{forest}
+  [Satz, for tree={parent anchor=south, child anchor=north, l=7mm}
+    [Prädikat[Sear, tier=word[Sehe, tier=de]]]
+    [Argumente
+      [Subjekt[ik, tier=word[ich, tier=de]]]
+      [Direktes Objekt
+        [ART[en, tier=word[ein, tier=de]]]
+        [N[barn?, tier=word[Kind?, tier=de]]]
+      ]
+   ]
+  ]
+\end{forest}\\
+\emph{Sehe ich ein Kind?}
+\caption{Fragesatz}
+\label{Fragesatz}
+\end{figure}
+
+\subsubsection{Befehle}
+Imperativsätze funktionieren überall in den untersuchten Sprachen gleich: Verb am Anfang, Subjekt kann unter Umständen ausgelassen werden.\cite{norw,nied}\cite[S.~159]{isl} Englisch verwendet das Hilfsverb \emph{let}, um einen Imperativ der ersten Person Plural zu bilden. Auch diesen Gebrauch von Hilfsverben finde ich eher sinnlos, daher gilt das folgende im Gemeingermanischen:
+
+Befehle unterscheiden sich von Fragesätzen nur insofern, dass das Subjekt ausgelassen werden darf, sollte es aus dem Kontext klar sein, und darin, dass das Verb im Imperativ steht. Das Vorfeld wird immer leer gelassen.
+
+\enumsentence{\shortex{5}
+		{Gev&mik&de&bal!}
+		{geben.\smallc{imp}&\smallc{1s.obj}&\smallc{def}&Ball}
+		{\emph{Gib mir den Ball!}}
+		}
+
+\enumsentence{\shortex{5}
+		{Gan!}
+		{gehen.\smallc{imp}}
+		{\emph{Geh!}}
+		}
+
+\subsection{Nebensätze}
+Als Nebensätze versteht man diejenigen Sätze, welche nicht alleine stehen können. Sie werden oft mit Konjunktionen wie \emph{bevor, obwohl} oder \emph{weil} eingeleitet. Ein Beispiel aus dem Deutschen: „Ich habe dich noch gesehen, \emph{bevor du gegangen bist.}“
+
+Der erste Teilsatz kann problemlos alleine stehen, er ist also ein Hauptsatz. Der zweite Teil dagegen beruht auf dem ersten. Es handelt sich bei ihm also um einen Nebensatz. 
+
+Nebensätze sind im Gemeingermanischen strukturell gleich aufgebaut wie Hauptsätze. Wichtig ist es jedoch anzumerken, dass Nebensätze als Elemente des übergeordneten Teilsatzes behandelt werden. Sie können das Vorfeld füllen oder im Nachfeld stehen.
+
+\begin{figure}[tb]
+\centering
+\begin{forest}
+  [Satz, for tree={parent anchor=south, child anchor=north, l=7mm}
+    [Vorfeld[Ik, tier=word[Ich]]]
+    [Prädikat
+      [setar, tier=word[sah, tier=de]]
+    ]
+    [Argumente
+      [Direktes Objekt[dik, tier=word[dich, tier=de]]]
+    ]
+    [Nachfeld
+      [KONJ, calign=first
+      [fur, tier=word[bevor, tier=de]]
+        [Satz
+          [Vorfeld[du,  tier=word[du, tier=de]]]
+          [Prädikat
+            [havtar, tier=word[hattest, tier=de]]
+            [ganat., tier=word[gegangen., tier=de]]
+          ]
+         ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}\\
+\emph{Ich sah dich, bevor du gegangen warst.}
+\caption{Nebensatz}
+\label{Nebensatz}
+\end{figure}
+
+
+\subsection{Nominalphrasen}
+
+Der Aufbau von Nominalphrasen ist praktisch gleich in allen germanischen Sprachen. Der wichtigste Unterschied ist die Position von Possessiva, welche in den nordgermanischen Sprachen eher nach dem Nomen kommen\cite{norw}\cite{islnom}, während sie in den Westgermanischen meist vor dem Nomen stehen, ausser wenn sie mit einer Präposition geformt werden.\cite{nied} Aus diesen Gründen fiel es mir eher leicht, hier eine Entscheidung zu treffen.
+
+Der Kern einer gemeingermanischen Nominalphrase bildet ein Substantiv, oder ein substantiviertes Adjektiv oder Verb: \emph{de morgen} „der Morgen“, \emph{de skona} „das Schöne“, \emph{de gana} „das Gehen“.
+
+Vor dem Kern stehen Adjektive, davor Determinativa (wie Artikel). Nach dem Kern stehen näher bestimmende Präpositionsphrasen, insbesondere besitzanzeigende, Relativsätze und auch Possessivpronomen:
+
+
+\begin{figure}[tb]
+\centering
+\begin{forest}
+  [Satz, for tree={parent anchor=south, child anchor=north, l=7mm}
+    [Vorfeld[Ik, tier=word[Ich]]]
+    [Prädikat
+      [sear, tier=word[sah, tier=de]]
+    ]
+    [Argumente
+      [Direktes Objekt       
+        [N [ART[en, tier=word[einen, tier=de]]][man, tier=word[Mann, tier=de]]
+        [REL, calign=first
+        [sem, tier=word[der, tier=de]]
+          [Prädikat[vesar, tier=word[ist, tier=de]]]
+          [Nachfeld[ADV[litel, tier=word[klein, tier=de]]]]
+        ]]
+      ]
+    ]
+  ]
+\end{forest}\\
+\emph{Ich sah einen Mann, der klein ist.}
+\caption{Nominalphrase}
+\label{Nominalphrase}
+\end{figure}
+
+
+\clearpage
+%~~~~~~~~~~~~~~~~~~~~~
+\section{Morphologie}
+Erwachsenen fällt es oft sehr schwer, komplizierte Morphologie zu lernen. Deshalb war es mir sehr wichtig, ein einfaches System zu erstellen, welches potentiellen Lernenden jedoch immer noch bekannt vorkommen würde. Bei den Verben war dies erstaunlich einfach, da alle germanischen Sprachen verhältnismässig ähnliche Systeme verwenden. Die Entscheidungen, welche bei Substantiven getroffen werden mussten, waren weitaus schwerer, denn die Entscheidung musste getroffen werden, ob Fälle verwendet werden sollen. Das Problem dabei liegt in der Tatsache, dass in den fünf untersuchten Sprachen Pronomen immer zumindest Nominativ, Objektiv und Genitiv unterscheiden, während die Situation der Nomen in allen Sprachen ein bisschen unterschiedlich ist.
+
+Grundsätzlich besteht das Verbsystem in den germanischen Sprachen aus etwa 8 Zeiten, davon abhängig, wie man sie zählt.\cite{norw,nied}\cite[135-137]{isl}  Praktisch alle besitzen zwei Zeiten, welche direkt am Verb gekennzeichnet werden: Präsens (ich gehe) und Präteritum (ich ging). Dabei wird innerhalb der Zeiten manchmal auch noch für Person und Numerus konjugiert. Isländisch steht mit fünf bis sechs verschiedenen Formen an der Spitze, Norwegisch hat nur eine Endung für alle Personen und beide Numeri (Singular und Plural). 
+
+Es werden sehr viele Formen mit Hilfe von Hilfsverben gebildet. Universell ist die Verwendung von haben (und manchmal sein) für die sogenannten Perfekt-Formen, welche indizieren, dass eine Handlung vor einem gewissen Referenzpunkt abgelaufen ist. Die exakte Bedeutung unterscheidet sich manchmal ein bisschen. Futurformen werden auch stets mit einem Hilfswerb (oder gar nicht) gekennzeichnet, hier gibt es jedoch weniger Übereinstimmungen: Deutsch hat \emph{werden}, Englisch \emph{will} (verwandt mit „wollen“), Niederländisch \emph{zullen} „sollen“, Norwegisch \emph{ska} (verwandt mit „sollen“) und Isländisch verwendet \emph{munu} und \emph{skulu} (letzteres auch verwandt mit „sollen“). Konditionssätze verwenden meist eine spezielle Form, wie einen Konjunktiv oder das Hilfsverb für den Futur im Präteritum. Der Konjunktiv selbst existiert so eigentlich nur noch auf Deutsch und Isländisch für alle Verben und ist ansonsten nur noch in fossilisierten Formen auffindbar.\cite{norw,nied}
+
+\subsection{Verben}
+Das Konjugationssystem der Verben ist weitgehend identisch in allen germanischen Sprachen: Es gibt zwei Zeiten, welche direkt auf dem Verb inflektiert werden (Präsens, Präteritum) und verschiedene Kombinationen mit Hilfsverben für Aspekte und den Futur. Weiterhin haben einige Sprachen einen Konjunktiv und in allen gibt es spezielle Konstruktionen für Konditionssätze. Das System, für welches ich mich entschieden habe, ist sowohl dem Niederländischen wie dem Norwegischen sehr nahe, doch ist es strukturierter.\cite{norw,nied} Es folgt eine genauere Beschreibung des gemeingermanischen Verbsytems.
+
+Jedes Verb besitzt eine Stammform. Von dieser werden alle Formen abgeleitet. Sie kann als „Infinitiv ohne Endung“ angesehen werden: Die Stammform von \emph{verka} „arbeiten“ ist \emph{verk}.
+
+\subsubsection{Non-finite Formen}
+Es gibt zwei non-finite Formen: Der Infinitiv und das Partizip. 
+
+\paragraph{Infinitiv}
+Im Proto-Germanischen endete der Infinitv meist in -ą. Im Gemeingermanischen endet er in -a. Er wird wie im Deutschen meist ohne eine Präposition verwendet, wenn er in einem Satz vorkommt, da die Form bereits durch ihre Endung klar als Infinitiv markiert ist (anders als beispielsweise im Englischen). Eine häufige Verwendung des Infinitivs ist mit dem Hilfsverb \emph{skulu}, welches den Futur markiert: \emph{De sun skular risa.} „Die Sonne wird aufgehen“. Weiterhin verwendet man den Infinitiv, zusammen mit \emph{at} in den Progressivformen: 
+
+\enumsentence{\shortex{5}
+		{De &sun &ves-ar &at &ris-a.}
+		{\smallc{def} &Sonne &sein-\smallc{prs} &an  &aufgehen-\smallc{inf}}
+		{\emph{Die Sonne ist (gerade) am Aufgehen.}}
+		}
+		
+Ausserdem wird der Infinitiv als nominale Form verwendet:
+
+\enumsentence{\shortex{5}
+		{Hun&luv-ar&de&lek-a.}
+		{\smallc{3s.f}&lieben-\smallc{prs}&\smallc{def}&spielen-\smallc{inf}}
+		{\emph{Sie liebt das Spielen.}}
+		}
+		
+\paragraph{Partizip}
+Das Partizip wird gebildet, indem man direkt an den Infinitiv ein -t anhängt: \emph{vesa} „sein“, \emph{vesat} „gewesen“. Es wird zusammen mit dem Hilfsverb \emph{haba} verwendet, um die Perfekt-Formen zu bilden: 
+
+\enumsentence{\shortex{4}
+		{De &sun &hav-ar &ris-at.}
+		{\smallc{def} &Sonne &hat-\smallc{prs} &steigen-\smallc{part}}
+		{\emph{Die Sonne ist (vor dem jetztigen Zeitpunkt) aufgegangen.}}
+		}
+
+
+\subsubsection{Finite Formen}
+\paragraph{Indikativ Präsens}
+Der Indikativ ist der Modus aller konjugierten Verben. Er wird gebildet, indem man an den Stamm -ar anhängt. \emph{skriva} „schreiben“ → \emph{ik skrivar} „ich schreibe“. Verben enden in allen Personen, Singular wie Plural, auf -ar. 
+
+\paragraph{Indikativ Präteritum}
+Das Präteritum, also die einfache Vergangenheitsform wird aus dem Indikativ Präsens gebildet, indem man -t- zwischen Stamm und Endung schiebt. Sollte der Stamm auf -t enden, so wird ein -a- zwischen die beiden T geschoben. Dies geschieht zum Beispiel mit dem Verb \emph{mota}, „müssen“:
+
+
+\enumsentence{\shortex{4}
+		{Du &mota-tar &skriv-a &skon-er.}
+		{\smallc{2s} &müssen-\smallc{prt} &schreiben-\smallc{inf} &schön-\smallc{kmp}}
+		{\emph{Du musstest schöner schreiben.}}
+		}
+		
+Das -t für die Vergangenheitsform ist vom  germanischen Dentalsuffix abgeleitet, welcher in schwachen Verben das Präteritum markiert, wie im Deutschen „ich kaufte“. Ursprünglich wollte ich einige starke Verben in die Sprache aufnehmen. Diese Klasse von Verben zeichnet sich dadurch aus, dass sich ein Vokal im Inneren des Verbes verändert. Ich entschloss mich, dies nicht zu tun. Obwohl es sehr germanisch ist, passt es nicht in eine Hilfssprache, da Lernende sich nun mehrere Formen mit der gleichen Bedeutung merken müssten, was gegen meine Prinzipien verstösst.
+
+\subsubsection{Die Zeitformen}
+Jedes Verb muss für irgendeine Zeitform konjugiert werden. Eine Zeitform besteht aus einer Kombination aus einer Zeit mit einem Aspekt.
+
+\subsubsection{Zeiten} Die vier Zeiten stellen den Referenzpunkt einer Aktion oder eines Vorganges dar. Meist ändert sich die Zeit während einer ganzen Erzählung nicht. 
+
+
+\paragraph{Präsens} Der Präsens richtet den Fokus auf das Momentane oder das Zeitlose. Das konjugierte Verb steht im Indikativ Präsens.
+
+\enumsentence{\shortex{3}
+		{It&regn-ar&oft.}
+		{\smallc{3s.n} &regnen.\smallc{prs} &oft}
+		{\emph{Es regnet oft.}}
+		}
+\paragraph{Präteritum} Der Präteritum richtet den Fokus auf das Vergangene. Er wird oft für Erzählungen verwendet, da diese bereits geschehen sind. Das konjugierte Verb steht im Indikativ Präteritum.
+
+\enumsentence{\shortex{4}
+		{Ens&spel-tar&de&barn-er.}
+		{einst&spielen-\smallc{prt}&def&kind-\smallc{pl}}
+		{\emph{Einst spielten die Kinder.}}
+		}
+		
+
+\paragraph{Futur} Der Futur wird verwendet, um über Zukünftiges zu erzählen. Im Deutschen und auch im Isländischen wird hier oft der Präsens verwendet. Dies ist hier nicht erlaubt. Das Hilfsverb \emph{skala} wird im Indikativ Präsens verwendet:
+
+\enumsentence{\shortex{4}
+		{Ik&skal-ar&gan-a&amorgen.}
+		{\smallc{1s}&werden-\smallc{prs}&gehen-\smallc{inf}&morgen}
+		{\emph{Ich werde morgen gehen.}}
+		}
+\paragraph{Konditional} Der Konditional ist eine spezielle Zeitform, welche für Konditionen in Wenn-Dann-Gefügen verwendet wird. Es wird mit dem Hilfsverb \emph{skala} im Indikativ Präteritum gebildet.
+
+
+\subsubsection{Aspekte} Die Aspekte stellen dar, wie ein Vorgang im Verhältnis zum Referenzpunkt steht.
+
+\paragraph{Progressiv} Der Progressiv-Aspekt hebt hervor, dass es sich bei einem Vorgang um einen längeren Prozess handelt, welcher im Moment des Referenzpunktes abläuft. Er wird mit der folgenden Konstruktion gebildet: \emph{vesa} (konjugiert) + \emph{at} + Infinitiv. 
+
+\enumsentence{\shortex{5}
+		{De &sun &ves-ar &at &skin-a.}
+		{\smallc{def} &Sonne &sein-\smallc{prs} &an  &scheinen-\smallc{inf}}
+		{\emph{Die Sonne scheint gerade.}}
+		}
+\enumsentence{\shortex{5}
+		{It&ves-tar&at&regn-a.}
+		{\smallc{3s.n}&sein-\smallc{prt}&an&regnen-\smallc{inf}}
+		{\emph{(Im erwähnten Moment) regnete es gerade.}}
+		}
+
+
+\paragraph{Perfekt} Der Perfekt-Aspekt zeigt, dass etwas zum fokussierten Zeitpunkt bereits vollständig geschehen ist. Diesen Aspekt bildet man mit dem Hilfsverb \emph{hava} + dem Verb im Partizip:
+
+\enumsentence{\shortex{5}
+		{Ik&hav-ar&lek-at.}
+		{\smallc{1s}&haben-\smallc{prs}&spielen.\smallc{intr}-\smallc{part}}
+		{\emph{Ich habe gespielt (aber jetzt spiele ich nicht mehr).}}
+		}
+
+\paragraph{Einfach} Der einfache Aspekt ist sozusagen eine Restgruppe. Falls ein Satz keine der anderen Aspekte verlangt, so bleibt das Verb unverändert.
+
+\enumsentence{\shortex{5}
+		{De&sun&skin-ar.}
+		{\smallc{def}&sonne&scheinen-\smallc{prs}}
+		{\emph{Die Sonne scheint (im Allgemeinen, nicht umbedingt gerade jetzt).}}
+		}
+
+
+\subsubsection{Passiv}
+In den westgermanischen Sprachen wird der Passiv mit einem Hilfsverb gebildet. Im Deutschen und Niederländischen ist dies „werden“ oder „sein“, im Englischen immer „sein“. Die Nordgermanischen Sprachen dagegen haben einen Suffix aus dem Pronomen \emph{sig} „sich“ entwickelt. Im Norwegischen ist dieser -s und steht für den Passiv. Im Isländischen lautet der Suffix -st und steht für den sogenannten Medial (verwendet unter anderem für gewisse Reflexiva), während der eigentliche Passiv wie im Englischen mit sein + Partizip geformt wird.
+
+Es ist recht offensichtlich, dass ein Passiv mit sein + Partizip die am bei weitem verbreitetste Form ist, weshalb der Passiv hier so gebildet wird. 
+
+
+\enumsentence{\shortex{5}
+		{Ik&se-ar&dik.}
+		{\smallc{1s.nom}&sehen-\smallc{prs}&\smallc{2s.obj}}
+		{\emph{Ich sehe dich.} Aktiv}
+		}
+
+
+\enumsentence{\shortex{5}
+		{Du&ves-ar&se-at.}
+		{\smallc{2s.nom}&sein-\smallc{prs}&sehen-\smallc{part}}
+		{\emph{Du wirst gesehen.} Passiv}
+		}
+
+\subsubsection{Übersicht}
+
+In der folgenden Tabelle werden alle Zeitformen noch einmal aufgelistet:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|l}
+Name&Form&Übersetzung\\ \hline
+Präsens&Ik sear.&Ich sehe (im Allgemeinen).\\
+Präsens Progressiv&Ik vesar at sea.&Ich sehe gerade.\\
+Präsens Perfekt&Ik havar seat.&Ich habe gesehen (vor dem jeztigen Moment).\\\hline
+Präteritum&Ik setar.&Ich sah.\\
+Präteritum Progressiv&Ik vestar at sea.&Ich sah gerade.\\
+Präteritum Perfekt&Ik havtar seat.&Ich hatte gesehen (vor dem Zeitpunkt).\\\hline
+Futur&Ik skalar sea.&Ich werde sehen.\\
+Futur Progressiv&Ik skalar vesa at sea.&Ich werde gerade sehen.\\
+Futur Perfekt&Ik skalar hava seat.&Ich werde gesehen haben.\\\hline
+Konditional&Ik skaltar sea.&Ich würde sehen.\\
+Konditional Progressiv&Ik skaltar vesa at sea.&Ich würde gerade sehen.\\
+Konditional Perfekt&Ik skaltar hava seat.&Ich würde gesehen haben.
+ \end{tabular}
+\caption{Zeitformen}
+\label{Zeitformen}
+\end{table}
+
+
+
+\subsection{Substantive}
+Die Proto-Germanischen Substantive hatten ein komplexes Deklinationssystem mit sechs Fällen: 
+\begin{itemize}
+\item \emph{*wulfaz} „ein Wolf“
+\item \emph{*wulf} „Wolf!“ (als Anrede)
+\item \emph{*wulfą} „einen Wolf“ 
+\item \emph{*wulfas} „eines Wolfes“
+\item \emph{*wulfai} „einem Wolfe“ 
+\item \emph{*wulfō} „mithilfe eines Wolfes“
+\end{itemize}
+
+Am besten erhalten ist dies im Isländischen, welches immerhin noch vier Fälle besitzt, gleich wie das Deutsche. Dort sieht das System so aus: 
+\begin{itemize}
+\item \emph{úlfur} „ein Wolf“ 
+\item \emph{úlf} „einen Wolf“
+\item \emph{úlfi} „einem Wolfe“
+\item \emph{úlfs} „eines Wolfes“. 
+\end{itemize}
+
+Englisch, Niederländisch und Norwegisch haben das Fallsystem so stark reduziert, dass es praktisch nur noch in Pronomen erkennbar ist – und selbst da wird nicht mehr zwischen Akkusativ und Dativ unterschieden. Lediglich eine Endung -s verbleibt, welche den Genitiv anzeigt.\cite{norw,nied}
+
+Das Proto-Germanische hatte ausserdem drei grammatische Geschlechter, welche den deutschen entsprechen. Deutsch und Isländisch, sowie einige Dialekte des Norwegischen behalten diese vollständig bei, im Niederländischen sowie vielen Norwegischen Dialekten sind Maskulin und Feminin verschmolzen, es ergibt sich ein Kontrast zwischen „Gemein“ und „Sächlich“. Das Englische hat den Genus vollständig verloren und verwendet die geschlechtlichen Pronomina \emph{he} und \emph{she} lediglich für Menschen.
+
+Ursprünglich gab es in den indoeuropäischen Sprachen drei Numeri: Singular, Dual und Plural. Der Dual ging in den germanischen Sprachen allerdings ausnahmslos verloren, Überreste lassen sich lediglich in Wörtern wie „beide“ finden. Der Unterschied zwischen Singular und Plural allerdings blieb überall erhalten.
+
+\subsubsection{Genus}
+Grammatisches Geschlecht hat meiner Meinung nach nichts in einer Hilfssprache zu suchen. Es mag in den germanischen Sprachen fast universell sein, doch erschwert es das Lernen extrem, ohne einen besonderen Nutzen zu erbringen.
+
+\subsubsection{Numerus}
+Nomen unterscheiden zwischen Singular und Plural. Der Singular wird nicht markiert, der Plural erhält die Endung -er. Ich wählte diese Endung, da -s (welches häufiger vorkäme) mit einem Genitiv verwechselt werden könnte.
+
+\subsubsection{Kasus}
+Die Entscheidung, ob Nomen im Kasus unterschieden werden sollen, war für mich eine der schwersten. Zum einen war es mir von Anfang an klar, dass Pronomen sich nach Fall unterscheiden werden, was dafür spräche, dies auch mit Substantiven zu tun. Zum anderen jedoch ist das Fallsystem nur noch in zwei der fünf untersuchten Sprachen auffindbar. 
+
+Schlussendlich habe ich mich entschieden, Nomen \emph{nicht} zu deklinieren. Die Existenz eines Kasussystems, selbst eines extrem einfachen, schreckt Lernende sehr schnell ab. Eine der häufigsten Kritiken an Esperanto ist die Existenz des Akkusativs, welchen Lernende als schwierig befinden. Als Deutschsprachiger fällt es mir zwar schwer, dies nachzuvollziehen, da ich mir Fälle gewöhnt bin, doch habe ich mich entschlossen, diese Kritik ernst zu nehmen und deshalb keine Fallunterscheidung in Nomen zu machen.
+
+\subsection{Pronomen}
+Die germanischen Personalpronomen sind im Allgemeinen recht unregelmässig. Es gibt keine erkennbare Regelmässigkeit zwischen \emph{ich} und \emph{mich} oder \emph{du} und \emph{dich}. Es gibt jedoch ein System, an welches sich alle germanischen Sprachen recht strikt halten: drei Personen, zwei Numeri, verschiedene Pronomen für männliche, weibliche und sächliche Subjekte in der dritten Person. Dazu kommt oft ein Reflexivpronomen für die dritten Personen, um in Sätzen wie \emph{Er sieht ihn}, sofort wissen zu können, dass es sich bei den beiden Personen um verschiedene handelt (während im Satz \emph{Er sieht sich} beide Personen die gleiche sind). 
+
+Während Deutsch und Isländisch noch eine Unterscheidung zwischen Akkusativ (mich) und Dativ (mir) machen, ist diese Unterteilung ansonsten verloren gegangen. 
+
+\subsubsection{Personalpronomen}
+Tabelle~\ref{pron} zeigt die Personalpronomen in allen Formen.
+
+\begin{table}
+\centering
+\begin{tabular}{r|c|c|c}
+ &Nominativ&Objektiv&Possessiv\\ \hline
+1. Sg & ik & mik & min \\ \hline
+2. Sg & du & dik & din \\ \hline
+3. Sg M & he & hem & hes \\ \hline
+3. Sg. F & hun & hen & her \\ \hline
+3. Sg. N & et & et & ets \\ \hline
+\hline
+1. Pl & vi & us & ur \\ \hline
+2. Pl & je & ju & jur \\ \hline
+3. Pl & di & dem & der \\ \hline
+\hline
+Reflexiv & — & sik & sin
+ \end{tabular}
+\caption{Personalpronomen}
+\label{pron}
+\end{table}
+
+Bei einigen der Pronomen war es sehr einfach, eine allgemeine Lösung zu finden. Dies waren diejenigen der ersten und zweiten Person, sowie die Reflexiven. Die Formen waren sich hier fast überall sehr ähnlich. Englisch hat das mit \emph{du} verwandte Wort, \emph{thou}, in den letzten Jahrhunderten verloren und mit dem Plural \emph{you} ersetzt (und ersetzt nun den Plural mit verschiedensten Formen wie \emph{yous} oder \emph{y’all}), aber ansonsten stimmte alles recht gut überein. Die dritten Personen dagegen waren eher schwierig. Der Singular Neutrum war am einfachsten. In allen fünf Sprachen sind Nominativ und Akkusativ identisch und der Genitiv hat eine einfache Endung. \emph{Et} ist der beste Kompromiss den ich finden konnte. 
+
+In den übrigen Formen der dritten Person Singular gibt es eine recht klare Schneise zwischen West- und Nordgermanisch. Deutsch, Englisch und Niederländisch sind sich recht ähnlich mit \emph{er, hij, he} und \emph{sie, zij, she}, Norwegisch und Isländisch sogar noch extremer: \emph{han, hann} und \emph{hun, hún}. Ich habe mich für Formen mit h- entschieden, da diese in den anderen Fällen teils auftauchen. 
+
+Die Pluralformen waren wieder sehr viel einfacher, da das Englische diese Pronomen dem Altnordischen entliehen hat. Dadurch gab es drei Sprachen aus den beiden Untergruppen, welche sehr ähnliche Formen hatten (Englisch, Norwegisch und Isländisch).
+
+Bei den Entscheidungen, wie die Wörter genau aussehen sollen, bin ich nicht sonderlich wissenschaftlich vorgegangen. Ich habe die Formen verglichen und ein System entwickelt, welches nicht allzu fern der natürlichen Sprachen ist und meiner Meinung nach gut genug ist. 
+
+\subsubsection{Relativpronomen}
+Ein Relativpronomen ist ein Wort, welches einen Nebensatz einer Nominalphrase unterordnet. Manche Sprachen besitzen davon recht viele. Im Deutschen muss man sich zwischen „welche“, „der“, „wo“ und vielen anderen entscheiden. In den nordgermanischen Sprachen dagegen kann man mit dem Wort \emph{sem} (oder ähnlich) all das ausdrücken. Dies scheint mir eine optimale Lösung für eine Hilfssprache, da es den Lernaufwand verkleinert.
+
+\subsection{Determinativa}
+Als Determinativa bezeichnet man all jene Wörter, welche ein Substantiv oder eine Nominalphrase näher bestimmen, aber keine Adjektive sind. In der deutschen Grammatik werden sie oft als Pronomen klassifiziert. 
+
+\subsubsection{Artikel}
+Die nordgermanischen Sprachen haben eine andere Strategie für Artikel entwickelt als die Westlichen. Isländisch und Norwegisch besizten Nachsilben, welche sich mit bestimmten Artikeln übersetzen lassen: Isländisch \emph{maður} „Mann, ein Mann“, \emph{maðurinn} „der Mann“; Norwegisch \emph{mann} „Mann“, \emph{mannen} „der Mann“. In den westgermanischen Sprachen sind dagegen beide Artikel Determinativa. Isländisch besitzt ausserdem keinen unbestimmten Artikel, in allen anderen Sprachen hat sich dieser aus der Zahl Eins entwickelt.
+
+Sowohl Isländisch wie Norwegisch kennen aber einen „freistehenden Artikel“. Dieser wird verwendet, wenn ein Adjektiv vor dem Nomen steht. Zumindest im Isländischen gilt diese Form als veraltet, aber es gibt sie. Daher fiel es mir leicht, mich für das westgermanische Modell zu entscheiden. Die gemeingermanischen Artikel lauten \emph{en} „ein“ und \emph{de} „das“. Die gleiche Form wird sowohl für Singular wie Plural verwendet (en nur im Singular).
+
+\subsubsection{Demonstrativa}
+Viele Sprachen besitzen entweder zwei oder drei Demonstrativpronomen: „das nahe bei mir“, „das weit weg von mir“ und, falls ein Drittes existiert, entweder ein neutrales oder eines mit einer Bedeutung wie „das nahe bei dir“. In den germanischen Sprachen ist ein zwei-Pronomen-System häufiger: Englisch \emph{this, that}, Niederländisch \emph{dit, dat}, Norwegisch \emph{denne, den}. Deutsch hat neben proximal \emph{dieses} und distal \emph{jenes} noch ein neutrales \emph{das}, Isländisch hat neben \emph{þessi} (dieser) und \emph{sá} (jener) noch \emph{hinn} (der andere).
+
+In all diesen Sprachen werden diese Demonstrativa zumindest für Singular/Plural dekliniert und, sofern vorhanden, auch für grammatisches Geschlecht und Fall. Ich halte dies nicht für notwendig. Daher habe ich genau zwei Wörter gewählt: \emph{dit} „dieses, diese“ und \emph{det} „jenes, jene“.
+\subsubsection{Quantitativa}
+Zu dieser Klasse von Wörtern gehören all jene, welche eine Menge bestimmen, also solche wie „alle“, „manche“ oder „viele“. Diese verhalten sich wie Adjektive, ausser dass sie nicht gesteigert werden können. Sie werden stets mit Nomen im Plural und ohne Artikel verwendet:
+
+
+\enumsentence{\shortex{5}
+		{All&person-er&rop-ar}
+		{Alle&person-\smallc{pl}&rufen-\smallc{prs}}
+		{\emph{Alle Leute rufen/schreien.}}
+		}
+
+\enumsentence{\shortex{5}
+		{Som&person-er&rop-tar}
+		{Manche&person-\smallc{pl}&rufen-\smallc{prt}}
+		{\emph{Manche Leute riefen/schrien.}}
+		}
+		
+\subsection{Adjektive}
+Im Proto-Germanischen und in fast allen daraus entstandenen Sprachen unterscheidet man zwischen zwei (im Deutschen sogar drei) Mustern für die Adjektivendungen: eines für bestimmte und eines für unbestimmte Nomen.\cite[S.~260]{germ} Lediglich Englisch hat dies vollständig verloren.
+
+Obwohl ich es für ein wunderbares System halte, welches den Sprachen ein bisschen mehr Charakter verleiht, halte ich es nicht für angebracht, diese Unterteilung in eine Hilfssprache einzubauen, da sie nicht sonderlich viel bringt und einen zusätzlichen Lern- und Gedächtnisaufwand darstellt.
+
+\subsubsection{Steigerung}
+Es gibt kaum ein Gebiet der Sprache, in dem sich die germanischen Sprachen so einig sind, wie mit der Frage, wie Adjektive denn gesteigert werden sollen. Die Endungen -r, -st sind universell. Je nach Sprache werden dann noch weitere Endungen angehängt oder ein Vokal davor geschoben. 
+
+ Die Endungen, für die ich mich entschieden habe, sind \emph{-(a)ri} und \emph{-(a)st}, was den isländischen Endungen entpricht. Das ausgeklammerte (a) fällt weg, wenn das Adjektiv in einem Vokal endet. Das -i im Komparativ kommt auch im Deutschen vor (als -e wie in \emph{der schwärzere Mann}). Ich hätte es weglassen können, doch gäbe es dann eine Überlappung zwischen dem Infinitiv des Verbes, was ich vermeiden wollte.
+
+\subsubsection{Nominalisierung}
+Adjektive werden oft als Nomen verwendet, wie in \emph{Er sieht das Schöne}. Hierfür gibt es verschiedene Strategien:
+
+Im Englischen werden Adjektive mit einem „Dummy-Subjekt“, dem Pronomen \emph{one} verwendet. In den restlichen germanischen Sprachen können Adjektive allein stehen, mit einer Endung. Da Englisch hier der klare Aussenseiter ist, wird die Lösung der Nachsilbe verwendet: Nominale Adjektive erhalten die Endung -a, falls sie nicht bereits in einem Vokal enden:
+
+\enumsentence{\shortex{4}
+		{He&se-ar&de&skon-a.}
+		{Er&sehen-\smallc{prs}&\smallc{def}&schön-\smallc{nml}}
+		{\emph{Er sieht das Schöne.}}
+		}
+
+\subsection{Adverbien}
+Adverbien werden, wie im Deutschen, Niederländischen und Norwegischen, nicht von ihren korrespondierenden Adjektiven unterschieden, ausser in der Syntax:
+
+
+\enumsentence{\shortex{4}
+		{Skon&sing-ar&du!}
+		{schön&singen-\smallc{prs}&\smallc{2s}}
+		{\emph{Schön singst du!}}
+		}
+
+Auch zu Adverbien gehören Wörter, welche Zeit, Platz oder Art und Weise genauer bestimmen, wie \emph{amorgen} „morgen“ oder \emph{her} „hier“. 
+
+Adverbien sind indeklinierbar, erhalten also nie eine Endung.
+
+
+
+
+
+\clearpage
+~~~~~~~~~~~~~~~~~~~~~
+\section{Beispieltext}
+Ich halte es für angebracht, einen etwas längeren Text zu übersetzen und hier vorzuzeigen. Hierfür wählte ich den Ausschnitt aus \emph{Le Petit Prince}, welchen ich zu Beginn dieser Arbeit einmal genauer angeschaut hatte. Der gemeingermanische Text ist keine direkte Übersetzung des deutschen Textes, sondern ist direkt in der Sprache selbst geschrieben, anhand der fünf Übersetzungen aus dem Französischen. 
+\\
+
+\emph{A, litel prins, langsam havar forstanat ik litel trist lif din.
+Lang tid havtar havat du ne andera fur fordriva de tid en sea an de sunnedgana.
+Ik lertar dat an de morgen af de firde dag, da du sagtar mig:
+Ik luvar de sunnedganaer.}\\
+
+Im Folgenden nehme ich den Text ein wenig auseinander, um die einzelnen Wörter und insbesondere die Morphologie zu zeigen.
+
+\enumsentence{\shortex{3}
+		{A,& litel&prins,}
+		{ach&klein&Prinz}
+		{\emph{Ach, kleiner Prinz,}}
+		}
+
+
+\enumsentence{\shortex{8}
+		{langsam&hav-ar&forstan-at&ik&litel&trist&lif&din.}
+		{langsam&haben-\smallc{prs}&verstehen-\smallc{part}&\smallc{1s.nom}&klein&traurig&Leben&dein}
+		{\emph{langsam habe ich dein kleines, trauriges Leben verstanden.}}
+		}
+
+\enumsentence{\shortex{11}
+		{Lang&tid&hav-tar&hav-at&du&ne&ander-a&fur&fordriv-a&de&tid}
+		{lang&Zeit&haben-\smallc{prt}&haben-\smallc{part}&\smallc{2s.nom}&nicht&ander-\smallc{nml}&für&vertreiben-\smallc{inf}&\smallc{def}&Zeit}
+		{\emph{Lange Zeit hattest du nichts anders gehabt, um die Zeit zu vertreiben,}}
+		}
+
+\enumsentence{\shortex{11}
+		{en&se-a&an&de&sun-ned-gan-a.}
+		{als&sehen-\smallc{inf}&an&\smallc{def}&sonne-nieder-gehen-\smallc{inf}}
+		{\emph{als zum Sonnenuntergang zu sehen.}}
+		}
+		
+\enumsentence{\shortex{11}
+		{Ik&ler-tar&dat&an&de&morgen&af&de&fir-de&dag,}
+		{\smallc{1s.nom}&lernen-\smallc{prt}&\smallc{dem.dist}&an&\smallc{def}&morgen&von&\smallc{def}&vier-\smallc{ord}&Tag}
+		{\emph{Ich lernte das am Morgen des vierten Tages,}}
+		}
+
+\enumsentence{\shortex{8}
+		{da&du&sag-tar&mig:}
+		{als&\smallc{2s.nom}&sagen-\smallc{prt}&\smallc{1s.obj}}
+		{\emph{als du mir sagtest:}}
+		}
+
+\enumsentence{\shortex{8}
+		{Ik&luv-ar&de&sun-ned-gan-a-er}
+		{\smallc{1s.nom}&lieben\smallc{prs}&\smallc{def}&sonne-nieder-gehen-\smallc{inf-pl}}
+		{\emph{Ich liebe die Sonnenuntergänge.}}
+		}	
+		
+\clearpage
+%~~~~~~~~~~~~~~~~~~~~~
+\section{Lexikon}
+\spacing{1}
+\subsection*{\centerline{A}}
+\begin{multicols}{2}
+\dictentry{af}{präp}{von (Besitz oder Ursprung)}{De~ab, En~of, Nl~af, Nw~av, Is~af, P.Gm~*ab}
+\dictentry{akort}{adv}{bald}{an + kort, De~in~Kürze, Nl~binnenkort}
+\dictentry{al}{det}{\textbf{1.} alle \textbf{2.} alles}{En~all, Nl~al, Nw~alle, Is~allur, P.Gm~*allaz}
+\dictentry{an}{präp}{an, auf}{De~an, En~on, Nl~aan, Nw~(p)å, Is~á, P.Gm~*ana}
+\dictentry{ander}{adj}{anderes}{En~other, Nl~ander, Nw~annen, Is~annar, P.Gm~*anþeraz}
+\dictentry{ankoma}{v}{ankommen}{Nl~aankomen, Nw~ankomme, Is~koma}
+\dictentry{amorgen}{adv}{morgen}{an~+~morgen, En~tomorrow, Nl~morgen, Nw~i~morgen, Is~á~morgun}
+\dictentry{aniu}{adv}{nochmals, wieder}{an + niu, En anew, Nw på nytt, Is á ný}
+\end{multicols}
+
+
+\subsection*{\centerline{B}}
+\begin{multicols}{2}
+\dictentry{bal}{n}{Ball}{En~ball, Nl~bal, Nw~ball, Is~böllur, P.Gm~*balluz}
+\dictentry{barn}{n}{Kind}{De~geboren, Nl~geboren, Nw~barn, Is~barn, P.Gm~*barną}
+\dictentry{blom}{n}{Blume}{Nl~bloem, Nw~blomst, Is~blóm, P.Gm~*blōmô}
+\dictentry{bord}{n}{Tisch}{De~Bord, En~bord, Nl~bord, Nw~bord, Is~borð, P.Gm~burdą}
+\dictentry{birt}{adj}{hell}{En~bright, Nw~bjart, Is~bjartur, P.Gm~*berhtaz}
+\end{multicols}
+
+
+\subsection*{\centerline{D}}
+\begin{multicols}{2}
+\dictentry{da}{konj}{als}{De~da, Nw~da}
+\dictentry{dag}{n}{Tag}{En~day, Nl~dag, Nw~dag, Is~dagur, P.Gm~*dagaz}
+\dictentry{dat}{kj., det}{dass}{En~that, Nl~dat, Nw~at, Is~að, P.Gm~*þat}
+\dictentry{de}{det}{Definitiver Artikel. Sowohl Sg. wie Pl.}{De~der, En~the, Nl~de, Nw~det/den}
+\dictentry{det}{det}{das, jen- (Demonstrativpronomen)}{De~das, En~that, Nl~dat, Nw~deti}
+\dictentry{dir}{n}{Tier}{En~deer, Nl~dier, Nw~dyr, Is~dýr, P.Gm~deuzą}
+\dictentry{dit}{det}{dies-}{En~this, Nl~dit, Is~þessi}
+\dictentry{du}{pro}{du}{En~thou, Nw~du, Is~þú, P.Gm~*þū}
+\end{multicols}
+
+\subsection*{\centerline{E}}
+\begin{multicols}{2}
+\dictentry{en}{num}{\textbf{1.} eins, die Zahl 1 \textbf{2.} Unbestimmter Artikel}{De~eins, En~one, Nl~een, Nw~en, Is~einn, P.Gm~*ainaz}
+\dictentry{en}{konj}{als}{Nw~enn, Is~en}
+\dictentry{ens}{adv}{einst}{En~once, Nl~eens, Nw~en~gang, Is~einu~sinni}
+\dictentry{et}{pro}{es}{En~it, Nl~het, Is~þið, P.Gm~*hit}
+\dictentry{eta}{v}{essen}{En~eat, Nl~eten, Nw~ete, Is~eta, P.Gm~*etaną}
+\end{multicols}
+
+\subsection*{\centerline{F}}
+\begin{multicols}{2}
+\dictentry{fir}{num}{vier}{En~four, Nl~vier, Nw~fire, Is~fjórir, P.Gm~*fedwōr}
+\dictentry{fordriva}{v}{vertreiben}{En~drive away, Nl~verdrijven, Nw~fordrive}
+\dictentry{forstana}{v}{verstehen}{En~understand, Nl~ verstaan, Nw~forstå}
+\dictentry{fur}{konj., prä}{\textbf{1.} vor, bevor \textbf{2.} für}{En~for, Nl~voor, Nw~før, Is~fyrir, P.Gm~*furi}
+\end{multicols}
+
+\subsection*{\centerline{G}}
+\begin{multicols}{2}
+\dictentry{gana}{v}{gehen}{En~go, Nl~gaan, Nw~gå, P.Gm~*gāną}
+\dictentry{glad}{adj}{glücklich, fröhlich}{En~glad, Nw~glad, Is~glaður, P.Gm~*gladaz}
+\dictentry{groa}{v}{wachsen}{En~grow, Nl~groeien, Nw~gro, Is~gróa, P.Gm~*grōaną}
+\end{multicols}
+
+\subsection*{\centerline{H}}
+\begin{multicols}{2}
+\dictentry{hava}{v}{\textbf{1.} haben \textbf{2.} Hilfsverb für den Perfektiv-Aspekt}{En~have, Nl~hebben, Nw~ha, Is~hafa, P.Gm~*habjaną}
+\dictentry{he}{pro}{er}{En~he, Nl~hĳ, Nw~han, Is~hann, P.Gm~*hiz}
+\dictentry{her}{adv}{hier}{En~here, Nl~hier, Nw~her, Is~hér, P.Gm~*hē₂r}
+\dictentry{hopa}{v}{hoffen}{En~hope, Nl~hopen, Nw~håpe, Is~hopask, P.Gm~*hupōną}
+\dictentry{hun}{pro}{sie (3S)}{Nw~hun, Is~hún, P.Gm~*hijō}
+\dictentry{hupa}{v}{hüpfen, springen}{En~hop, Nw~hoppe, Is~hoppa, P.Gm~*huppōną}
+\end{multicols}
+
+\subsection*{\centerline{I}}
+\begin{multicols}{2}
+\dictentry{-i}{suff}{Verkleinerungsform (kat „Katze“, kati „Kätzchen“)}{En~-y, Nl~-je, Sw~-is}
+\dictentry{ik}{pro}{ich}{En~I, Nl~ik, Nw~jeg, Is~ég, P.Gm~*ik}
+\dictentry{in}{prä}{in}{En~in, Nl~in, Nw~i, Is~í, P.Gm~*in}
+\end{multicols}
+
+\subsection*{\centerline{J}}
+\begin{multicols}{2}
+\dictentry{ja}{intj}{ja}{En~yeah, Nl~ja, Nw~ja, Is~já}
+\dictentry{jung}{adj}{jung}{En~young, Nl~jong, Nw~ung, Is~ungur, P.Gm~*jungaz}
+\dictentry{junge}{n}{Junge}{Nl~jonge, Nw~unge}
+\end{multicols}
+
+\subsection*{\centerline{K}}
+\begin{multicols}{2}
+\dictentry{kat}{n}{Katze}{En~cat, Nl~kat, Nw~katt, Is~köttur, P.Gm~*kattaz}
+\dictentry{koma}{v}{kommen}{En~come, Nl~komen, Nw~komme, Is~koma, P.Gm~*kwemaną}
+\dictentry{kort}{adj}{kurz}{En~short, Nl~kort, Nw~kort}
+\end{multicols}
+
+\subsection*{\centerline{L}}
+\begin{multicols}{2}
+\dictentry{lang}{adj}{lang}{En~long, Nl~lang, Nw~lang, Is~langur, P.Gm~*langaz}
+\dictentry{langsam}{adj}{langsam}{Nl~langzaam, Nw~langsom}
+\dictentry{leka}{v}{spielen (intransitiv) \emph{De kati ~.} „Die Katze spielt.“}{Nw~leke, Is~leika}
+\dictentry{lera}{v}{lernen}{En~learn, Nl~leren, Nw~lære, Is~læra, P.Gm~liznaną}
+\dictentry{leva}{v}{leben}{En~live, Nl~leven, Nw~leve, Is~lifa, P.Gm~*libjaną}
+\dictentry{lif}{n}{Leben}{En~life, Nl~leven, Nw~lif, Is~líf, P.Gm~*lībą}
+\dictentry{likleg}{adv}{wahrscheinlich}{En~likely, Is~líklega}
+\dictentry{litel}{adj}{klein}{En~little, Nl~luttel, Nw~litel, Is~lítill, P.Gm~*lītilaz/lūtilaz}
+\dictentry{luve}{n}{Liebe}{En~love, Nl~liefde, P.Gm~*lubō}
+\dictentry{luveleg}{adj}{lieblich}{En~lovely, Nl~lieflĳk}
+\end{multicols}
+
+\subsection*{\centerline{M}}
+\begin{multicols}{2}
+\dictentry{mal}{n}{Mal, formt Adverbialzahlen: tve mal = zweimal}{Nl~maal, P.Gm~*mēlą}
+\dictentry{man}{n}{Mann}{En~man, Nl~mann, Nw~mann, Is~maður (akk. mann), P.Gm~*mann}
+\dictentry{mang}{det}{viele}{De~manch, En~many, Nl~menig, Nw~mange, P.Gm~*managaz}
+\dictentry{min}{pro}{mein}{En~my, Nl~mĳn, Nw~min, Is~minn, P.Gm~*mīnaz} 
+\dictentry{mist}{n}{Nebel}{En~mist, Nl~mist, Is~mistur, P.Gm~*mihstaz}
+\dictentry{morgen}{n}{Morgen}{En~morning, Nl~morgen, Nw~morgen, Is~morgunn, P.Gm~*murganaz}
+\dictentry{mota}{v}{müssen}{En~must, Nl~moeten, Nw~må, Is~mega}
+\end{multicols}
+
+\subsection*{\centerline{N}}
+\begin{multicols}{2}
+\dictentry{ne}{part}{nicht, kein}{En~not, Nl~niet, P.Gm~*ne}
+\dictentry{ned}{prä}{nach unten, abwärts}{De~nieder, En~nether, Nl~neder, Nw~ned, Is~niður, P.Gm~*niþer}
+\dictentry{neting}{pro}{nichts}{ne + ting}
+\dictentry{nej}{intj}{nein}{En~none, Nl~nee, Nw~nei, Is~nei}
+\dictentry{niu}{adj}{neu}{En~new, Nl~nieuw, Nw~ny, Is~nýr, P.Gm~*niwjaz}
+\dictentry{niubarn}{n}{Kleinkind, Baby}{De~Neugeborenes, En~newborn, Nl~nieuwgeborene, Nw~spedbarn, Is~ungbarn}
+\dictentry{nu}{adv}{jetzt, in diesem Moment}{De~nun, En~now, Nl~nu, Is~nú, Nw~nå, P.Gm~*nu}
+\end{multicols}
+
+\subsection*{\centerline{O}}
+\begin{multicols}{2}
+\dictentry{oft}{adv}{oft, häufig}{En~often, Nl~oft, Nw~ofte, Is~oft, P.Gm~*ufta}
+\dictentry{over}{prä}{über}{En~over, Nl~over, Nw~of-, Is~ofur-, P.Gm~*uber}
+\dictentry{overal}{adv}{überall}{over + al}
+\end{multicols}
+
+\subsection*{\centerline{P}}
+\begin{multicols}{2}
+\dictentry{person}{n}{Person}{En~person, Nl~persoon, Nw~person, Is~persóna}
+\dictentry{prins}{n}{Prinz}{En~prince, Nl~prins, Nw~prins, Is~prins}
+\end{multicols}
+
+
+\subsection*{\centerline{R}}
+\begin{multicols}{2}
+\dictentry{regen}{n}{Regen}{En~rain, Nl~regen, Nw~regn, Is~regn, P.Gm~*regną}
+\dictentry{regna}{v}{regnen}{siehe regen}
+\dictentry{risa}{v}{steigen, aufgehen, sich aufwärts bewegen (De sun vesar at \textasciitilde}{En~rise, Nl~rĳzen, Is~rísa, P.Gm~*rīsaną}
+\dictentry{rola}{v}{rollen}{En~roll, Nl~rollen, Nw~rulle, Is~rúlla}
+\dictentry{ropa}{v}{rufen, schreien}{En~roop, Nl~roepen, Nw~rope, Is~hrópa, P.Gm~*hrōpaną}
+\dictentry{rund}{adj., adv}{\textbf{1.} rund \textbf{2.} um, herum}{De~rund, En~(a)round, Nl~rond}
+\end{multicols}
+
+\subsection*{\centerline{S}}
+\begin{multicols}{2}
+\dictentry{-s}{suff}{Genitivsuffix, an Nominalphrasen angehängt}{En~’s}
+\dictentry{samen}{adv}{zusammen}{Nl~samen, Nw~sammen, Is~saman}
+\dictentry{sea}{v}{sehen}{En~see, Nl~zien, Nw~se, Is~sjá, P.Gm~*sehwaną}
+\dictentry{sem}{pro}{Relativpronomen: der, welcher (Ik se en man \textasciitilde vesar litel)}{Nw~som, Is~sem, P.Gm~*samaz}
+\dictentry{spela}{v}{etwas spielen (Spiel, Instrument, Sport…)}{Nl~spelen, Nw~spille, P.Gm~*spilōną}
+\dictentry{stopa}{v}{aufhören}{De~Stopp, En~stop, Nl~stoppen, Nw~stoppe, Is~stoppa, P.Gm~*stuppōną}
+\dictentry{skala}{v}{\textbf{1.} sollen \textbf{2.} Hilfsverb für Futur}{En~shall, Nl~zullen, Nw~skalle, Is~skulu, P.Gm~*skulaną}
+\dictentry{skina}{v}{scheinen (De sun \textasciitilde)}{En~shine, Nl~schĳnen, Nw~skinne, Is~skína, P.Gm~*skīnaną}
+\dictentry{skriva}{v}{schreiben}{Nl~schrijven, Nw~skrive, Is~skrifa, P.Gm~*skrībaną}
+\dictentry{skon}{adj}{schön}{Nl~schoon, Nw~skjønn, P.Gm~*skauniz}
+\dictentry{sun}{n}{Sonne}{En~sun, Nl~zon, Nw~sol, Is~sunna~(poetisch), P.Gm~*sunnǭ}
+\dictentry{sum}{det}{einige, eine unbestimmte Anzahl grösser 1}{En~some, Nl~som, Nw~somme, Is~sumur, P.Gm~*sumaz}
+\end{multicols}
+
+\subsection*{\centerline{T}}
+\begin{multicols}{2}
+\dictentry{-te}{suff}{Macht Zahlen zu Ordinalzahlen}{De~-te, Nl~-de, En~-th, Nw~-te, Is~-ti, P.Gm~*tô}
+\dictentry{tid}{n}{Zeit}{En~tide, Nl~tijd, Nw~tid, Is~tíð, P.Gm~*tīdiz}
+\dictentry{ting}{n}{Ding}{En~thing, Nl~ding, Nw~ting, Is~þing, P.Gm~*þingą}
+\dictentry{tri}{num}{drei, die Zahl 3}{En~three, Nl~drie, Nw~tre, Is~þrír, P.Gm~*þrīz}
+\dictentry{trist}{adj}{traurig}{De~trist, Nl~triest, Mw~trist}
+\dictentry{tve}{num}{zwei, die Zahl 2}{En~two, Nl~twee, Nw~to, Is~tveir, P.Gm~*twai}
+
+\end{multicols}
+
+\subsection*{\centerline{U}}
+\begin{multicols}{2}
+\dictentry{up}{prä., adv}{aufwärts, nach oben}{De~auf, En~up, Nl~op, Nw~opp, Is~upp, P.Gm~*upp}
+\end{multicols}
+
+\subsection*{\centerline{V}}
+\begin{multicols}{2}
+\dictentry{veg}{adv}{weg von hier (\emph{I goar \textasciitilde.} „Ich gehe weg.“)}{En~away, Nl~weg, Nw~vekk}
+\dictentry{verk}{n}{Arbeit}{De~Werk, En~work, Nw~verk, Is~verkur, P.Gm~*werką}
+\dictentry{verka}{v}{arbeiten}{De~Werk, En~work, Nw~verk, Is~verkur, P.Gm~*werką}
+\dictentry{vesa}{v}{\textbf{1.} sein (Kopula) \textbf{2.} Hilfsverb für den Progressiv-Aspekt}{De~gewesen, En~was, Nl~wezen (archaisch), Nw~være, Is~vesa, P.Gm~*wesaną}
+\dictentry{vild}{adj}{wild}{En~wild, Nl~wild, Nw~vill, Is~villtur, P.Gm~wilþijaz}
+\end{multicols}
+
+
+
+
+\section{Quellenangabe}
+
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{9}
+  \bibitem{germ}
+   Prokosch, Eduard, 2009 (1939),
+   \emph{A Comparative Germanic Grammar}.
+   Richmond: Tiger Xenophon.
+   
+\bibitem{wiki}
+Wikipedia, Phonologien germanischer Sprachen,\\
+ Deutsch, \url{https://en.wikipedia.org/wiki/German_phonology}, 08.09.2015\\
+Englisch, \url{ https://en.wikipedia.org/wiki/English_phonology}, 08.09.2015\\
+Niederländisch, \url{https://en.wikipedia.org/wiki/Dutch_phonology}, 08.09.2015\\
+ Norwegisch, \url{https://en.wikipedia.org/wiki/Norwegian_phonology}, 08.09.2015\\
+Isländisch, \url{https://en.wikipedia.org/wiki/Icelandic_phonology}, 08.09.2015
+ 
+ \bibitem{petit}
+  \emph{The Little Prince - my Collection}\\
+  Deutsch, \url{http://www.petit-prince.at/pp-deutsch.htm}, 08.09.2015\\
+  Niederländisch, \url{http://www.petit-prince.at/pp-niederlaend.htm}, 08.09.2015\\
+  Englisch, \url{http://www.petit-prince.at/pp-engl.htm}, 08.09.2015\\
+  Norwegisch, \url{http://www.petit-prince.at/pp-norweg.htm}, 08.09.2015\\
+  Isländisch, \url{http://www.petit-prince.at/pp-islaend.htm}, 08.09.2015
+  
+\bibitem{norw}
+Muttersprachler:\\
+ Knut Fredrik Ulstrup, Sarpsborg, Norwegen\\
+ Runar Iver Edvardsen, Tromsø, Norwegen 
+
+\bibitem{nied}
+Muttersprachler:\\
+ Joost W. P. M. Botman, Aarle-Rixtel, Niederlande\\
+ Jasper Charlet, Antwerpen, Belgien
+ 
+\bibitem{isl}
+   Einarsson, Stefán, 1979 (1945),
+  \emph{Icelandic Grammar, Texts, Glossary}.
+  London: The Johns Hopkins University Press.
+  
+  \bibitem{islnom}
+  Siguðrsson, Halldór Ármann, 2006
+  \emph{The Icelandic Noun Phrase}.
+  Lund Univerisity
+   
+\end{thebibliography}
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+Ich  bestätige mit  meiner  Unterschrift,  dass  ich  die  vorliegende  Maturaarbeit  erstellt  habe  und 
+alle  fremden  Informationen  und  Gedanken  als  solche  gekennzeichnet  und  ordnungsgemäss 
+zitiert werden. Ich nehme Kenntnis davon, dass ein Plagiat als Betrug taxiert wird.\\
+\noindent{}\textbox{Ort, Datum: ............................\hfill}\textbox{\hfill Unterschrift: .......................................................}
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

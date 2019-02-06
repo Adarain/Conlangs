@@ -1,0 +1,47 @@
+\section{Verbal System, Pt. 1}
+\emph{Thursday, July 19th 2018}
+
+My intention is for \lang{} to have a rather complex verbal system. In this first paper on it the foundations of it will be laid out.
+
+\subsection{Verb Stems}
+Each verb at its core possesses a stem, which carries most of the lexical meaning of the verb. Three kinds of verb stems must be distinguished:
+
+\begin{enumerate}
+	\item Short stems: These verb stems are sesquisyllabic, consisting of a full syllable and the onset of the following syllable. There is a decent amount of these, generally very common and prototypical verbs like \en{run} or \en{hit}, but it is not an open class.
+	\item Vowel stems: These verb stems are typically bisyllabic or longer (though monosyllabic exceptions exist), and they always end in a vowel. Most remaining prototypical verbs fall in this class, though there are affixes that form verbs of this class. These verbs are characterized by significant vowel changes during inflection. Three subclasses are common: -a verbs, -e verbs and -ai verbs. 
+	\item Consonant stems: These verb stems are also usually bisyllabic or longer and always end in a consonant. The majority of these verbs are prototypical nouns, which are converted to verbs by means of zero-derivation, taking on a meaning of \en{to do X} or \en{to use X}. Consonant stems show simpler inflection than vowel stems, but there are also a decently sized subclass of irregular verbs with internal vowel changes. An important subclass are -h verbs. These behave much like consonant stems with a hypothetical ending of -h. However, h (historic /kʰ/) has disappeared from codas, which gives rise to a fair amount of irregularity in these verbs. 
+\end{enumerate}
+
+\subsection{Bases}
+Stems cannot directly take on suffixes or auxiliary verb constructions. Rather, they must first be inflected into a base, of which there are seven. Three bases are used on final verbs, the three on medial verbs, and one on both.
+
+\begin{enumerate}
+	\item Perfective: Used for final verbs, typically for completed or simple actions, often past.
+	\item Imperfective: Used for final verbs, typically for ongoing or repeated actions, also often future.
+	\item Irrealis: Used for medial and final verbs, often in the formation of conditional statements.
+	\item Terminative: Used for medial verbs, typically indicating sequential actions with this ending before the next starts.
+	\item Inceptive: Used for medial verbs, opposite of above.
+	\item Concurrent: Used for medial verbs, indicating that this action happens at the same time as the following one.
+	\item Provocative: Used for final verbs, forms questions and commands which provoke a response.
+\end{enumerate}
+
+The mentioned distinction of medial versus final verbs is central to \lang{} verbs: final verbs finish a clause, medial verbs connect into another clause. This can give rise to complex (even excessive) verb chaining. Bases may be used as standalone inflected verbs without further auxiliaries, and each base has particular uses which will be elaborated upon in future papers.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|lll|l}
+\multirow{2}{*}{} & \multirow{2}{*}{Short} & \multicolumn{3}{c|}{Vowel}  & \multirow{2}{*}{Consonant} \\
+                  &                        & a       & i       & ai      &                            \\ \hline
+Perfective        & -a                     & [a]     & [a]     & [aa]    & -a                         \\
+Imperfective      & -i                     & [ai]    & [i]     & [ii]    & -i                         \\
+Irrealis          & [*]-u                  & [a]-tu  & [i]-tu  & [ai]-tu & -tu                        \\
+Terminative       & -(l)a                  & [a]-la  & [i]-la  & [ai]-la & -la                        \\
+Inceptive         & [n]-ae                 & [a]-nae & [i]-nae & [a]-nae & -nae                       \\
+Concurrent        & [*]-a                  & [a]-k   & [a]-k   & [a]-k   & -a                         \\
+Provocative       & -(w)e                  & [u]-e   & [i]-we  & [au]-e  & -we                       
+\end{tabular}
+\label{base-inflections}
+\caption{Inflections for the bases for the different stems. Square brackets indicate changes to the final sounds of the stem. [*] indicates fortition. Parentheses indicate a sound which is only included if phonotactically allowed.}
+\end{table}
+
+For short stems, some fortitions occur, marked by [*] in the table above: With consonant clusters, the liquid is dropped. Fricatives turn into corresponding plosive or affricate. Unaspirated plosives or affricates are aspirated (g turns into h). Nasals, aspirated consonants and /h/ remain unaffected.
