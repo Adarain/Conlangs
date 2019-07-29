@@ -422,12 +422,8 @@ Clusters between all these consonants can appear, especially across morpheme bou
 
 
 
-
-\section{Word Structure}
-\subsection{Phonological Restrictions on Morphemes}
-Almost all Mesak 
-\subsection{Syllable Structure}
 \subsection{Stress}
+Mesak places stress on either the ultimate or penultimate syllable of words based on the following rule: Each vowel (including semivowel allophones) counts as a mora, and each non-plosive in the coda counts as a mora. Stress is placed on the syllable which contains the penultimate mora. Thus, words ending in a fricative, approximant or nasal have final stress, while words ending in a plosive or an open syllable have penultimate stress.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Nominals}
@@ -978,11 +974,40 @@ Verbs can also be moved into the contrast field. In this case, there are two pos
 \subsubsection{Topic Field}
 Following the contrast field, the next constituent indicates the topic of the sentence. This is in most cases a noun phrase, but occasionally it may be adverbial. The topic usually remains constant throughout multiple sentences and is a central concept around which the uttered sentences revolve, such as a common actor in a narrative or the thing being discussed in a dialogue. The topic field, too, is optional, but not using it implies that the topic is the same as in the previous utterance. If the topic changes, it must be stated explicitly. 
 
+\subsubsection{Main Field}
+Most constituents by default appear in the main field, unless they are moved out of it into the topic or contrast fields. As such there is not much to say about what constituents appear in the main field. However, since multiple constituents can appear in this field, the question arises in what order they appear.
+
+First come the core arguments. In intransitive sentences, the S argument appears initially in the main field. In transitive sentences, A appears before P in the beginning of the main field. Of course it is entirely possible for either of them to not be overt.
+
+Following that come all non-core arguments such as prepositional phrases or adverbs. These are sorted based on two major principles: new information precedes old information, and heavy constituents come later. A heavy constituent is one which generally takes longer to say: multiple words or long compounds are heavy, short words are light. A constituent may also be said earlier than usual to emphasize its importance. However, the core vs non-core distinction is a strict rule that cannot be violated.
+
+\subsubsection{Preverbal Field}
+There are two kinds of constituents that are required to come immediately before the verb: 
+
+\begin{itemize}
+\item If the verb is a generic verb (\ref{sec:genverbs}), then it must be accompanied by a noun phrase. This noun phrase is placed in the beginning of the preverbal field.
+\item If there is an incorporated noun, then any adjectives or possessors modifying that noun will be placed immediately before the verb.
+\end{itemize}
+
+\subsubsection{Verbal Field}
+The verbal field is straightforward: it is simply the location of the verb. Every sentence must have a verb, so the verbal field is always filled. As already mentioned previously, if the verb gets moved to the contrast field, then the verbal field is taken up by an echo verb, typically \mes{\rs{}o\rz-}.
+
+\subsubsection{Postverbal Field}
+There are two things which may appear after the verb in a sentence. The first and more common are subordinate clauses, which always take up this field. These come in different flavours and will be discussed in \ref{sec:inter-clausal}.
+
+If there is no subordinate clause present, it is also possible to move a constituent from the main field to the postverbal field. This is done if two conditions are met: The constituent must be known information, and it must be relatively heavy (at the very least multiple words long).
+
+
+
 \subsection{NP and PP Structure}
+Noun phrases and prepositional phrases have the same structure, except that the latter are initiated by a preposition, while the former are not. In other words, the structure of a prepositional phrase is [\textsc{prep NP}].
+
+Within a noun phrase, the word order is very strict: adjectives immediately precede the noun they modify, possessors precede these adjective + noun groups. Relative clauses follow the noun they modify. 
+
 \subsection{Negation}
 
 
-\section{Inter-Clausal Syntax}
+\section{Inter-Clausal Syntax} \label{sec:inter-clausal}
 \subsection{Absolutive Pivot} \label{ssec:pivot}
 \subsection{Relative Clauses}
 \subsection{Coordinated Clauses}
